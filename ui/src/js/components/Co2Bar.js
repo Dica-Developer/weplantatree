@@ -1,24 +1,30 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component, PropTypes } from 'react';
+import { Row, Col } from 'react-bootstrap';
 
 export default class Co2Bar extends Component {
 
   constructor() {
     super();
-    this.state = {
-      co2: 0.0,
-      treesCount: 0
-    };
-  }
-
-  componentDidMount() {
-    var that = this;
-    axios.get('http://localhost:8081/reports/co2').then(function(co2) {
-      that.setState(co2.data);
-    });
   }
 
   render() {
-    return (<div className="row"><div className="col-md-6"><h3>{this.state.co2.toLocaleString()} <small>t CO2 gebunden</small></h3></div><div className="col-md-6"><h3>{this.state.treesCount.toLocaleString()} <small>Bäume gepflanzt</small></h3></div></div>);
+    let { co2 = 0, trees = 0 } = this.props;
+    co2 = co2.toLocaleString();
+    trees = trees.toLocaleString();
+    return (
+        <Row>
+            <Col md={6}>
+                <h3>{ co2 } <small>t CO2 gebunden</small></h3>
+            </Col>
+            <Col md={6}>
+                <h3>{ trees } <small>Bäume gepflanzt</small></h3>
+            </Col>
+        </Row>
+    );
   }
 }
+
+Co2Bar.propTypes = {
+    'co2': PropTypes.number.isRequired,
+    'trees': PropTypes.number.isRequired
+};
