@@ -20,6 +20,8 @@ if [ ! -d "$REPORT_FOLDER" ]; then
   exit 1
 fi
 
+git checkout gh-pages
+
 cp -R $REPORT_FOLDER/* $FOLDER_NAME
 
 git add $FOLDER_NAME
@@ -29,4 +31,4 @@ git add $FOLDER_NAME
 git commit -m "Added test results from"
 
 # push report to gh-pages
-git push origin $CURRENT_BRANCH_NAME:gh-pages
+git push
