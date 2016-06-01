@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class org.dicadeveloper.weplantaforest.support.SimplePlantPageDataToCartConverterTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class org.dicadeveloper.weplantaforest.support.SimplePlantPageDataToCartConverterTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/org.dicadeveloper.weplantaforest.support.html">org.dicadeveloper.weplantaforest.support</a> &gt; SimplePlantPageDataToCartConverterTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.217s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testConvertFromPlantPageDataToCartOneItem</td>
+<td>0.057s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testConvertFromPlantPageDataToCartThreeItems</td>
+<td>0.029s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testConvertFromPlantPageDataToCartTwoItems</td>
+<td>0.033s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSavetoDBAfterConversion</td>
+<td>0.098s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2016-06-01 20:21:40.873  INFO 22999 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [org.dicadeveloper.weplantaforest.support.SimplePlantPageDataToCartConverterTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2016-06-01 20:21:40.873  INFO 22999 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.boot.test.IntegrationTestPropertiesListener@23691f49, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4a718e52, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3dfa2cc6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@382f2314, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5357f00f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1592e729]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.0.RELEASE)
+
+2016-06-01 20:21:40.925  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : Starting SimplePlantPageDataToCartConverterTest on CrayTac-2.fritz.box with PID 22999 (/Users/jweber/privateProjects/weplantaforest/user/build/classes/test started by jweber in /Users/jweber/privateProjects/weplantaforest/user)
+2016-06-01 20:21:40.925  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : The following profiles are active: h2-test,test
+2016-06-01 20:21:40.927  INFO 22999 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@16af81b0: startup date [Wed Jun 01 20:21:40 CEST 2016]; root of context hierarchy
+2016-06-01 20:21:41.620  INFO 22999 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-06-01 20:21:42.102 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:42.102 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:42.102 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:21:42.102 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:21:42.102 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:21:42.269 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:42.270 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:42.270 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:21:42.270 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:21:42.270 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:21:42.338  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : Started SimplePlantPageDataToCartConverterTest in 1.463 seconds (JVM running for 208.47)
+2016-06-01 20:21:42.422  INFO 22999 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@16af81b0: startup date [Wed Jun 01 20:21:40 CEST 2016]; root of context hierarchy
+2016-06-01 20:21:42.423  INFO 22999 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.0.RELEASE)
+
+2016-06-01 20:21:42.504  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : Starting SimplePlantPageDataToCartConverterTest on CrayTac-2.fritz.box with PID 22999 (/Users/jweber/privateProjects/weplantaforest/user/build/classes/test started by jweber in /Users/jweber/privateProjects/weplantaforest/user)
+2016-06-01 20:21:42.504  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : The following profiles are active: h2-test,test
+2016-06-01 20:21:42.507  INFO 22999 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@64088264: startup date [Wed Jun 01 20:21:42 CEST 2016]; root of context hierarchy
+2016-06-01 20:21:43.158  INFO 22999 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-06-01 20:21:43.437 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:43.438 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:43.438 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:21:43.439 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:21:43.439 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:21:43.541 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:43.541 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:43.541 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:21:43.541 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:21:43.541 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:21:43.578  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : Started SimplePlantPageDataToCartConverterTest in 1.129 seconds (JVM running for 209.711)
+2016-06-01 20:21:43.631  INFO 22999 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@64088264: startup date [Wed Jun 01 20:21:42 CEST 2016]; root of context hierarchy
+2016-06-01 20:21:43.633  INFO 22999 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.0.RELEASE)
+
+2016-06-01 20:21:43.680  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : Starting SimplePlantPageDataToCartConverterTest on CrayTac-2.fritz.box with PID 22999 (/Users/jweber/privateProjects/weplantaforest/user/build/classes/test started by jweber in /Users/jweber/privateProjects/weplantaforest/user)
+2016-06-01 20:21:43.680  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : The following profiles are active: h2-test,test
+2016-06-01 20:21:43.683  INFO 22999 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@1df345d6: startup date [Wed Jun 01 20:21:43 CEST 2016]; root of context hierarchy
+2016-06-01 20:21:44.113  INFO 22999 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-06-01 20:21:44.372 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:44.373 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:44.373 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:21:44.373 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:21:44.373 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:21:44.520 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:44.520 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:44.520 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:21:44.520 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:21:44.520 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:21:44.557  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : Started SimplePlantPageDataToCartConverterTest in 0.916 seconds (JVM running for 210.689)
+2016-06-01 20:21:44.585  INFO 22999 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@1df345d6: startup date [Wed Jun 01 20:21:43 CEST 2016]; root of context hierarchy
+2016-06-01 20:21:44.586  INFO 22999 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.0.RELEASE)
+
+2016-06-01 20:21:44.619  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : Starting SimplePlantPageDataToCartConverterTest on CrayTac-2.fritz.box with PID 22999 (/Users/jweber/privateProjects/weplantaforest/user/build/classes/test started by jweber in /Users/jweber/privateProjects/weplantaforest/user)
+2016-06-01 20:21:44.619  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : The following profiles are active: h2-test,test
+2016-06-01 20:21:44.621  INFO 22999 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@65ab8c43: startup date [Wed Jun 01 20:21:44 CEST 2016]; root of context hierarchy
+2016-06-01 20:21:44.995  INFO 22999 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-06-01 20:21:45.237 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:45.237 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:45.237 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:21:45.237 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:21:45.237 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:21:45.362 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:45.362 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:21:45.362 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:21:45.362 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:21:45.362 DEBUG 22999 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:21:45.394  INFO 22999 --- [    Test worker] s.SimplePlantPageDataToCartConverterTest : Started SimplePlantPageDataToCartConverterTest in 0.804 seconds (JVM running for 211.526)
+2016-06-01 20:21:45.426  INFO 22999 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@65ab8c43: startup date [Wed Jun 01 20:21:44 CEST 2016]; root of context hierarchy
+2016-06-01 20:21:45.427  INFO 22999 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.13</a> at Jun 1, 2016 8:29:58 PM</p>
+</div>
+</div>
+</body>
+</html>

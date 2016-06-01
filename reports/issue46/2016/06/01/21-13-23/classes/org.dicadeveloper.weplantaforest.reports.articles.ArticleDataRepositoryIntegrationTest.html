@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/org.dicadeveloper.weplantaforest.reports.articles.html">org.dicadeveloper.weplantaforest.reports.articles</a> &gt; ArticleDataRepositoryIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.253s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">getArticlesByType</td>
+<td>1.045s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetParagraphsByArticleTitle</td>
+<td>0.208s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>20:18:16.476 [Test worker] DEBUG o.s.t.c.j.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]
+20:18:16.502 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+20:18:16.508 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+20:18:16.678 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest] from class [org.springframework.test.context.support.DefaultTestContextBootstrapper]
+20:18:16.817 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@5cfcf39f declaringClass = 'org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest', classes = '{class org.dicadeveloper.weplantaforest.WeplantaforestArticleManagerApplication}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+20:18:16.841 [Test worker] DEBUG o.s.t.c.s.AbstractContextLoader - Did not detect default resource location for test class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]: class path resource [org/dicadeveloper/weplantaforest/reports/articles/ArticleDataRepositoryIntegrationTest-context.xml] does not exist
+20:18:16.842 [Test worker] DEBUG o.s.t.c.s.AbstractContextLoader - Did not detect default resource location for test class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]: class path resource [org/dicadeveloper/weplantaforest/reports/articles/ArticleDataRepositoryIntegrationTestContext.groovy] does not exist
+20:18:16.842 [Test worker] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+20:18:16.845 [Test worker] DEBUG o.s.t.c.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]
+20:18:17.039 [Test worker] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.boot.test.IntegrationTestPropertiesListener@9422d12, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3173c97c, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4688440a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@398ff825, org.springframework.test.context.transaction.TransactionalTestExecutionListener@213d68bb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@e2a6dc9]
+20:18:17.045 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]
+20:18:17.046 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]
+20:18:17.049 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]
+20:18:17.049 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]
+20:18:17.053 [Test worker] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@13adbf11 testClass = ArticleDataRepositoryIntegrationTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@7588ed70 testClass = ArticleDataRepositoryIntegrationTest, locations = '{}', classes = '{class org.dicadeveloper.weplantaforest.WeplantaforestArticleManagerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]], class annotated with @DirtiesContext [true] with mode [AFTER_EACH_TEST_METHOD].
+20:18:17.055 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]
+20:18:17.055 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest]
+20:18:17.062 [Test worker] DEBUG o.s.test.util.ReflectionTestUtils - Getting field 'mergedContextConfiguration' from target object [[DefaultTestContext@13adbf11 testClass = ArticleDataRepositoryIntegrationTest, testInstance = org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest@18af90e8, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@7588ed70 testClass = ArticleDataRepositoryIntegrationTest, locations = '{}', classes = '{class org.dicadeveloper.weplantaforest.WeplantaforestArticleManagerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]]] or target class [class org.springframework.test.context.support.DefaultTestContext]
+20:18:17.064 [Test worker] DEBUG o.s.test.util.ReflectionTestUtils - Setting field 'propertySourceProperties' of type [null] on target object [[MergedContextConfiguration@7588ed70 testClass = ArticleDataRepositoryIntegrationTest, locations = '{}', classes = '{class org.dicadeveloper.weplantaforest.WeplantaforestArticleManagerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]] or target class [class org.springframework.test.context.MergedContextConfiguration] to value [[Ljava.lang.String;@2c473bf8]
+20:18:17.065 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@13adbf11 testClass = ArticleDataRepositoryIntegrationTest, testInstance = org.dicadeveloper.weplantaforest.reports.articles.ArticleDataRepositoryIntegrationTest@18af90e8, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@7588ed70 testClass = ArticleDataRepositoryIntegrationTest, locations = '{}', classes = '{class org.dicadeveloper.weplantaforest.WeplantaforestArticleManagerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.profiles.active=test, org.springframework.boot.test.IntegrationTest=true}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]]].
+20:18:17.561 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+20:18:17.616 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+20:18:17.619 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+20:18:17.632 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [integrationTest] PropertySource with search precedence immediately lower than [systemEnvironment]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.0.RELEASE)
+
+2016-06-01 20:18:20.673  INFO 22994 --- [    Test worker] r.a.ArticleDataRepositoryIntegrationTest : Starting ArticleDataRepositoryIntegrationTest on CrayTac-2.fritz.box with PID 22994 (/Users/jweber/privateProjects/weplantaforest/article-manager/build/classes/test started by jweber in /Users/jweber/privateProjects/weplantaforest/article-manager)
+2016-06-01 20:18:20.674  INFO 22994 --- [    Test worker] r.a.ArticleDataRepositoryIntegrationTest : The following profiles are active: h2-test,test
+2016-06-01 20:18:21.341  INFO 22994 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6b490b50: startup date [Wed Jun 01 20:18:21 CEST 2016]; root of context hierarchy
+2016-06-01 20:18:34.246  INFO 22994 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-06-01 20:18:44.050 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:18:44.050 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:18:44.050 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:18:44.050 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:18:44.051 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:18:45.995 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:18:45.996 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:18:45.996 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:18:45.996 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:18:45.996 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:18:46.451  INFO 22994 --- [    Test worker] r.a.ArticleDataRepositoryIntegrationTest : Started ArticleDataRepositoryIntegrationTest in 28.816 seconds (JVM running for 32.948)
+2016-06-01 20:18:47.348  INFO 22994 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@6b490b50: startup date [Wed Jun 01 20:18:21 CEST 2016]; root of context hierarchy
+2016-06-01 20:18:47.362  INFO 22994 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.0.RELEASE)
+
+2016-06-01 20:18:47.707  INFO 22994 --- [    Test worker] r.a.ArticleDataRepositoryIntegrationTest : Starting ArticleDataRepositoryIntegrationTest on CrayTac-2.fritz.box with PID 22994 (/Users/jweber/privateProjects/weplantaforest/article-manager/build/classes/test started by jweber in /Users/jweber/privateProjects/weplantaforest/article-manager)
+2016-06-01 20:18:47.742  INFO 22994 --- [    Test worker] r.a.ArticleDataRepositoryIntegrationTest : The following profiles are active: h2-test,test
+2016-06-01 20:18:47.746  INFO 22994 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6ac64d55: startup date [Wed Jun 01 20:18:47 CEST 2016]; root of context hierarchy
+2016-06-01 20:18:51.010  INFO 22994 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-06-01 20:18:52.651 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:18:52.651 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:18:52.652 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:18:52.652 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:18:52.652 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:18:53.709 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2016-06-01 20:18:53.710 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [servletContextInitParams] PropertySource with lowest search precedence
+2016-06-01 20:18:53.710 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemProperties] PropertySource with lowest search precedence
+2016-06-01 20:18:53.710 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Adding [systemEnvironment] PropertySource with lowest search precedence
+2016-06-01 20:18:53.710 DEBUG 22994 --- [    Test worker] o.s.w.c.s.StandardServletEnvironment     : Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2016-06-01 20:18:54.144  INFO 22994 --- [    Test worker] r.a.ArticleDataRepositoryIntegrationTest : Started ArticleDataRepositoryIntegrationTest in 6.635 seconds (JVM running for 40.64)
+2016-06-01 20:18:54.379  INFO 22994 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@6ac64d55: startup date [Wed Jun 01 20:18:47 CEST 2016]; root of context hierarchy
+2016-06-01 20:18:54.382  INFO 22994 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.13</a> at Jun 1, 2016 8:29:58 PM</p>
+</div>
+</div>
+</body>
+</html>
