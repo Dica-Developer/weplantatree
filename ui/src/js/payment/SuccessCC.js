@@ -13,7 +13,7 @@ export default class SuccessCC extends Component {
     super(props);
     this.state ={
       submitted: false
-    }
+    };
   }
 
   componentDidMount(){

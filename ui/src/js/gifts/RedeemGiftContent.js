@@ -11,7 +11,7 @@ import IconButton from '../common/components/IconButton';
 import Notification from '../common/components/Notification';
 import {getConfig} from '../common/RestHelper';
 
-require("./redeemGiftContent.less");
+require('./redeemGiftContent.less');
 
 export default class RedeemGiftContent extends Component {
 
@@ -24,7 +24,7 @@ export default class RedeemGiftContent extends Component {
       part2: '',
       part3: '',
       part4: ''
-    }
+    };
   }
 
   redeemGift() {
@@ -61,14 +61,14 @@ export default class RedeemGiftContent extends Component {
 
     if (pastedData.length > 4) {
       var that = this;
-      if (pastedData.replace(/[^-]/g, "").length == 3) {
+      if (pastedData.replace(/[^-]/g, '').length == 3) {
         pastedData.split('-').map(function(item, i) {
           that.refs['part' + (i + 1)].value = item;
           that.setState({
             ['part' + (i + 1)]: item
           });
         });
-      } else if (pastedData.replace(/[^ ]/g, "").length == 3) {
+      } else if (pastedData.replace(/[^ ]/g, '').length == 3) {
         pastedData.split(' ').map(function(item, i) {
           that.refs['part' + (i + 1)].value = item;
           that.setState({
@@ -95,10 +95,10 @@ export default class RedeemGiftContent extends Component {
           <h1>Gutschein einlösen</h1>
             <p>Bitte gib hier Deinen 16 stelligen Gutschein-Code ein:</p>
             <div className="inputWrapper">
-              <input type="text" size="4" maxLength="4" ref="part1" onBlur={(event)=>{this.updateInput('part1', event)}} onPaste={this.trimAndSetValuesIfPossible.bind(this)}/>&nbsp;-&nbsp;
-              <input type="text" size="4" maxLength="4" ref="part2" onBlur={(event)=>{this.updateInput('part2', event)}} />&nbsp;-&nbsp;
-              <input type="text" size="4" maxLength="4" ref="part3" onBlur={(event)=>{this.updateInput('part3', event)}}/>&nbsp;-&nbsp;
-              <input type="text" size="4" maxLength="4" ref="part4" onBlur={(event)=>{this.updateInput('part4', event)}}/>
+              <input type="text" size="4" maxLength="4" ref="part1" onBlur={(event)=>{this.updateInput('part1', event);}} onPaste={this.trimAndSetValuesIfPossible.bind(this)}/>&nbsp;-&nbsp;
+              <input type="text" size="4" maxLength="4" ref="part2" onBlur={(event)=>{this.updateInput('part2', event);}} />&nbsp;-&nbsp;
+              <input type="text" size="4" maxLength="4" ref="part3" onBlur={(event)=>{this.updateInput('part3', event);}}/>&nbsp;-&nbsp;
+              <input type="text" size="4" maxLength="4" ref="part4" onBlur={(event)=>{this.updateInput('part4', event);}}/>
             </div>
             <IconButton className="iconButton" text="Gutschein einlösen" glyphIcon="glyphicon-gift" onClick={this.redeemGift.bind(this)}/>
         </div>

@@ -12,7 +12,7 @@ import TreeItem from './TreeItem';
 import FindTrees from './FindTrees';
 import TreesFound from './TreesFound';
 
-require("./findTreePage.less");
+require('./findTreePage.less');
 
 export default class FindTreePage extends Component {
 

@@ -8,7 +8,7 @@ import {Link, browserHistory} from 'react-router';
 import SvgButton from '../common/components/SvgButton';
 import IconButton from '../common/components/IconButton';
 
-require("./bottomPart.less");
+require('./bottomPart.less');
 
 export default class BottomPart extends Component {
 
@@ -22,7 +22,7 @@ export default class BottomPart extends Component {
       <div className="bottomPart">
         <div className="button-and-price">
           <div className="price">
-            <span>GESAMT:&nbsp;{Accounting.formatNumber(this.props.overallPrice / 100, 2, ".", ",")}&nbsp;€</span>
+            <span>GESAMT:&nbsp;{Accounting.formatNumber(this.props.overallPrice / 100, 2, '.', ',')}&nbsp;€</span>
           </div>
           <div className="plantBagButton">
             <SvgButton text="AB IN MEINEN<br/>PFLANZKORB" buttonType="barrow" onClick={this.props.updatePlantBag.bind(this)} />

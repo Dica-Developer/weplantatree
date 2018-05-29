@@ -22,7 +22,7 @@ export default class NameAmountCo2 extends Component {
   }
 
   render() {
-      let co2Rounded = Accounting.formatNumber(this.props.content.co2Saved, 3, ".", ",");
+      let co2Rounded = Accounting.formatNumber(this.props.content.co2Saved, 3, '.', ',');
     return (
       <div className="rankingSummary">
         <p >

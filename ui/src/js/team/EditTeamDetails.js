@@ -59,7 +59,7 @@ export default class EditTeamDetails extends Component {
         'X-AUTH-TOKEN': localStorage.getItem('jwt')
       }
     };
-    axios.post('http://localhost:8081/team/edit?teamId=' + this.props.team.teamId + '&toEdit=' + toEditGlobal + "&newEntry=" + newEntry, {}, config).then(function(response) {
+    axios.post('http://localhost:8081/team/edit?teamId=' + this.props.team.teamId + '&toEdit=' + toEditGlobal + '&newEntry=' + newEntry, {}, config).then(function(response) {
       // that.refs.notification.addNotification(counterpart.translate('EDIT_SUCCES_TITLE'), counterpart.translate('EDIT_SUCCES_MESSAGE'), 'success');
       if (toEditGlobal === 'name'){
         that.props.teamNameChangedAction(newEntry);

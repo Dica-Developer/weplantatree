@@ -48,8 +48,8 @@ export default class ProjectSlider extends Component {
       var manualMovedSliderValueWithMaxValue = this.getManualMovedSliderValueWithMaxValueExceptCurrent(sliderIndex);
       var diffToTreeCount = movedCntAndSum[1] - this.state.value;
 
-      var valueToSet = this.refs["article_" + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
-      this.refs["article_" + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
+      var valueToSet = this.refs['article_' + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
+      this.refs['article_' + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
 
       var divisionValue = Math.trunc((this.state.value - (parseInt(valueToSet) + parseInt(value))) / ((movedCntAndSum[0] - 2)));
       var moduloValue = (this.state.value - (parseInt(valueToSet) + parseInt(value))) % (movedCntAndSum[0] - 2);
@@ -57,30 +57,30 @@ export default class ProjectSlider extends Component {
       for (var project in this.state.articles) {
         if (project != manualMovedSliderValueWithMaxValue && project != sliderIndex) {
           if (moduloCnt < moduloValue) {
-            this.refs["article_" + project].setSliderValue(divisionValue + 1, true);
+            this.refs['article_' + project].setSliderValue(divisionValue + 1, true);
             moduloCnt++;
           } else {
-            this.refs["article_" + project].setSliderValue(divisionValue, true);
+            this.refs['article_' + project].setSliderValue(divisionValue, true);
           }
         }
       }
     } else if (movedCntAndSum[1] > this.state.value) {
       var manualMovedSliderValueWithMaxValue = this.getManualMovedSliderValueWithMaxValueExceptCurrent(sliderIndex);
       var diffToTreeCount = movedCntAndSum[1] - this.state.value;
-      var valueToSet = this.refs["article_" + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
-      this.refs["article_" + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
+      var valueToSet = this.refs['article_' + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
+      this.refs['article_' + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
 
       if (movedCntAndSum[0] > 2) {
         var divisionValue = Math.trunc((this.state.value - (parseInt(valueToSet) + parseInt(value))) / ((movedCntAndSum[0] - 2)));
         var moduloValue = (this.state.value - (parseInt(valueToSet) + parseInt(value))) % (movedCntAndSum[0] - 2);
         var moduloCnt = 0;
         for (var project in this.state.articles) {
-          if (this.refs["article_" + project].wasMovedManually() && project != sliderIndex && project != manualMovedSliderValueWithMaxValue) {
+          if (this.refs['article_' + project].wasMovedManually() && project != sliderIndex && project != manualMovedSliderValueWithMaxValue) {
             if (moduloCnt < moduloValue) {
-              this.refs["article_" + project].setSliderValue(divisionValue + 1, true);
+              this.refs['article_' + project].setSliderValue(divisionValue + 1, true);
               moduloCnt++;
             } else {
-              this.refs["article_" + project].setSliderValue(divisionValue, true);
+              this.refs['article_' + project].setSliderValue(divisionValue, true);
             }
           }
         }
@@ -90,12 +90,12 @@ export default class ProjectSlider extends Component {
       var moduloValue = (this.state.value - movedCntAndSum[1]) % (this.state.articles.length - movedCntAndSum[0]);
       var moduloCnt = 0;
       for (var project in this.state.articles) {
-        if (!this.refs["article_" + project].wasMovedManually()) {
+        if (!this.refs['article_' + project].wasMovedManually()) {
           if (moduloCnt < moduloValue) {
-            this.refs["article_" + project].setSliderValue(divisionValue + 1, false);
+            this.refs['article_' + project].setSliderValue(divisionValue + 1, false);
             moduloCnt++;
           } else {
-            this.refs["article_" + project].setSliderValue(divisionValue, false);
+            this.refs['article_' + project].setSliderValue(divisionValue, false);
           }
         }
       }
@@ -108,9 +108,9 @@ export default class ProjectSlider extends Component {
     var movedCnt = 0;
     var movedSum = 0;
     for (var project in this.state.articles) {
-      if (this.refs["article_" + project].wasMovedManually()) {
+      if (this.refs['article_' + project].wasMovedManually()) {
         movedCnt++;
-        movedSum = movedSum + parseInt(this.refs["article_" + project].getSliderValue());
+        movedSum = movedSum + parseInt(this.refs['article_' + project].getSliderValue());
       }
     }
     result.push(movedCnt);
@@ -123,8 +123,8 @@ export default class ProjectSlider extends Component {
     var maxValue = -1;
     var index;
     for (var project in this.state.articles) {
-      if (project != sliderIndex && parseInt(this.refs["article_" + project].getSliderValue()) > maxValue) {
-        maxValue = parseInt(this.refs["article_" + project].getSliderValue());
+      if (project != sliderIndex && parseInt(this.refs['article_' + project].getSliderValue()) > maxValue) {
+        maxValue = parseInt(this.refs['article_' + project].getSliderValue());
         index = project;
       }
     }
@@ -155,11 +155,11 @@ export default class ProjectSlider extends Component {
   }
 
   getArticleValue(article) {
-    return this.refs["article_" + article].getSliderValue();
+    return this.refs['article_' + article].getSliderValue();
   }
 
   setArticleValue(article, amount) {
-    this.refs["article_" + article].setSliderValue(amount, false);
+    this.refs['article_' + article].setSliderValue(amount, false);
     this.calcProjectPrice();
   }
 
@@ -176,12 +176,12 @@ export default class ProjectSlider extends Component {
     var moduloValue = value % this.state.articles.length;
     var moduloCnt = 0;
     for (var project in this.state.articles) {
-      this.refs["article_" + project].updateMaxValue(value);
+      this.refs['article_' + project].updateMaxValue(value);
       if (moduloCnt < moduloValue) {
-        this.refs["article_" + project].setSliderValue(divisionValue + 1, false);
+        this.refs['article_' + project].setSliderValue(divisionValue + 1, false);
         moduloCnt++;
       } else {
-        this.refs["article_" + project].setSliderValue(divisionValue, false);
+        this.refs['article_' + project].setSliderValue(divisionValue, false);
       }
     }
     this.calcProjectPrice();
@@ -190,7 +190,7 @@ export default class ProjectSlider extends Component {
   calcProjectPrice() {
     var price = 0;
     for (var article in this.state.articles) {
-      price = price + parseInt(this.refs["article_" + article].getPrice());
+      price = price + parseInt(this.refs['article_' + article].getPrice());
     }
     this.state.price = price;
     this.forceUpdate();
@@ -219,20 +219,20 @@ export default class ProjectSlider extends Component {
     if (this.props.project.amountOfMaximumTreesToPlant != 0) {
       percent = this.props.project.amountOfPlantedTrees / this.props.project.amountOfMaximumTreesToPlant * 100;
     }
-    var formattedPercent = Accounting.formatNumber(percent, 0, ".", ",");
+    var formattedPercent = Accounting.formatNumber(percent, 0, '.', ',');
     var articles;
     var articleButton;
     if (this.state.showArticles) {
       articles = <div>{this.state.articles.map(function(article, i) {
-          return (<ArticleSlider article={article} key={i} ref={"article_" + i} balanceArticleSliders={that.balanceArticleSlidersFromArticleSlider.bind(this)} sliderIndex={i}/>);
+          return (<ArticleSlider article={article} key={i} ref={'article_' + i} balanceArticleSliders={that.balanceArticleSlidersFromArticleSlider.bind(this)} sliderIndex={i}/>);
         })}</div>;
       articleButton = <div className="align-center"><IconButton glyphIcon="glyphicon-chevron-up" onClick={() => {
-        this.setShowArticles(false)
+        this.setShowArticles(false);
       }}/></div>;
     } else {
       articles = '';
       articleButton = <div className="align-center"><IconButton glyphIcon="glyphicon-chevron-down" onClick={() => {
-        this.setShowArticles(true)
+        this.setShowArticles(true);
       }}/></div>;
     }
     return (
@@ -260,17 +260,17 @@ export default class ProjectSlider extends Component {
         </div>
         <div className="sliderSummary">
           <div className="priceValue">
-            {Accounting.formatNumber(this.state.price / 100, 2, ".", ",")}&nbsp;€
+            {Accounting.formatNumber(this.state.price / 100, 2, '.', ',')}&nbsp;€
           </div>
           <div className="treeValue">
             {this.state.value}&nbsp;<span className="glyphicon glyphicon-tree-deciduous" aria-hidden="true"/>
           </div>
         </div>
         <div className={(this.state.showArticles
-          ? ""
-          : "invisible")}>
+          ? ''
+          : 'invisible')}>
           {this.state.articles.map(function(article, i) {
-            return (<ArticleSlider article={article} key={i} ref={"article_" + i} balanceArticleSliders={that.balanceArticleSlidersFromArticleSlider.bind(this)} sliderIndex={i}/>);
+            return (<ArticleSlider article={article} key={i} ref={'article_' + i} balanceArticleSliders={that.balanceArticleSlidersFromArticleSlider.bind(this)} sliderIndex={i}/>);
           })}
         </div>
         {articleButton}

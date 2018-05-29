@@ -42,12 +42,12 @@ export default class ProjectDetails extends Component {
       plantButton = '';
     }
 
-    var formattedPercent = Accounting.formatNumber(percent, 0, ".", ",")
+    var formattedPercent = Accounting.formatNumber(percent, 0, '.', ',');
     return (
       <div ref="details" className={(this.state.fade
         ? 'fadeOut'
-        : 'fadeIn') + " projectDetails"}>
-        <h1>{"Projekt: "}
+        : 'fadeIn') + ' projectDetails'}>
+        <h1>{'Projekt: '}
           <i>{this.props.project.projectReportData.projectName}</i>
         </h1>
         <table>
@@ -73,9 +73,9 @@ export default class ProjectDetails extends Component {
                 ]}/>
               </td>
               <td >
-                <span className="greenValue">{Accounting.formatNumber(this.props.project.projectReportData.amountOfPlantedTrees, 0, ".", ",")}</span><br/>
+                <span className="greenValue">{Accounting.formatNumber(this.props.project.projectReportData.amountOfPlantedTrees, 0, '.', ',')}</span><br/>
                 <span className="tableText">
-                  <i>von {Accounting.formatNumber(this.props.project.projectReportData.amountOfMaximumTreesToPlant, 0, ".", ",")}&nbsp;Bäumen</i>
+                  <i>von {Accounting.formatNumber(this.props.project.projectReportData.amountOfMaximumTreesToPlant, 0, '.', ',')}&nbsp;Bäumen</i>
                 </span>
               </td>
             </tr>

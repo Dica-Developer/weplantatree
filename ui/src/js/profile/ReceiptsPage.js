@@ -6,7 +6,7 @@ import Boostrap from 'bootstrap';
 
 import Receipts from './tools/Receipts';
 
-require("./receipts.less");
+require('./receipts.less');
 
 export default class Tools extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export default class Tools extends Component {
   }
 
   switchTo(value) {
-    this.setState({view: value})
+    this.setState({view: value});
   }
 
   render() {
@@ -34,7 +34,7 @@ export default class Tools extends Component {
                       </div>
                       <div className="col-md-12">Bisher haben Sie leider keine Spendenquittungen</div>
                     </div>
-                  </div>
+                  </div>;
         break;
     }
 

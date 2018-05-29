@@ -28,7 +28,7 @@ export default class NameAmountDate extends Component {
           <span className="name">{htmlDecode(this.props.name)}</span><br/>
           <span className="stats">B&auml;ume gepflant:&nbsp;{this.props.amount}</span><br/>
           <span className="stats">Datum:</span>
-          <span className="stats">{moment(this.props.plantedOn).format("DD.MM.YYYY")}</span>
+          <span className="stats">{moment(this.props.plantedOn).format('DD.MM.YYYY')}</span>
         </p>
       </div>
     );

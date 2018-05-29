@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {browserHistory} from 'react-router';
 
-require("./footer.less");
+require('./footer.less');
 
 export default class Footer extends Component {
 
@@ -16,72 +16,72 @@ export default class Footer extends Component {
           <div className="row">
             <div className="col-md-2">
               <a role="button" onClick={() => {
-                this.linkTo('/aboutUs')
+                this.linkTo('/aboutUs');
               }}>
                 ÜBER UNS
               </a>
               <a role="button" onClick={() => {
-                this.linkTo('/faq')
+                this.linkTo('/faq');
               }}>
                 FAQ
               </a>
             </div>
             <div className="col-md-2">
               <a role="button" onClick={() => {
-                this.linkTo('/partner')
+                this.linkTo('/partner');
               }}>
                 PARTNER
               </a>
               <a role="button" onClick={() => {
-                this.linkTo('/award')
+                this.linkTo('/award');
               }}>
                 AUSZEICHNUNGEN
               </a>
             </div>
             <div className="col-md-2">
               <a role="button" onClick={() => {
-                this.linkTo('/blog')
+                this.linkTo('/blog');
               }}>
                 BLOG
               </a>
               <a role="button" onClick={() => {
-                this.linkTo('/social')
+                this.linkTo('/social');
               }}>
                 SOCIAL
               </a>
             </div>
             <div className="col-md-2">
               <a role="button" onClick={() => {
-                this.linkTo('/statistics')
+                this.linkTo('/statistics');
               }}>
                 ZAHLEN & FAKTEN
               </a>
               <a role="button" onClick={() => {
-                this.linkTo('/financials')
+                this.linkTo('/financials');
               }}>
                 FINANZEN
               </a>
             </div>
             <div className="col-md-2">
               <a role="button" onClick={() => {
-                this.linkTo('/privacy')
+                this.linkTo('/privacy');
               }}>
                 DATENSCHUTZ
               </a>
               <a role="button" onClick={() => {
-                this.linkTo('/terms')
+                this.linkTo('/terms');
               }}>
                 AGB
               </a>
             </div>
             <div className="col-md-2">
               <a role="button" onClick={() => {
-                this.linkTo('/contact')
+                this.linkTo('/contact');
               }}>
                 KONTAKT
               </a>
               <a role="button" onClick={() => {
-                this.linkTo('/imprint')
+                this.linkTo('/imprint');
               }}>
                 IMPRESSUM
               </a>
@@ -91,4 +91,7 @@ export default class Footer extends Component {
       </div>
     );
   }
-} / * vim : set softtabstop = 2 : shiftwidth = 2 : expandtab * /
+}
+
+/* vim : set softtabstop = 2 : shiftwidth = 2 : expandtab */
+

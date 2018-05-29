@@ -44,7 +44,7 @@ export default class MainSlider extends Component {
         </div>
         <div className="sliderSummary">
           <div className="priceValue">
-              {Accounting.formatNumber(this.state.price / 100, 2, ".", ",")}&nbsp;€
+              {Accounting.formatNumber(this.state.price / 100, 2, '.', ',')}&nbsp;€
           </div>
           <div className="treeValue">
             {this.state.value}&nbsp;<span className="glyphicon glyphicon-tree-deciduous" aria-hidden="true"/>

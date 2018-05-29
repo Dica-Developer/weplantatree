@@ -11,7 +11,7 @@ import PlantItem from './PlantItem';
 import ButtonBar from '../ButtonBar';
 import BottomPart from '../BottomPart';
 
-require("./proposalPlantPage.less");
+require('./proposalPlantPage.less');
 
 export default class ProposalPlantPage extends Component {
 
@@ -25,7 +25,7 @@ export default class ProposalPlantPage extends Component {
       amount: -1,
       slideIn: false
     };
-    this.toggleDiv = this.toggleDiv.bind(this)
+    this.toggleDiv = this.toggleDiv.bind(this);
   }
 
   componentDidMount() {
@@ -35,7 +35,7 @@ export default class ProposalPlantPage extends Component {
   }
 
   toggleDiv() {
-    $(this.refs['plantItems']).slideToggle(800)
+    $(this.refs['plantItems']).slideToggle(800);
   }
 
   updatePlantBag() {
@@ -60,7 +60,7 @@ export default class ProposalPlantPage extends Component {
         that.setState({trees: result});
         that.toggleDiv();
        }, 1000);
-    })
+    });
   }
 
   componentDidUpdate() {
@@ -77,10 +77,10 @@ export default class ProposalPlantPage extends Component {
 
   render() {
     var chosen;
-    if (this.props.params.amount == "1" || this.props.params.amount == "5" || this.props.params.amount == "10" || this.props.params.amount == "50" || this.props.params.amount == "100") {
+    if (this.props.params.amount == '1' || this.props.params.amount == '5' || this.props.params.amount == '10' || this.props.params.amount == '50' || this.props.params.amount == '100') {
       chosen = this.props.params.amount;
     } else {
-      chosen = "customAmount";
+      chosen = 'customAmount';
     }
     return (
       <div className="container paddingTopBottom15">
@@ -106,7 +106,7 @@ export default class ProposalPlantPage extends Component {
                 Preis gesamt
               </div>
             </div>
-            <div ref="plantItems" className={"plantItems align-center"}>
+            <div ref="plantItems" className={'plantItems align-center'}>
               {this.state.trees.plantItems.map(function(plantItem, i) {
                 return (<PlantItem plantItem={plantItem} key={i}/>);
               })}

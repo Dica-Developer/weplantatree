@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./treeService.less");
+require('./treeService.less');
 
 export default class treeService extends Component {
 
@@ -15,7 +15,7 @@ export default class treeService extends Component {
     super();
     this.state = {
       treeService: []
-    }
+    };
   }
 
   componentDidMount() {

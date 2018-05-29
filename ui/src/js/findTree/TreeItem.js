@@ -19,14 +19,14 @@ export default class RankingItem extends Component {
         <img src={this.props.imageUrl} title={this.props.content.treeType.name} alt={this.props.content.treeType.name}/>
         <div>
           <p>
-            <span className="bold">Anzahl:&nbsp;</span>{Accounting.formatNumber(this.props.content.amount, 0, ".", ",")}<br/>
+            <span className="bold">Anzahl:&nbsp;</span>{Accounting.formatNumber(this.props.content.amount, 0, '.', ',')}<br/>
             <span className="bold">Projekt:&nbsp;</span>
-            <Link to={`/projects/` + this.props.content.projectArticle.project.name}>
+            <Link to={'/projects/' + this.props.content.projectArticle.project.name}>
                {this.props.content.projectArticle.project.name}
              </Link>
              <br/>
             <span className="bold">Datum:&nbsp;</span>
-            <span >{moment(this.props.content.plantedOn).format("DD.MM.YYYY")}</span>
+            <span >{moment(this.props.content.plantedOn).format('DD.MM.YYYY')}</span>
           </p>
         </div>
       </div>

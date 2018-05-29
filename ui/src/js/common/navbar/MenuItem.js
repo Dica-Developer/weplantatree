@@ -17,7 +17,7 @@ export default class MenuItem extends Component {
       link = <span className="inactive">{this.props.children}</span>;
     } else {
       link = <a role="button" onClick={() => {
-        this.linkTo(this.props.hash)
+        this.linkTo(this.props.hash);
       }}>
         {this.props.children}
       </a>;

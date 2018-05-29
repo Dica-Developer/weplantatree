@@ -9,7 +9,7 @@ import Boostrap from 'bootstrap';
 
 import RedeemGiftContent from '../RedeemGiftContent';
 
-require("./giftRedeem.less");
+require('./giftRedeem.less');
 
 export default class RedeemGiftPage extends Component {
   constructor() {

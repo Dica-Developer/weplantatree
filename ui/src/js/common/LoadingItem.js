@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import Boostrap from 'bootstrap';
 
-require("./loadingItem.less");
+require('./loadingItem.less');
 
 
 export default class LoadingItem extends Component {

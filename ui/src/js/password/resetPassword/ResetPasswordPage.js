@@ -10,7 +10,7 @@ import axios from 'axios';
 import SendRequest from './SendRequest';
 import RequestSent from './RequestSent';
 
-require("./resetPasswordPage.less");
+require('./resetPasswordPage.less');
 
 export default class ResetPasswordPage extends Component {
 
@@ -29,9 +29,9 @@ export default class ResetPasswordPage extends Component {
   render() {
     var content;
     if (this.state.isResetted) {
-      content = <RequestSent/>
+      content = <RequestSent/>;
     } else {
-      content = <SendRequest search={this.props.location.search} setResetted={this.setResetted.bind(this)}/>
+      content = <SendRequest search={this.props.location.search} setResetted={this.setResetted.bind(this)}/>;
     }
     return (
       <div className="container paddingTopBottom15">

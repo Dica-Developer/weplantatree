@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./award.less");
+require('./award.less');
 
 export default class Award extends Component {
 
@@ -15,7 +15,7 @@ export default class Award extends Component {
     super();
     this.state = {
       award: []
-    }
+    };
   }
 
   componentDidMount() {

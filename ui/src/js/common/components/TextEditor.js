@@ -17,11 +17,11 @@ export default class TextEditor extends Component {
         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
         height: 200
       }
-    }
+    };
   }
 
   refreshEditor(){
-    this.refs["editor"]._init(this.state.config, this.props.content);
+    this.refs['editor']._init(this.state.config, this.props.content);
   }
 
   render() {

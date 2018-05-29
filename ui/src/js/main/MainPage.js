@@ -8,7 +8,7 @@ import RankingContainer from '../common/ranking/SmallRankingContainer';
 import RankingItem from '../common/ranking/RankingItem';
 import RankingItemContent from '../common/ranking/content/NameAmountCo2';
 
-require("./teaser.less");
+require('./teaser.less');
 
 import Boostrap from 'bootstrap';
 

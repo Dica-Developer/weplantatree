@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Accounting from 'accounting';
 import {browserHistory} from 'react-router';
 
-require("./plantBag.less");
+require('./plantBag.less');
 
 export default class PlantBag extends Component {
   constructor() {
@@ -10,7 +10,7 @@ export default class PlantBag extends Component {
     this.state = {
       plantBag: {},
       scale: false
-    }
+    };
     this.scalingDone = this.scalingDone.bind(this);
   }
 
@@ -87,7 +87,7 @@ export default class PlantBag extends Component {
     for (var project in this.state.plantBag.projects) {
       console.log('project: ' + project);
       for (var projectItem in this.state.plantBag.projects[project]['plantItems']) {
-        console.log('article: ' + projectItem + " | amount: " + this.state.plantBag.projects[project]['plantItems'][projectItem].amount);
+        console.log('article: ' + projectItem + ' | amount: ' + this.state.plantBag.projects[project]['plantItems'][projectItem].amount);
       }
     }
   }
@@ -100,11 +100,11 @@ export default class PlantBag extends Component {
     return (
       <div ref="plantBag" className={(this.state.scale
         ? 'scale'
-        : ' ') + " plantBag"}>
+        : ' ') + ' plantBag'}>
         <button onClick={this.showPlantBagPage.bind(this)}>
           <div className="wrapper">
             <div className="image-wrapper">
-              <p className="price">{Accounting.formatNumber(this.state.plantBag.price / 100, 2, ".", ",")}&nbsp;€</p>
+              <p className="price">{Accounting.formatNumber(this.state.plantBag.price / 100, 2, '.', ',')}&nbsp;€</p>
               <img src="/assets/images/barrow.svg" alt="mein Pflanzkorb" width="50" height="25"/>
             </div>
             <div className="plantBag-button-text">

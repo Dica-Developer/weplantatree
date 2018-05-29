@@ -22,7 +22,7 @@ import createFilterOptions from 'react-select-fast-filter-options';
 import CodeOverview from './CodeOverview';
 import CodeGenerator from './CodeGenerator';
 
-require("./eventEditor.less");
+require('./eventEditor.less');
 
 export default class EventEditor extends Component {
 
@@ -191,7 +191,7 @@ export default class EventEditor extends Component {
         <div className="row">
           <div className="col-md-4"><label className="input-label">Name</label></div>
             <div className="col-md-8"><input type="text" value={this.state.eventt.name} onChange={(event) => {
-              this.updateEventName(event.target.value)
+              this.updateEventName(event.target.value);
             }}/></div>
         </div>
         <div className="row">

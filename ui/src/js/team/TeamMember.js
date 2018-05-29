@@ -14,7 +14,7 @@ class Member extends Component {
   }
 
   linkToProfile(){
-    browserHistory.push("/user/" + this.props.member.name)
+    browserHistory.push('/user/' + this.props.member.name);
   }
 
   render() {

@@ -30,7 +30,7 @@ export default class ProjectTeaser extends Component {
           </Marker>
         </Map>
         <a role="button" onClick={() => {
-          this.linkTo(`/projects/` + this.props.content.projectName)
+          this.linkTo('/projects/' + this.props.content.projectName);
         }}>
           <h1>
             {this.props.content.projectName}

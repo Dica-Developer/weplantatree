@@ -27,7 +27,7 @@ export default class ProjectOffer extends Component {
   }
 
   updateAfforestation(event) {
-    if (event.target.value == "1") {
+    if (event.target.value == '1') {
       this.setState({isAfforestation: true});
     } else {
       this.setState({isAfforestation: false});
@@ -35,7 +35,7 @@ export default class ProjectOffer extends Component {
   }
 
   updateSelling(event) {
-    if (event.target.value == "1") {
+    if (event.target.value == '1') {
       this.setState({isSelling: true});
     } else {
       this.setState({isSelling: false});
@@ -43,7 +43,7 @@ export default class ProjectOffer extends Component {
   }
 
   updateLeasing(event) {
-    if (event.target.value == "1") {
+    if (event.target.value == '1') {
       this.setState({isLeasing: true});
     } else {
       this.setState({isLeasing: false});

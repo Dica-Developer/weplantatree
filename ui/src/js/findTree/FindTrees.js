@@ -29,7 +29,7 @@ export default class FindTrees extends Component {
         <h1>Pflanzungen finden</h1>
         <div className="certificateWrapper">
             Zertifikat-Nummer: <input type="text" onBlur={this.updateCertId.bind(this)}/>
-          <IconButton text="Finden" glyphIcon="glyphicon-search" onClick={()=>{this.props.findCertificate(this.state.certificateId)}}/>
+          <IconButton text="Finden" glyphIcon="glyphicon-search" onClick={()=>{this.props.findCertificate(this.state.certificateId);}}/>
         </div>
       </div>
     );

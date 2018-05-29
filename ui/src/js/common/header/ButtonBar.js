@@ -19,15 +19,15 @@ export default class ButtonBar extends Component {
     return (
       <div className="buttonBar">
         <SvgButton text={counterpart.translate('buttonbar.plant_self')} buttonType="shovel" onClick={() => {
-          this.linkTo('/selfPlant')
+          this.linkTo('/selfPlant');
         }} />
         <br/>
         <SvgButton text={counterpart.translate('buttonbar.plant_online')} buttonType="mouse" onClick={() => {
-          this.linkTo('/plant/5')
+          this.linkTo('/plant/5');
         }} />
         <br/>
         <SvgButton text={counterpart.translate('buttonbar.tree_service')} buttonType="secateurs" onClick={() => {
-          this.linkTo('/treeService')
+          this.linkTo('/treeService');
         }} />
       </div>
     );

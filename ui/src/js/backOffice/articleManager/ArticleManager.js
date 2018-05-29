@@ -11,11 +11,11 @@ import {
 } from 'react-router';
 
 import ArticleCreater from './ArticleCreater';
-import ArticleOverview from './ArticleOverview'
+import ArticleOverview from './ArticleOverview';
 
 import IconButton from '../../common/components/IconButton';
 
-require("./article-manager.less");
+require('./article-manager.less');
 
 export default class ArticleManager extends Component {
 

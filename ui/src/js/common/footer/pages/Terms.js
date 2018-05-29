@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./terms.less");
+require('./terms.less');
 
 export default class Terms extends Component {
 
@@ -15,7 +15,7 @@ export default class Terms extends Component {
     super();
     this.state = {
       terms: []
-    }
+    };
   }
 
   componentDidMount() {

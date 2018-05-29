@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./aboutUs.less");
+require('./aboutUs.less');
 
 export default class aboutUs extends Component {
 
@@ -15,7 +15,7 @@ export default class aboutUs extends Component {
     super();
     this.state = {
       aboutUs: []
-    }
+    };
   }
 
   componentDidMount() {

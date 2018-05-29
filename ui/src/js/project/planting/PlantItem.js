@@ -20,7 +20,7 @@ export default class PlantItem extends Component {
         </div>
         <div>
           <p>
-            <span className="uppercase bold">{getTextForSelectedLanguage(this.props.plantItem.treeType)}</span><br/>Stk.&nbsp;<span className="bold">{Accounting.formatNumber(this.props.plantItem.treePrice / 100, 2, ".", ",")}&nbsp;€</span>
+            <span className="uppercase bold">{getTextForSelectedLanguage(this.props.plantItem.treeType)}</span><br/>Stk.&nbsp;<span className="bold">{Accounting.formatNumber(this.props.plantItem.treePrice / 100, 2, '.', ',')}&nbsp;€</span>
           </p>
         </div>
         <div>
@@ -29,7 +29,7 @@ export default class PlantItem extends Component {
         <div>
         </div>
         <div className="bold">
-          {Accounting.formatNumber(this.props.plantItem.treePrice * this.props.plantItem.amount / 100, 2, ".", ",")}&nbsp;€
+          {Accounting.formatNumber(this.props.plantItem.treePrice * this.props.plantItem.amount / 100, 2, '.', ',')}&nbsp;€
         </div>
       </div>
     );

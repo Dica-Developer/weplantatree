@@ -21,7 +21,7 @@ import RankingItemContent from '../common/ranking/content/AmountProjectDate';
 import NoTreesAvailable from '../common/ranking/NoTreesAvailable';
 import Notification from '../common/components/Notification';
 
-require("./profile.less");
+require('./profile.less');
 
 export default class ProfilePage extends Component {
 
@@ -184,7 +184,7 @@ export default class ProfilePage extends Component {
   editTeam(value) {
     this.setState({
       editTeam: value
-    })
+    });
     if (!value) {
       this.reloadTeam();
     }
@@ -251,9 +251,9 @@ export default class ProfilePage extends Component {
         {this.state.newestPlantRanking.content.map(function(content, i) {
           let imageUrl;
           if (content.imagePath != null && content.imagePath != '') {
-            imageUrl = 'http://localhost:8081/tree/image/' + content.imagePath + '/60/60'
+            imageUrl = 'http://localhost:8081/tree/image/' + content.imagePath + '/60/60';
           } else {
-            imageUrl = 'http://localhost:8081/treeType/image/' + content.treeType.imageFile + '/60/60'
+            imageUrl = 'http://localhost:8081/treeType/image/' + content.treeType.imageFile + '/60/60';
           }
           var linkTo;
           if(content.projectArticle != null){

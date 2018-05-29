@@ -511,6 +511,6 @@ export function htmlDecode(s) {
         default:
           return '';
       }
-    })
+    });
   }
 }

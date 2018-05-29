@@ -6,7 +6,7 @@ import {
 } from 'react-dom';
 import Boostrap from 'bootstrap';
 
-require("./imageButton.less");
+require('./imageButton.less');
 
 export default class ImageButton extends Component {
 
@@ -26,7 +26,7 @@ export default class ImageButton extends Component {
                 {item}
                 <br/>
                 </span>
-              )}
+              );}
             )}
             </p>
         </a>

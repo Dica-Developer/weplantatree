@@ -33,20 +33,20 @@ export default class LoginMenuItem extends Component {
   updateName(e) {
     this.setState({
       name: e.target.value
-    })
+    });
   }
 
   updatePassword(e) {
     this.setState({
       password: e.target.value
-    })
+    });
   }
 
   showErrorMessageAndClearInputFields() {
     this.setState({
       name: '',
       password: ''
-    })
+    });
   }
 
   handleLogin(token) {
@@ -146,7 +146,7 @@ export default class LoginMenuItem extends Component {
       that.setState({
         name: '',
         password: ''
-      })
+      });
       that.refs.notification.addNotificationAtDifferentPos('Fehler!', 'Die Kombination aus Name und Passwort stimmt nicht überein! Bitte versuche Sie es noch einmal.', 'error', 'tr');
     });
   }
@@ -160,7 +160,7 @@ export default class LoginMenuItem extends Component {
       name: '',
       password: '',
       loggedIn: false
-    })
+    });
     this.props.updateNavbar();
   }
 
@@ -171,7 +171,7 @@ export default class LoginMenuItem extends Component {
   render() {
     var content;
     if (localStorage.getItem('username') && localStorage.getItem('username') != '') {
-      let imageUrl = 'http://localhost:8081/user/image/' + this.state.userDetails.imageFileName + '/50/50'
+      let imageUrl = 'http://localhost:8081/user/image/' + this.state.userDetails.imageFileName + '/50/50';
 
       content = <div className="login-user-details">
         <div>
@@ -185,7 +185,7 @@ export default class LoginMenuItem extends Component {
           <label>{this.state.userDetails.co2Data.treesCount}</label>
           <br/>
           <span className="glyphicon glyphicon glyphicon-cloud" aria-hidden="true"></span>
-          <label>{Accounting.formatNumber(this.state.userDetails.co2Data.co2, 0, ".", ",")} tCO<sub>2</sub></label>
+          <label>{Accounting.formatNumber(this.state.userDetails.co2Data.co2, 0, '.', ',')} tCO<sub>2</sub></label>
         </div>
         <div className="logout-div">
           <a onClick={this.logout.bind(this)}>logout</a>
@@ -197,7 +197,7 @@ export default class LoginMenuItem extends Component {
         <input type="password" placeholder="Passwort" value={this.state.password} onChange={this.updatePassword.bind(this)}/>
         <div className="login-interact">
           <a role="button" onClick={() => {
-            this.linkTo('/forgotPassword')
+            this.linkTo('/forgotPassword');
           }}>Passwort vergessen?</a>
         </div>
         <div className="buttonDiv">
@@ -205,7 +205,7 @@ export default class LoginMenuItem extends Component {
         </div>
         <div className="login-interact">
           <a role="button" onClick={() => {
-            this.linkTo('/registration')
+            this.linkTo('/registration');
           }}>Registrieren</a>
         </div>
       </div>;

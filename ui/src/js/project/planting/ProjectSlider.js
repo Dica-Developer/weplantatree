@@ -6,7 +6,7 @@ import Accounting from 'accounting';
 export default class ProjectSlider extends Component {
   constructor(props) {
     super(props);
-    this.state = ({maxSliderValue: 100, sliderValue: 5})
+    this.state = ({maxSliderValue: 100, sliderValue: 5});
   }
 
   updateSliderValue(event) {
@@ -26,8 +26,8 @@ export default class ProjectSlider extends Component {
           <input type="range" min="1" max={this.state.maxSliderValue} step="1" value={this.state.sliderValue} onChange={this.updateSliderValue.bind(this)}/>
         </div>
         <div className="sliderSummary">
-          <span className="overallPrice">{Accounting.formatNumber(this.props.price / 100, 2, ".", ",")}&nbsp;€</span><br/>
-          <span className="green">{Accounting.formatNumber(this.state.sliderValue, 0, ".", ",")}</span>
+          <span className="overallPrice">{Accounting.formatNumber(this.props.price / 100, 2, '.', ',')}&nbsp;€</span><br/>
+          <span className="green">{Accounting.formatNumber(this.state.sliderValue, 0, '.', ',')}</span>
           <span className="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span>
         </div>
       </div>

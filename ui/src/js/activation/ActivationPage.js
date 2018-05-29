@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./activationPage.less");
+require('./activationPage.less');
 
 export default class ActivationPage extends Component {
 

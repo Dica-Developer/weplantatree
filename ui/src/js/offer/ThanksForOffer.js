@@ -4,7 +4,7 @@ import Boostrap from 'bootstrap';
 
 import IconButton from '../common/components/IconButton';
 
-require("./projectOffer.less");
+require('./projectOffer.less');
 
 export default class ProjectOfferPage extends Component {
 

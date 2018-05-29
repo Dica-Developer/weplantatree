@@ -23,7 +23,7 @@ export default class ArticleTeaser extends Component {
     return (
       <div>
         <a role="button" onClick={() => {
-          this.linkTo(`/blog/` + this.props.content.id)
+          this.linkTo('/blog/' + this.props.content.id);
         }}>
           <img src={imageUrl} alt={this.props.content.title} width="380" height="253" />
           <h1>

@@ -9,7 +9,7 @@ import DatePicker from 'react-bootstrap-date-picker';
 
 import Notification from './Notification';
 
-require("./dateField.less");
+require('./dateField.less');
 
 export default class DateField extends Component {
 
@@ -17,11 +17,11 @@ export default class DateField extends Component {
     super();
     this.state = {
       value: new Date().toISOString()
-    }
+    };
   }
 
   updateValue(value) {
-    if (this.props.noFuture == "true") {
+    if (this.props.noFuture == 'true') {
       var dateValue = new Date(Date.parse(value));
       if (isNaN(dateValue.getTime())) {
         dateValue = new Date();

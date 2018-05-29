@@ -22,7 +22,7 @@ import NoTreesAvailable from '../common/ranking/NoTreesAvailable';
 import Notification from '../common/components/Notification';
 import NotificationSystem from 'react-notification-system';
 
-require("./team.less");
+require('./team.less');
 
 export default class TeamPage extends Component {
 
@@ -146,7 +146,7 @@ export default class TeamPage extends Component {
   editTeam(value) {
     this.setState({
       edit: value
-    })
+    });
   }
 
   createDeleteSuccessMessageAndSwitchToProfile() {
@@ -154,7 +154,7 @@ export default class TeamPage extends Component {
       title: counterpart.translate('TEAM_DELETED_TITLE'),
       position: 'tc',
       autoDismiss: 0,
-      message: counterpart.translate('TEAM_DELETED_MESSAGE') + "\n" + counterpart.translate('YOUR_ARE_ROUTED_TO_PROFILE'),
+      message: counterpart.translate('TEAM_DELETED_MESSAGE') + '\n' + counterpart.translate('YOUR_ARE_ROUTED_TO_PROFILE'),
       level: 'success',
       children: (
         <div className="delete-confirmation align-center">
@@ -186,9 +186,9 @@ export default class TeamPage extends Component {
         {this.state.newestPlantRanking.content.map(function(content, i) {
           let imageUrl;
           if (content.imagePath != null && content.imagePath != '') {
-            imageUrl = 'http://localhost:8081/tree/image/' + content.imagePath + '/60/60'
+            imageUrl = 'http://localhost:8081/tree/image/' + content.imagePath + '/60/60';
           } else {
-            imageUrl = 'http://localhost:8081/treeType/image/' + content.treeType.imageFile + '/60/60'
+            imageUrl = 'http://localhost:8081/treeType/image/' + content.treeType.imageFile + '/60/60';
           }
           let linkTo = '/projects/' + content.projectArticle.project.name;
           return (<RankingItem imageUrl={imageUrl} rankNumber={page * 15 + (i + 1)} key={i} showRankNumber="true" showName="true"  linkTo={linkTo}>

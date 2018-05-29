@@ -18,7 +18,7 @@ import Notification from '../../common/components/Notification';
 import NotificationSystem from 'react-notification-system';
 import {getConfig} from '../../common/RestHelper';
 
-require("./treeTypeOverview.less");
+require('./treeTypeOverview.less');
 
 class TreeType extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class TreeType extends Component {
       descriptionEn: getTextForLanguage(this.props.treeType.description, 'ENGLISH'),
       imageFile: null,
       imageFileSrc: null
-    }
+    };
   }
 
   updateValue(toUpdate, value) {
@@ -40,12 +40,12 @@ class TreeType extends Component {
   }
 
   updateCo2(value) {
-    this.state["treeType"]["annualCo2SavingInTons"] = value;
+    this.state['treeType']['annualCo2SavingInTons'] = value;
     this.forceUpdate();
   }
 
   updateInfoLink(value) {
-    this.state["treeType"]["infoLink"] = value;
+    this.state['treeType']['infoLink'] = value;
     this.forceUpdate();
   }
 
@@ -60,7 +60,7 @@ class TreeType extends Component {
         <div>
           <button>Abbrechen</button>
           <button onClick={() => {
-            this.deleteTreeType()
+            this.deleteTreeType();
           }}>OK</button>
         </div>
       )
@@ -129,7 +129,7 @@ updateImage(imageName, imageFile) {
     reader.onloadend = function(e) {
       this.setState({
         imageFileSrc: [reader.result]
-      })
+      });
     }.bind(this);
   }
   this.forceUpdate();
@@ -160,18 +160,18 @@ render() {
     <div className="treeType row">
           <div className="col-md-2">Name(deutsch)</div>
           <div className="col-md-4"><input type="text" value={this.state.nameDe} onChange={(event) => {
-            this.updateValue("nameDe", event.target.value)
+            this.updateValue('nameDe', event.target.value);
           }}/></div>
           <div className="col-md-2">Name(englisch)</div>
           <div className="col-md-4"><input type="text" value={this.state.nameEn} onChange={(event) => {
-            this.updateValue("nameEn", event.target.value)
+            this.updateValue('nameEn', event.target.value);
           }}/></div>
           <div className="col-md-2">
             Beschreibung:<br/>(deutsch)
           </div>
           <div className="col-md-4">
             <textarea rows="4" cols="35" value={this.state.descriptionDe} onChange={(event) => {
-              this.updateValue("descriptionDe", event.target.value)
+              this.updateValue('descriptionDe', event.target.value);
             }}/>
           </div>
           <div className="col-md-2">
@@ -179,16 +179,16 @@ render() {
           </div>
           <div className="col-md-4">
             <textarea rows="4" cols="35" value={this.state.descriptionEn} onChange={(event) => {
-              this.updateValue("descriptionEn", event.target.value)
+              this.updateValue('descriptionEn', event.target.value);
             }}/>
           </div>
           <div className="col-md-2">Info-Link</div>
           <div className="col-md-4"><input type="text" value={this.state.treeType.infoLink == null ? '' : this.state.treeType.infoLink} onChange={(event) => {
-            this.updateInfoLink(event.target.value)
+            this.updateInfoLink(event.target.value);
           }}/></div>
           <div className="col-md-2">geb. CO<sub>2</sub>/Jahr</div>
           <div className="col-md-4"><input type="text" value={this.state.treeType.annualCo2SavingInTons} onChange={(event) => {
-            this.updateCo2( event.target.value)
+            this.updateCo2( event.target.value);
           }}/></div>
           <div className="col-md-2">Bild:
           </div>
@@ -204,7 +204,7 @@ render() {
         <Notification ref="notification"/>
         <NotificationSystem ref="notificationSystem" style={style}/>
       </div>
-  )
+  );
 }
 }
 
@@ -224,7 +224,7 @@ export default class TreeTypeOverview extends Component {
   removeTreeType(index) {
     this.state.treeTypes.splice(index, 1);
     for (var treeType in this.state.treeTypes) {
-      this.refs["treeType_" + treeType].updateTreeType(this.state.treeTypes[treeType]);
+      this.refs['treeType_' + treeType].updateTreeType(this.state.treeTypes[treeType]);
     }
     this.forceUpdate();
   }
@@ -258,7 +258,7 @@ export default class TreeTypeOverview extends Component {
   }
 
   createTreeType(index, treeType) {
-    return <TreeType ref={"treeType_" + index} treeType={treeType} index={index} key={index} removeTreeType={this.removeTreeType.bind(this)}/>;
+    return <TreeType ref={'treeType_' + index} treeType={treeType} index={index} key={index} removeTreeType={this.removeTreeType.bind(this)}/>;
   }
 
   render() {

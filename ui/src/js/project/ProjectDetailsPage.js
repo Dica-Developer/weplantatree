@@ -11,7 +11,7 @@ import RankingItem from '../common/ranking/RankingItem';
 import RankingContentNameAmountCo2 from '../common/ranking/content/NameAmountCo2';
 import RankingContentNameAmountDate from '../common/ranking/content/NameAmountDate';
 
-require("./projectPage.less");
+require('./projectPage.less');
 
 export default class ProjectDetailsPage extends Component {
 
@@ -179,11 +179,11 @@ export default class ProjectDetailsPage extends Component {
     if (this.state.detailsActive) {
       mainPart = <div><ProjectCarousel projectName={this.props.params.projectName} slides={this.state.project.images}/>
         <ProjectDetails project={this.state.project} showPlanting={() => {
-          this.setDetailsActive(false)
+          this.setDetailsActive(false);
         }}/></div>;
     } else {
       mainPart = <ProjectPlanting projectName={this.props.params.projectName} showDetails={() => {
-        this.setDetailsActive(true)
+        this.setDetailsActive(true);
       }} articles={this.state.articles} updatePlantBag={this.updatePlantBag.bind(this)} amount="5"/>;
     };
 

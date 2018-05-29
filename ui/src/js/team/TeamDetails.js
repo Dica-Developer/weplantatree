@@ -28,7 +28,7 @@ export default class TeamDetails extends Component {
     this.state = {
       isTeamAdmin: false,
       isTeamMember: false
-    }
+    };
     if(this.props.team.teamId){
       this.checkIfTeamAdmin(this.props.team.teamId);
       this.checkIfTeamMember(this.props.team.teamId);
@@ -142,7 +142,7 @@ export default class TeamDetails extends Component {
         console.error(response.headers);
         console.error(response.config);
       }
-    })
+    });
   }
 
   leaveTeam() {
@@ -176,7 +176,7 @@ export default class TeamDetails extends Component {
         <div className="delete-confirmation align-center">
               <button>Nein</button>
               <button onClick={() => {
-                this.deleteTeam()
+                this.deleteTeam();
               }}>Ja</button>
             </div>
       )
@@ -194,7 +194,7 @@ export default class TeamDetails extends Component {
         <div className="delete-confirmation align-center">
               <button>Nein</button>
               <button onClick={() => {
-                this.leaveTeam()
+                this.leaveTeam();
               }}>Ja</button>
             </div>
       )
@@ -244,17 +244,17 @@ export default class TeamDetails extends Component {
                   <span className="bold">Rang:&nbsp;</span>{this.props.team.rank}
                 </td>
                 <td>
-                  <span className="bold">gegründet:&nbsp;</span>{moment(this.props.team.regDate).format("DD.MM.YYYY")}</td>
+                  <span className="bold">gegründet:&nbsp;</span>{moment(this.props.team.regDate).format('DD.MM.YYYY')}</td>
               </tr>
               <tr>
                 <td>
-                  <span className="bold">B&auml;ume gepflanzt:&nbsp;</span>{Accounting.formatNumber(this.props.team.co2Data.treesCount, 0, ".", ",")}</td>
+                  <span className="bold">B&auml;ume gepflanzt:&nbsp;</span>{Accounting.formatNumber(this.props.team.co2Data.treesCount, 0, '.', ',')}</td>
                 <td>
                   <span className="bold">Teamleiter:&nbsp;</span>{htmlDecode(this.props.team.adminName)}</td>
               </tr>
               <tr>
                 <td>
-                  <span className="bold">CO<sub>2</sub>&nbsp;gebunden:&nbsp;</span>{Accounting.formatNumber(this.props.team.co2Data.co2, 3, ".", ",")}&nbsp;t</td>
+                  <span className="bold">CO<sub>2</sub>&nbsp;gebunden:&nbsp;</span>{Accounting.formatNumber(this.props.team.co2Data.co2, 3, '.', ',')}&nbsp;t</td>
                 <td>
                   <span className="bold">Mitglieder:&nbsp;</span>{this.props.team.memberCount}</td>
               </tr>

@@ -31,14 +31,14 @@ import ResetPasswordPage from './password/resetPassword/ResetPasswordPage';
 import GiftOverview from './gifts/overview/GiftOverview';
 import RedeemGiftPage from './gifts/redeem/RedeemGiftPage';
 import FindTreePage from './findTree/FindTreePage';
-import ProjectsPage from './projects/ProjectsPage'
+import ProjectsPage from './projects/ProjectsPage';
 import StatisticsPage from './statistics/StatisticsPage';
 import TeamPage from './team/TeamPage';
 import BlogPage from './blog/BlogPage';
 import BlogOverviewPage from './blog/BlogOverviewPage';
 import SuccessCC from './payment/SuccessCC';
 import ErrorCC from './payment/ErrorCC';
-import Co2Calculator from './co2/Co2Calculator';
+import LoadableCo2Calculator from './co2/LoadableCo2Calculator';
 import FAQ from './faq/FaqView';
 import AboutUs from './common/footer/pages/AboutUs';
 import Award from './common/footer/pages/Award';
@@ -76,19 +76,19 @@ export default class Routes extends Component {
   }
 
   updatePlantBag(price, projectItems, projectName, isGift) {
-    this.refs["navbar"].updatePlantBag(price, projectItems, projectName, isGift);
+    this.refs['navbar'].updatePlantBag(price, projectItems, projectName, isGift);
   }
 
   updatePlantBagFromLocaleStorage() {
-    this.refs["navbar"].updatePlantBagFromLocaleStorage();
+    this.refs['navbar'].updatePlantBagFromLocaleStorage();
   }
 
   updateNavbarComponents() {
-    this.refs["navbar"].updateComponents();
+    this.refs['navbar'].updateComponents();
   }
 
   resetPlantBag() {
-    this.refs["navbar"].resetPlantBag();
+    this.refs['navbar'].resetPlantBag();
   }
 
   switchLocale(locale) {
@@ -100,7 +100,7 @@ export default class Routes extends Component {
     counterpart.registerTranslations('de', require('counterpart/locales/de'));
     counterpart.registerTranslations('en', require('./locales/en'));
     counterpart.registerTranslations('de', require('./locales/de'));
-    counterpart.setLocale(localStorage.getItem('language') == "ENGLISH"
+    counterpart.setLocale(localStorage.getItem('language') == 'ENGLISH'
       ? 'en'
       : 'de');
     return (
@@ -137,7 +137,7 @@ export default class Routes extends Component {
           <Route path="/blog" component={BlogOverviewPage} reRender={this.reRender.bind(this)}/>
           <Route path="/payCC/succes/:cartId" component={SuccessCC} reRender={this.reRender.bind(this)}/>
           <Route path="/payCC/error/:cartId" component={ErrorCC} reRender={this.reRender.bind(this)}/>
-          <Route path="/co2Calculator" component={Co2Calculator} reRender={this.reRender.bind(this)}/>
+          <Route path="/co2Calculator" component={LoadableCo2Calculator} reRender={this.reRender.bind(this)}/>
           <Route path="/faq" component={FAQ} reRender={this.reRender.bind(this)}/>
           <Route path="/AboutUs" component={AboutUs} reRender={this.reRender.bind(this)}/>
           <Route path="/award" component={Award} reRender={this.reRender.bind(this)}/>

@@ -15,7 +15,7 @@ import LoadingSpinner from '../../common/components/LoadingSpinner';
 import {getConfig} from '../../common/RestHelper';
 import {getTextForSelectedLanguage} from '../../common/language/LanguageHelper';
 
-require("./cartOverview.less");
+require('./cartOverview.less');
 
 class CartDetails extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class CartDetails extends Component {
                 <strong>Datum:</strong>
               </div>
               <div className="col-md-9">
-                {moment(this.props.details.timeStamp).format("DD.MM.YYYY")}
+                {moment(this.props.details.timeStamp).format('DD.MM.YYYY')}
               </div>
               <div className="col-md-3">
                 <strong>Anzahl Bäume:</strong>
@@ -60,14 +60,14 @@ class CartDetails extends Component {
                 <strong>Preis:</strong>
               </div>
               <div className="col-md-9">
-                {Accounting.formatNumber(this.props.details.totalPrice, 2, ".", ",")}
+                {Accounting.formatNumber(this.props.details.totalPrice, 2, '.', ',')}
               </div>
             </div>
             {cartItems}
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -109,13 +109,13 @@ class CartItems extends Component {
               <div className="col-md-3">{treeTypeName}</div>
               <div className="col-md-3">{project}</div>
               <div className="col-md-2 align-center">{cartItem.amount}</div>
-              <div className="col-md-2 align-center">{Accounting.formatNumber(cartItem.basePricePerPiece, 2, ".", ",")}</div>
-              <div className="col-md-2"><strong>=> </strong>{Accounting.formatNumber(cartItem.totalPrice, 2, ".", ",")}</div>
+              <div className="col-md-2 align-center">{Accounting.formatNumber(cartItem.basePricePerPiece, 2, '.', ',')}</div>
+              <div className="col-md-2"><strong>=> </strong>{Accounting.formatNumber(cartItem.totalPrice, 2, '.', ',')}</div>
             </div>
-          )
+          );
         })}
       </div>
-    )
+    );
   }
 }
 export default class CartOverview extends Component {
@@ -207,7 +207,7 @@ export default class CartOverview extends Component {
       filters: {},
       restConfig: getConfig(),
       cartDetails: {}
-    }
+    };
   }
 
   componentDidMount() {
@@ -215,13 +215,13 @@ export default class CartOverview extends Component {
   }
 
   loadCarts() {
-    this.refs["spinner"].showSpinner();
+    this.refs['spinner'].showSpinner();
     var that = this;
     axios.get('http://localhost:8083/carts', this.state.restConfig).then(function(response) {
       var result = response.data;
       var rows = that.createRows(result);
       that.setState({carts: result, rows: rows});
-      that.refs["spinner"].hideSpinner();
+      that.refs['spinner'].hideSpinner();
     }).catch(function(response) {
       that.refs.notification.addNotification('Fehler beim Laden der Pflanzkörbe!', response.data, 'error');
     });
@@ -233,9 +233,9 @@ export default class CartOverview extends Component {
     var y = event.pageY;
     axios.get('http://localhost:8083/cart/' + id, this.state.restConfig).then(function(response) {
       var result = response.data;
-      that.setState({cartDetails: result, x: x, y: y  })
+      that.setState({cartDetails: result, x: x, y: y  });
     }).catch(function(response) {
-      that.refs.notification.addNotification("Fehler beim Laden des Pflanzkorbes " + id + "!", response.data, 'error');
+      that.refs.notification.addNotification('Fehler beim Laden des Pflanzkorbes ' + id + '!', response.data, 'error');
     });
   }
 
@@ -259,9 +259,9 @@ export default class CartOverview extends Component {
     var row = {
       id: cart.id,
       user: user,
-      price: Accounting.formatNumber(cart.totalPrice, 2, ".", ","),
+      price: Accounting.formatNumber(cart.totalPrice, 2, '.', ','),
       status: cart.cartState,
-      timestamp: moment(cart.timeStamp).format("DD.MM.YYYY"),
+      timestamp: moment(cart.timeStamp).format('DD.MM.YYYY'),
       firstName: cart.callBackVorname,
       lastName: cart.callBackNachname,
       company: cart.callBackFirma,
@@ -275,9 +275,9 @@ export default class CartOverview extends Component {
   createDetailIcon(id) {
     return <div className="edit-icon">
       <span className="glyphicon glyphicon-list-alt" aria-hidden="true" onMouseOver={(event) => {
-        this.getCartDetails(id, event)
+        this.getCartDetails(id, event);
       }} onMouseLeave={(event) => {
-        this.hideCartDetails( event)
+        this.hideCartDetails( event);
       }}></span>
     </div>;
   }
@@ -286,16 +286,16 @@ export default class CartOverview extends Component {
     if (cartState == 'CALLBACK') {
       return <div className="state-change-buttons">
         <IconButton glyphIcon="glyphicon-ok" text="" onClick={() => {
-          this.changeStatusOfCart(id, 'VERIFIED')
+          this.changeStatusOfCart(id, 'VERIFIED');
         }}/>
         <IconButton glyphIcon="glyphicon-remove" text="" onClick={() => {
-          this.createDiscardConfirmation(id)
+          this.createDiscardConfirmation(id);
         }}/>
       </div>;
     } else if (cartState == 'VERIFIED') {
       return <div className="state-change-buttons">
         <IconButton glyphIcon="glyphicon-remove" text="" onClick={() => {
-          this.createDiscardConfirmation(id)
+          this.createDiscardConfirmation(id);
         }}/>
       </div>;
     }
@@ -312,7 +312,7 @@ export default class CartOverview extends Component {
         <div className="delete-confirmation align-center">
           <button>Abbrechen</button>
           <button onClick={() => {
-            this.changeStatusOfCart(id, 'DISCARDED')
+            this.changeStatusOfCart(id, 'DISCARDED');
           }}>OK</button>
         </div>
       )
@@ -338,7 +338,7 @@ export default class CartOverview extends Component {
       }
       that.forceUpdate();
     }).catch(function(response) {
-      that.refs.notification.addNotification('Es ist ein Fehler aufgetreten!', 'Beim Umsetzen des Status vom Pflanzkorb mit der ID ' + id + "auf " + cartState + " ist folgender Fehler aufgetreten:" + response.data, 'error');
+      that.refs.notification.addNotification('Es ist ein Fehler aufgetreten!', 'Beim Umsetzen des Status vom Pflanzkorb mit der ID ' + id + 'auf ' + cartState + ' ist folgender Fehler aufgetreten:' + response.data, 'error');
     });
   }
 
@@ -383,7 +383,7 @@ export default class CartOverview extends Component {
       ? ' '
       : sortedRows.sort(comparer);
 
-    this.setState(rows : sortedRows);
+    this.setState({rows : sortedRows});
   }
 
   onClearFilters() {

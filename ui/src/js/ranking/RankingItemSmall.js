@@ -17,7 +17,7 @@ export default class RankingItem extends Component {
       <div className="smallRankingItem">
         <div className="smallRankingNumber">{this.props.rankNumber}</div>
         <div className="name">
-          <Link to={`/user/` + this.props.content.name}>
+          <Link to={'/user/' + this.props.content.name}>
             <span className="name">{htmlDecode(this.props.content.name)}</span>
           </Link>
         </div>
@@ -25,7 +25,7 @@ export default class RankingItem extends Component {
           <p style={{
             width: this.props.percentTree + '%'
           }}>
-            &nbsp;{Accounting.formatNumber(this.props.content.amount, 0, ".", ",")}&nbsp;B&auml;ume&nbsp;gepflanzt
+            &nbsp;{Accounting.formatNumber(this.props.content.amount, 0, '.', ',')}&nbsp;B&auml;ume&nbsp;gepflanzt
           </p>
         </div>
       </div>

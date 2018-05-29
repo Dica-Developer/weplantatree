@@ -6,7 +6,7 @@ import axios from 'axios';
 import moment from 'moment';
 import {getTextForSelectedLanguage, getShortText} from '../common/language/LanguageHelper';
 
-require("./blogPage.less");
+require('./blogPage.less');
 
 class Paragraph extends Component {
   constructor(props) {
@@ -64,7 +64,7 @@ export default class BlogPage extends Component {
         },
         paragraphs: []
       }
-    }
+    };
   }
 
   componentDidMount() {
@@ -99,10 +99,10 @@ export default class BlogPage extends Component {
     return (
       <div className="container paddingTopBottom15 blogPage">
         <div className="row">
-          <div className={"col-md-12"}>
+          <div className={'col-md-12'}>
             <h1>{this.state.article.title}</h1>
-            {moment(this.state.article.createdOn).format("DD.MM.YYYY")}{" von "}
-            <a role="button" onClick= { () => { browserHistory.push('/user/' + this.state.article.owner.name) }}>
+            {moment(this.state.article.createdOn).format('DD.MM.YYYY')}{' von '}
+            <a role="button" onClick= { () => { browserHistory.push('/user/' + this.state.article.owner.name); }}>
               {this.state.article.owner.name}</a>
             <div className="article-img">
               <div className="article-img-div">

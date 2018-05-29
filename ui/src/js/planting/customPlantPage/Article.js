@@ -11,7 +11,7 @@ import Notification from '../../common/components/Notification';
 import ButtonBar from '../ButtonBar';
 import BottomPart from '../BottomPart';
 
-require("./article.less");
+require('./article.less');
 
 export default class Article extends Component {
 
@@ -20,7 +20,7 @@ export default class Article extends Component {
     this.state = {
       amount: null,
       scaleResult: false
-    }
+    };
     this.scalingDone = this.scalingDone.bind(this);
   }
 
@@ -67,7 +67,7 @@ export default class Article extends Component {
         </div>
         <div>
           <p>
-            <span className="bold uppercase">{getTextForSelectedLanguage(this.props.article.treeType.name)}</span><br/>Stk.&nbsp;<span className="bold">{Accounting.formatNumber(this.props.article.price.priceAsLong / 100, 2, ".", ",")}&nbsp;€</span>
+            <span className="bold uppercase">{getTextForSelectedLanguage(this.props.article.treeType.name)}</span><br/>Stk.&nbsp;<span className="bold">{Accounting.formatNumber(this.props.article.price.priceAsLong / 100, 2, '.', ',')}&nbsp;€</span>
           </p>
         </div>
         <div>
@@ -78,7 +78,7 @@ export default class Article extends Component {
         <div>
           <p ref="result" className={(this.state.scaleResult
             ? 'scaleResult'
-            : ' ') + " bold"}>{Accounting.formatNumber(this.state.amount * this.props.article.price.priceAsLong / 100, 2, ".", ",")}&nbsp;€</p>
+            : ' ') + ' bold'}>{Accounting.formatNumber(this.state.amount * this.props.article.price.priceAsLong / 100, 2, '.', ',')}&nbsp;€</p>
         </div >
         <Notification ref="notification"/>
       </div>

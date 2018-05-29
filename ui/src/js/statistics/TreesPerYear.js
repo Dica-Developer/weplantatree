@@ -30,10 +30,10 @@ export default class TreesPerYear extends Component {
         scaleStepWidth: 10000,
         responsive: true,
         barValueSpacing : 3,
-        tooltipTemplate: "<%= value %>"
+        tooltipTemplate: '<%= value %>'
       },
       options2: {
-        scaleLineColor: "rgb(130, 171, 31)",
+        scaleLineColor: 'rgb(130, 171, 31)',
         scaleShowGridLines: true,
         scaleOverride: true,
         scaleSteps: 4,
@@ -41,10 +41,10 @@ export default class TreesPerYear extends Component {
         pointDotRadius: 2,
         datasetFill: false,
         responsive: true,
-        tooltipTemplate: "<%= value %>"
+        tooltipTemplate: '<%= value %>'
       }
 
-    }
+    };
   }
 
   componentDidMount() {
@@ -68,8 +68,8 @@ export default class TreesPerYear extends Component {
         that.state.amountOfTreesSummed[year] = that.state.amountOfTreesSummed[year - 1] + that.state.amountOfTrees[year];
       }
       that.forceUpdate();
-      that.refs["barChart"].update();
-      that.refs["barChart2"].update();
+      that.refs['barChart'].update();
+      that.refs['barChart2'].update();
     }).catch(function(response) {
       if (response instanceof Error) {
         console.error('Error', response.message);
@@ -97,7 +97,7 @@ export default class TreesPerYear extends Component {
       datasets: [{
         label: 'gepflanzte Bäume',
         data: this.state.amountOfTrees,
-        fillColor: "rgb(130, 171, 31)",
+        fillColor: 'rgb(130, 171, 31)',
         borderWidth: 1
       }]
     };
@@ -106,7 +106,7 @@ export default class TreesPerYear extends Component {
       datasets: [{
         label: 'gepflanzte Bäume',
         data: this.state.amountOfTreesSummed,
-        fillColor: "rgb(130, 171, 31)",
+        fillColor: 'rgb(130, 171, 31)',
         borderWidth: 1
       }]
     };

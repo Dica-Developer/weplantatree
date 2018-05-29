@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import Boostrap from 'bootstrap';
 
-require("./largeRankingContainer.less");
+require('./largeRankingContainer.less');
 
 export default class LargeRankingContainer extends Component {
   constructor(props) {
@@ -45,19 +45,19 @@ export default class LargeRankingContainer extends Component {
     var leftIcon;
     var rightIcon;
     if (this.props.isFirstPage) {
-      leftIcon = "";
+      leftIcon = '';
     } else {
-      leftIcon = "glyphicon-chevron-left";
+      leftIcon = 'glyphicon-chevron-left';
     };
 
     if (this.props.isLastPage) {
-      rightIcon = "";
+      rightIcon = '';
     } else {
-      rightIcon = "glyphicon-chevron-right";
+      rightIcon = 'glyphicon-chevron-right';
     };
 
     return (
-      <div className={"largeRankingContainer " + this.props.styleClass}>
+      <div className={'largeRankingContainer ' + this.props.styleClass}>
         <div className="row">
           <div className="col-md-12">
             <h1>Pflanzungen</h1>
@@ -65,10 +65,10 @@ export default class LargeRankingContainer extends Component {
         </div>
         <div ref="ranking" className={(this.state.fade
           ? 'fadeOut'
-          : 'fadeIn') + " row rankingWrapper"}>
+          : 'fadeIn') + ' row rankingWrapper'}>
           <div className="col-md-4">
             <a className="pagingLink left" role="button" onClick={this.callPreviousPage.bind(this)}>
-              <span className={"glyphicon " + leftIcon}></span>
+              <span className={'glyphicon ' + leftIcon}></span>
             </a>
             {this.props.children.map(function(child, i) {
               if (i < 5) {
@@ -85,7 +85,7 @@ export default class LargeRankingContainer extends Component {
           </div>
           <div className="col-md-4">
             <a className="pagingLink right" role="button" onClick={this.callNextPage.bind(this)}>
-              <span className={"glyphicon " + rightIcon}></span>
+              <span className={'glyphicon ' + rightIcon}></span>
             </a>
             {this.props.children.map(function(child, i) {
               if (i >= 10) {

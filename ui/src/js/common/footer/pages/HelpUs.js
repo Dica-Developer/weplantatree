@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./helpUs.less");
+require('./helpUs.less');
 
 export default class HelpUs extends Component {
 
@@ -15,7 +15,7 @@ export default class HelpUs extends Component {
     super();
     this.state = {
       helpUs: []
-    }
+    };
   }
 
   componentDidMount() {

@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./financial.less");
+require('./financial.less');
 
 export default class financial extends Component {
 
@@ -15,7 +15,7 @@ export default class financial extends Component {
     super();
     this.state = {
       financial: []
-    }
+    };
   }
 
   componentDidMount() {

@@ -9,7 +9,7 @@ import LoginMenuItem from './LoginMenuItem';
 import BackOfficeMenuItem from './BackOfficeMenuItem';
 import axios from 'axios';
 
-require("./userDetails.less");
+require('./userDetails.less');
 
 export default class NavBar extends Component {
   constructor(props) {

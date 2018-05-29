@@ -7,7 +7,7 @@ import Overview from './Overview';
 import Sepa from './Sepa';
 import CreditCard from './CreditCard';
 
-require("./paymentPage.less");
+require('./paymentPage.less');
 
 export default class PaymentPage extends Component {
 
@@ -37,7 +37,7 @@ export default class PaymentPage extends Component {
     var content;
     var giftText = '';
     if (this.state.paymentOption == '') {
-      content = <Overview price={this.state.plantBag.price} setPaymentOption={this.setPaymentOption.bind(this)} cartId={this.state.cartId} giftId={this.state.giftId} resetPlantBag={this.resetPlantBag.bind(this)}/>
+      content = <Overview price={this.state.plantBag.price} setPaymentOption={this.setPaymentOption.bind(this)} cartId={this.state.cartId} giftId={this.state.giftId} resetPlantBag={this.resetPlantBag.bind(this)}/>;
     } else if (this.state.paymentOption == 'sepa') {
       content = <Sepa price={this.state.plantBag.price} cartId={this.state.cartId} giftId={this.state.giftId} setPaymentOption={this.setPaymentOption.bind(this)} updateNavbar={this.updateNavbar.bind(this)} resetPlantBag={this.resetPlantBag.bind(this)}/>;
     } else if (this.state.paymentOption == 'creditcard') {

@@ -23,9 +23,9 @@ export default class PlantCustom extends Component {
   updatePlantBag() {
     var projectItems = {};
     for (var article in this.props.articles) {
-      if (this.refs["article_" + article].getAmount() != null && this.refs["article_" + article].getAmount() > 0) {
+      if (this.refs['article_' + article].getAmount() != null && this.refs['article_' + article].getAmount() > 0) {
         projectItems[this.props.articles[article].treeType.name] = {
-          amount: parseInt(this.refs["article_" + article].getAmount()),
+          amount: parseInt(this.refs['article_' + article].getAmount()),
           price: parseInt(this.props.articles[article].price.priceAsLong),
           imageFile: this.props.articles[article].treeType.imageFile
         };
@@ -37,8 +37,8 @@ export default class PlantCustom extends Component {
   updatePrice() {
     var price = 0;
     for (var article in this.props.articles) {
-      if (this.refs["article_" + article].getAmount() != null && this.refs["article_" + article].getAmount() > 0) {
-        price = price + parseInt(this.refs["article_" + article].getAmount()) * parseInt(this.props.articles[article].price.priceAsLong);
+      if (this.refs['article_' + article].getAmount() != null && this.refs['article_' + article].getAmount() > 0) {
+        price = price + parseInt(this.refs['article_' + article].getAmount()) * parseInt(this.props.articles[article].price.priceAsLong);
       }
     }
     this.state.overallPrice = price;
@@ -51,9 +51,9 @@ export default class PlantCustom extends Component {
       <div className="plantCustom">
         <ButtonBar chosen={this.props.amount} setAmount={this.props.setAmount.bind(this)}/>
         <ArticleDesc/>
-        <div className={"plantItems align-center"}>
+        <div className={'plantItems align-center'}>
           {this.props.articles.map(function(article, i) {
-            return (<Article key={i} article={article} ref={"article_" + i} updatePrice={that.updatePrice.bind(this)}/>);
+            return (<Article key={i} article={article} ref={'article_' + i} updatePrice={that.updatePrice.bind(this)}/>);
           })}
         </div>
         <BottomPart updatePlantBag={this.updatePlantBag.bind(this)} overallPrice={this.state.overallPrice}/>

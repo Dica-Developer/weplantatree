@@ -4,7 +4,7 @@ import Boostrap from 'bootstrap';
 
 var svgParams = require('./svgParams.js');
 
-require("./svgButton.less");
+require('./svgButton.less');
 
 export default class svgButton extends Component {
 
@@ -37,11 +37,11 @@ export default class svgButton extends Component {
                   {item}
                   <br/>
                 </span>
-              )
+              );
             })}
           </p>
         </a>
       </div>
-    )
+    );
   }
 }

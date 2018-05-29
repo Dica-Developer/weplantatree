@@ -6,7 +6,7 @@ import Accounting from 'accounting';
 import Boostrap from 'bootstrap';
 
 import PlantBagProject from './PlantBagProject';
-import PlantBagItem from './PlantBagItem'
+import PlantBagItem from './PlantBagItem';
 import IconButton from '../common/components/IconButton';
 import CheckBox from '../common/components/CheckBox';
 import Notification from '../common/components/Notification';
@@ -14,7 +14,7 @@ import LoadingSpinner from '../common/components/LoadingSpinner';
 
 import {getTextForSelectedLanguage} from '../common/language/LanguageHelper';
 
-require("./plantBagPage.less");
+require('./plantBagPage.less');
 
 export default class PlantBagPage extends Component {
 
@@ -56,7 +56,7 @@ export default class PlantBagPage extends Component {
       if (!this.state.isAnonymUser) {
         this.createGift(config);
       } else {
-        this.refs.notification.addNotification('Kein Nutzer angemeldet!', "Anonymen Nutzern ist es leider nicht gestattet, Gutscheine zu erstellen.", 'error');
+        this.refs.notification.addNotification('Kein Nutzer angemeldet!', 'Anonymen Nutzern ist es leider nicht gestattet, Gutscheine zu erstellen.', 'error');
       }
     } else {
       this.createCart(config);
@@ -64,27 +64,27 @@ export default class PlantBagPage extends Component {
   }
 
   createGift(config) {
-    this.refs["spinner"].showSpinner();
+    this.refs['spinner'].showSpinner();
     var that = this;
     localStorage.setItem('plantBag', JSON.stringify(this.state.plantBag));
     axios.post('http://localhost:8081/gift/create', this.state.plantBag, config).then(function(response) {
-      that.refs["spinner"].hideSpinner();
+      that.refs['spinner'].hideSpinner();
       browserHistory.push('/payGift/' + response.data[0] + '/' + response.data[1]);
     }).catch(function(response) {
-      that.refs["spinner"].hideSpinner();
+      that.refs['spinner'].hideSpinner();
       that.refs.notification.handleError(error);
     });
   }
 
   createCart(config) {
-    this.refs["spinner"].showSpinner();
+    this.refs['spinner'].showSpinner();
     var that = this;
     localStorage.setItem('plantBag', JSON.stringify(this.state.plantBag));
     axios.post('http://localhost:8081/donateTrees', this.state.plantBag, config).then(function(response) {
-      that.refs["spinner"].hideSpinner();
+      that.refs['spinner'].hideSpinner();
       browserHistory.push('/payCart/' + response.data);
     }).catch(function(response) {
-      that.refs["spinner"].hideSpinner();
+      that.refs['spinner'].hideSpinner();
       that.refs.notification.handleError(error);
     });
   }
@@ -134,7 +134,7 @@ export default class PlantBagPage extends Component {
 
   updateValue(toUpdate, value) {
     this.setState({[toUpdate]: value});
-    if (toUpdate == "isGift") {
+    if (toUpdate == 'isGift') {
       localStorage.setItem('isGift', value);
     }
   }
@@ -145,7 +145,7 @@ export default class PlantBagPage extends Component {
     if (this.state.plantBag.price > 0) {
       overallPriceAndPayment = <div><div className="doubledLine"/>
         <div className="overallPrice">
-          GESAMT:&nbsp;{Accounting.formatNumber(this.state.plantBag.price / 100, 2, ".", ",")}&nbsp;€
+          GESAMT:&nbsp;{Accounting.formatNumber(this.state.plantBag.price / 100, 2, '.', ',')}&nbsp;€
         </div>
         <div className="align-right">
           <CheckBox toUpdate="isGift" value={this.state.isGift} updateValue={this.updateValue.bind(this)} text="Als Geschenkgutschein"/><br/>
@@ -161,9 +161,9 @@ export default class PlantBagPage extends Component {
         <div className="row plantBagPage">
           <div className="col-md-12">
             <h1>Dein Pflanzkorb</h1>
-            <div className={"panel panel-warning " + (!this.state.isAnonymUser
-              ? "no-display"
-              : "")}>
+            <div className={'panel panel-warning ' + (!this.state.isAnonymUser
+              ? 'no-display'
+              : '')}>
               <div className="panel-heading">Du bis nicht eingeloggt</div>
               <div className="panel-body">Du bist nicht als registrierter User eingeloggt. Deine Pflanzung geschieht anonym.</div>
             </div>
@@ -178,11 +178,11 @@ export default class PlantBagPage extends Component {
                     {Object.keys(that.state.plantBag.projects[project].plantItems).map(function(plantItem, i) {
                       var plantItemName = getTextForSelectedLanguage(plantItem);
                       return (<PlantBagItem plantItemName={plantItemName} plantBagitem={that.state.plantBag.projects[project].plantItems[plantItem]} key={i} removePlantBagItem={() => {
-                        that.removePlantBagItem(project, plantItem)
+                        that.removePlantBagItem(project, plantItem);
                       }} increasePlantBagItem={() => {
-                        that.increasePlantBagItem(project, plantItem)
+                        that.increasePlantBagItem(project, plantItem);
                       }} decreasePlantBagItem={() => {
-                        that.decreasePlantBagItem(project, plantItem)
+                        that.decreasePlantBagItem(project, plantItem);
                       }}/>);
                     })}
                   </PlantBagProject>

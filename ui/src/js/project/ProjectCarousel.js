@@ -33,7 +33,7 @@ export default class ProjectCarousel extends Component {
     return (
       <div ref="carousel" id="carousel-example-generic" className={(this.state.fade
         ? 'fadeOut'
-        : 'fadeIn') + " carousel slide"} data-ride="carousel">
+        : 'fadeIn') + ' carousel slide'} data-ride="carousel">
         <div className="carousel-inner" role="listbox">
           {this.props.slides.map(function(slide, index) {
             var activeItem = 'item';
@@ -46,7 +46,7 @@ export default class ProjectCarousel extends Component {
                 <img src={imageUrl} width="1140" height="570" alt={slide.imageFileName}/>
                 <div className="imageDescription">
                   <span className="date">
-                    <i>{moment(slide.date).format("DD.MM.YYYY")}</i>&nbsp;/&nbsp;</span>
+                    <i>{moment(slide.date).format('DD.MM.YYYY')}</i>&nbsp;/&nbsp;</span>
                   <span className="text">{htmlDecode(getTextForSelectedLanguage(slide.description))}</span>
                 </div>
               </div>

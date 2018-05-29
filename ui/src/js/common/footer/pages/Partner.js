@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./partner.less");
+require('./partner.less');
 
 export default class Partner extends Component {
 
@@ -15,7 +15,7 @@ export default class Partner extends Component {
     super();
     this.state = {
       partner: []
-    }
+    };
   }
 
   componentDidMount() {

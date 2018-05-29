@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 
-require("./faq.less");
+require('./faq.less');
 
 export default class FaqView extends Component {
 
@@ -17,7 +17,7 @@ export default class FaqView extends Component {
     super();
     this.state = {
       faqs: []
-    }
+    };
   }
 
   componentDidMount() {
@@ -39,7 +39,7 @@ export default class FaqView extends Component {
   }
 
   scrollTo(hash) {
-    location.hash = "#" + hash;
+    location.hash = '#' + hash;
      window.scrollTo(window.scrollX, window.scrollY - 330);
   }
 
@@ -57,15 +57,15 @@ export default class FaqView extends Component {
           <div className="row">
             <div className="col-md-4">
             {this.state.faqs.map(function(question, i) {
-              return ( <div key={i}><a href={"#question-" + i} className="question" onClick={() => {
-                  that.scrollTo("#question-" + i)
+              return ( <div key={i}><a href={'#question-' + i} className="question" onClick={() => {
+                  that.scrollTo('#question-' + i);
                 }}>{question.title}</a></div>);
             })}
             </div>
             <div className="col-md-8">
               <div className="answers">
                 {this.state.faqs.map(function(question, i) {
-                return ( <div key={i}><a name={"#question-" + i} className="box-question" >{question.title}</a><p className="box-answer" dangerouslySetInnerHTML={{
+                return ( <div key={i}><a name={'#question-' + i} className="box-question" >{question.title}</a><p className="box-answer" dangerouslySetInnerHTML={{
                   __html: question.intro
                 }}></p></div>);
                 })}

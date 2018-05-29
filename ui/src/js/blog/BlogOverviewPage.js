@@ -15,7 +15,7 @@ import {
   getShortText
 } from '../common/language/LanguageHelper';
 
-require("./blogOverviewPage.less");
+require('./blogOverviewPage.less');
 
 class Article extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class Article extends Component {
       <div className="article-entry">
         <a role="button" onClick={this.switchToBlogEntry.bind(this)}>
           <h3>{getTextForSelectedLanguage(this.props.content.title)}</h3>
-          <span>{moment(this.props.content.createdOn).format("DD.MM.YYYY")}{" von "}{this.props.content.owner.name}</span>
+          <span>{moment(this.props.content.createdOn).format('DD.MM.YYYY')}{' von '}{this.props.content.owner.name}</span>
           <div className="article-content">
             <img src={imageUrl} />
             <p dangerouslySetInnerHTML={{
@@ -53,7 +53,7 @@ export default class BlogOverviewPage extends Component {
         content: []
       },
       entryCount: 5
-    }
+    };
   }
 
   componentDidMount() {
@@ -89,7 +89,7 @@ export default class BlogOverviewPage extends Component {
     return (
       <div className="container paddingTopBottom15 blogOverviewPage">
         <div className="row">
-          <div className={"col-md-12"}>
+          <div className={'col-md-12'}>
             <h1>Blog</h1>
           </div>
         </div>
@@ -101,10 +101,10 @@ export default class BlogOverviewPage extends Component {
           })}
         </div>
         <div className="row">
-          <div className={"col-md-12"}>
-            <a className={(this.state.articles.last ? "no-display" : "pagingLink")} role="button" onClick={this.callMoreArticleEntries.bind(this)}>
+          <div className={'col-md-12'}>
+            <a className={(this.state.articles.last ? 'no-display' : 'pagingLink')} role="button" onClick={this.callMoreArticleEntries.bind(this)}>
               <div>
-                <span className={"glyphicon glyphicon-menu-down"}></span>
+                <span className={'glyphicon glyphicon-menu-down'}></span>
               </div>
             </a>
           </div>

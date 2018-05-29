@@ -8,7 +8,7 @@ import ButtonBar from './ButtonBar';
 export default class Header extends Component {
 
   switchToHomePage() {
-    browserHistory.push("/");
+    browserHistory.push('/');
   }
 
   render() {

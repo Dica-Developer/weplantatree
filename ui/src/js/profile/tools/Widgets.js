@@ -21,7 +21,7 @@ export default class Widgets extends Component {
       width: 100,
       height: 100,
       userName: localStorage.getItem('username')
-    }
+    };
   }
 
   componentDidMount(){

@@ -19,7 +19,7 @@ export default class Banner extends Component {
       htmlCode: '',
       width: 100,
       height: 100
-    }
+    };
   }
 
   componentDidMount(){

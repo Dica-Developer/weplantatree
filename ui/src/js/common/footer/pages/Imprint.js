@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./imprint.less");
+require('./imprint.less');
 
 export default class Imprint extends Component {
 
@@ -15,7 +15,7 @@ export default class Imprint extends Component {
     super();
     this.state = {
       imprint: []
-    }
+    };
   }
 
   componentDidMount() {

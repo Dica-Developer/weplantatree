@@ -5,7 +5,7 @@ import Boostrap from 'bootstrap';
 import DoPlanting from './DoPlanting';
 import PlantingDone from './PlantingDone';
 
-require("./selfPlant.less");
+require('./selfPlant.less');
 
 export default class SelfPlantPage extends Component {
 
@@ -23,7 +23,7 @@ export default class SelfPlantPage extends Component {
   render() {
     var content;
     if(this.state.plantingDone){
-      content = <PlantingDone setPlantingDone={this.setPlantingDone.bind(this)}/>
+      content = <PlantingDone setPlantingDone={this.setPlantingDone.bind(this)}/>;
     }else{
       content = <DoPlanting setPlantingDone={this.setPlantingDone.bind(this)}/>;
     };

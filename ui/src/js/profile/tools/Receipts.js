@@ -26,7 +26,7 @@ class Receipt extends Component {
       <div className="receipt">
         <a role="button" onClick={this.generateReceiptPdf.bind(this)}>
           <img src="/assets/images/receipt.jpg" alt="receipt" width="83" height="117"/><br/>
-          {moment(this.props.receipt.createdOn).format("DD.MM.YYYY")}<br/>
+          {moment(this.props.receipt.createdOn).format('DD.MM.YYYY')}<br/>
           #{this.props.receipt.invoiceNumber}
         </a>
       </div>
@@ -39,7 +39,7 @@ export default class Receipts extends Component {
     super(props);
     this.state = {
       receipts: []
-    }
+    };
   }
 
   componentDidMount(){

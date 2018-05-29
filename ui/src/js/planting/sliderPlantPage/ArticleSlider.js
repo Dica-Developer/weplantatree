@@ -60,14 +60,14 @@ export default class ArticleSlider extends Component {
         </div>
         <div className="treeTypeInfo">
           <span className="bold">{getTextForSelectedLanguage(this.props.article.treeType.name)}</span><br/>
-          Stk.&nbsp;<span className="bold">{Accounting.formatNumber(this.props.article.price.priceAsLong / 100, 2, ".", ",")}
+          Stk.&nbsp;<span className="bold">{Accounting.formatNumber(this.props.article.price.priceAsLong / 100, 2, '.', ',')}
             &nbsp;€</span>
         </div>
         <div className="sliderDiv">
           <input type="range" min="0" max={this.state.maxValue} step="1" value={this.state.value} onChange={this.updateSliderValue.bind(this)}/>
         </div>
         <div className="sliderSummary">
-          {Accounting.formatNumber(this.state.price / 100, 2, ".", ",")}&nbsp;€&nbsp;/&nbsp;<span className="green">{this.state.value}&nbsp;</span><span className="glyphicon glyphicon-tree-deciduous" aria-hidden="true"/>
+          {Accounting.formatNumber(this.state.price / 100, 2, '.', ',')}&nbsp;€&nbsp;/&nbsp;<span className="green">{this.state.value}&nbsp;</span><span className="glyphicon glyphicon-tree-deciduous" aria-hidden="true"/>
         </div>
 
       </div>

@@ -20,14 +20,14 @@ export default class RankingItem extends Component {
           <img className="ranking-img" src={this.props.imageUrl} alt="logo"/>
         </div>
         <div className="rankingSummary">
-          <Link to={`/user/` + this.props.content.name}>
+          <Link to={'/user/' + this.props.content.name}>
             <span className="name">{htmlDecode(this.props.content.name)}</span>
           </Link>
           <br/>
           <p style={{
             width: this.props.percentTree + '%'
           }}>
-            <span className="stats">&nbsp;{Accounting.formatNumber(this.props.content.amount, 0, ".", ",")}</span>
+            <span className="stats">&nbsp;{Accounting.formatNumber(this.props.content.amount, 0, '.', ',')}</span>
             <span className="text">
               B&auml;ume gepflanzt
             </span><br/>
@@ -35,7 +35,7 @@ export default class RankingItem extends Component {
           <p style={{
             width: this.props.percentCo2 + '%'
           }}>
-            <span className="stats">&nbsp;{Accounting.formatNumber(this.props.content.co2Saved, 1, ".", ",")}&nbsp;</span>
+            <span className="stats">&nbsp;{Accounting.formatNumber(this.props.content.co2Saved, 1, '.', ',')}&nbsp;</span>
             <span className="text">
               Tonnen CO<sub>2</sub>&nbsp;gebunden
             </span>

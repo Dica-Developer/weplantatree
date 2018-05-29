@@ -20,7 +20,7 @@ import IconButton from '../../common/components/IconButton';
 import Notification from '../../common/components/Notification';
 import {getConfig} from '../../common/RestHelper';
 
-require("./userOverview.less");
+require('./userOverview.less');
 
 class MailChanger extends Component {
 
@@ -29,7 +29,7 @@ class MailChanger extends Component {
     this.state = {
       originalMail: this.props.mail,
       newMail: this.props.mail
-    }
+    };
   }
 
   updateNewMail(e) {
@@ -75,7 +75,7 @@ class UserNameChanger extends Component {
     this.state = {
       originalUsername: this.props.username,
       newUsername: this.props.username
-    }
+    };
   }
 
   updateNewUsername(e) {
@@ -176,7 +176,7 @@ export default class UserOverview extends Component {
       }],
       rows: [],
       filters: {}
-    }
+    };
   }
 
   componentDidMount() {
@@ -224,24 +224,24 @@ export default class UserOverview extends Component {
 
   createEditButton(id, username) {
     return <IconButton glyphIcon="glyphicon-pencil" text="" onClick={() => {
-      this.showEditBoxForUsername(id,username)
+      this.showEditBoxForUsername(id,username);
     }}/>;
   }
 
   createEditButtonForMail(id, mail) {
     return <IconButton glyphIcon="glyphicon-pencil" text="" onClick={() => {
-      this.showEditBoxForMail(id,mail)
+      this.showEditBoxForMail(id,mail);
     }}/>;
   }
 
   createActiveIcon(id, active){
     if(active){
       return <IconButton glyphIcon="glyphicon-ok" text="" onClick={() => {
-        this.changeActiveFlagForUser(id,false)
+        this.changeActiveFlagForUser(id,false);
       }}/>;
     }else{
       return <IconButton glyphIcon="glyphicon-remove" text="" onClick={() => {
-        this.changeActiveFlagForUser(id,true)
+        this.changeActiveFlagForUser(id,true);
       }}/>;
     }
   }
@@ -249,11 +249,11 @@ export default class UserOverview extends Component {
   createBannedIcon(id, banned){
     if(banned){
       return <IconButton glyphIcon="glyphicon-ok" text="" onClick={() => {
-        this.changeBannedFlagForUser(id,false)
+        this.changeBannedFlagForUser(id,false);
       }}/>;
     }else{
       return <IconButton glyphIcon="glyphicon-remove" text="" onClick={() => {
-        this.changeBannedFlagForUser(id,true)
+        this.changeBannedFlagForUser(id,true);
       }}/>;
     }
   }
@@ -261,11 +261,11 @@ export default class UserOverview extends Component {
   createAdminIcon(id, isAdmin){
     if(isAdmin){
       return <IconButton glyphIcon="glyphicon-ok" text="" onClick={() => {
-        this.changeAdminRoleForUser(id,false)
+        this.changeAdminRoleForUser(id,false);
       }}/>;
     }else{
       return <IconButton glyphIcon="glyphicon-remove" text="" onClick={() => {
-        this.changeAdminRoleForUser(id,true)
+        this.changeAdminRoleForUser(id,true);
       }}/>;
     }
   }
@@ -273,24 +273,24 @@ export default class UserOverview extends Component {
   createArticleManagerIcon(id, isArticleManager){
     if(isArticleManager){
       return <IconButton glyphIcon="glyphicon-ok" text="" onClick={() => {
-        this.changeArticleManagerRoleForUser(id,false)
+        this.changeArticleManagerRoleForUser(id,false);
       }}/>;
     }else{
       return <IconButton glyphIcon="glyphicon-remove" text="" onClick={() => {
-        this.changeArticleManagerRoleForUser(id,true)
+        this.changeArticleManagerRoleForUser(id,true);
       }}/>;
     }
   }
 
   createAbortButton(id, username){
     return <IconButton glyphIcon="glyphicon-remove" text="" onClick={() => {
-      this.closeEditBoxForUsername(id,username)
+      this.closeEditBoxForUsername(id,username);
     }}/>;
   }
 
   createAbortButtonForMail(id, mail){
     return <IconButton glyphIcon="glyphicon-remove" text="" onClick={() => {
-      this.closeEditBoxForMail(id,mail)
+      this.closeEditBoxForMail(id,mail);
     }}/>;
   }
 
@@ -453,7 +453,7 @@ export default class UserOverview extends Component {
       ? ' '
       : sortedRows.sort(comparer);
 
-    this.setState(rows: sortedRows);
+    this.setState({rows: sortedRows});
   }
 
   handleFilterChange(filter) {

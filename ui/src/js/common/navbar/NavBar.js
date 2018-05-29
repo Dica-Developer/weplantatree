@@ -16,8 +16,8 @@ import BackOfficeMenuItem from './BackOfficeMenuItem';
 import SvgButton from '../components/SvgButton';
 import axios from 'axios';
 
-require("./navbar.less");
-require("./menu.less");
+require('./navbar.less');
+require('./menu.less');
 
 export default class NavBar extends Component {
   constructor() {
@@ -30,7 +30,7 @@ export default class NavBar extends Component {
       userDetails: {
         co2Data: {}
       }
-    }
+    };
   }
 
   componentDidMount() {
@@ -47,16 +47,16 @@ export default class NavBar extends Component {
   }
 
   updatePlantBagFromLocaleStorage() {
-    this.refs["plantBag"].updatePlantBagFromLocaleStorage();
+    this.refs['plantBag'].updatePlantBagFromLocaleStorage();
   }
 
   updatePlantBag(price, projectItems, projectName, isGift) {
     localStorage.setItem('isGift', isGift);
-    this.refs["plantBag"].updatePlantBag(price, projectItems, projectName);
+    this.refs['plantBag'].updatePlantBag(price, projectItems, projectName);
   }
 
   resetPlantBag() {
-    this.refs["plantBag"].resetPlantBag();
+    this.refs['plantBag'].resetPlantBag();
   }
 
   updateLanguage(value) {
@@ -72,10 +72,10 @@ export default class NavBar extends Component {
       };
       axios.post('http://localhost:8081/user/edit?userName=' + localStorage.getItem('username') + '&toEdit=LANGUAGE&newEntry=' + value, {}, config);
     }
-    if (value == "DEUTSCH") {
-      this.props.switchLocale("de");
-    } else if (value == "ENGLISH") {
-      this.props.switchLocale("en");
+    if (value == 'DEUTSCH') {
+      this.props.switchLocale('de');
+    } else if (value == 'ENGLISH') {
+      this.props.switchLocale('en');
     }
   }
 
@@ -121,7 +121,7 @@ export default class NavBar extends Component {
     } else {
       myForrestButton = '';
       userDetails = <div className="user-details logged-out"> <a className="pull left" onClick={this.showRight.bind(this)}>Login</a>  <a className="pull right" onClick={() => {
-        this.linkTo('/registration')
+        this.linkTo('/registration');
       }}>Registrieren</a></div>;
     }
 
@@ -131,7 +131,7 @@ export default class NavBar extends Component {
           <MenuItem hash="/projects">Projekte</MenuItem>
           <MenuItem hash="/ranking">Bestenliste</MenuItem>
           <MenuItem hash="/certificate/find">Pflanzungen finden</MenuItem>
-          <MenuItem hash={"/gift/redeem"}>Gutschein einlösen</MenuItem>
+          <MenuItem hash={'/gift/redeem'}>Gutschein einlösen</MenuItem>
           <MenuItem hash="/co2Calculator">CO<sub>2</sub>-Rechner</MenuItem>
           <MenuItem hash="/statistics">Zahlen & Fakten</MenuItem>
           <MenuItem hash="/projectOffer">Fläche anbieten</MenuItem>
@@ -141,10 +141,10 @@ export default class NavBar extends Component {
         </Menu>
         <Menu ref="right" alignment="right">
           <LoginMenuItem hash="login" updateNavbar={this.updateComponents.bind(this)} updateLanguage={this.updateLanguage.bind(this)}></LoginMenuItem>
-          <MenuItem hash={"/user/" + localStorage.getItem('username')} inactive={!this.state.isLoggedIn}>Mein Profil</MenuItem>
-          <MenuItem hash={"/tools/" + localStorage.getItem('username')} inactive={!this.state.isLoggedIn}>Tools</MenuItem>
-          <MenuItem hash={"/gifts/" + localStorage.getItem('username')} inactive={!this.state.isLoggedIn}>Gutscheine</MenuItem>
-          <MenuItem hash={"/receipts/" + localStorage.getItem('username')} inactive={!this.state.isLoggedIn}>Spendenquittungen</MenuItem>
+          <MenuItem hash={'/user/' + localStorage.getItem('username')} inactive={!this.state.isLoggedIn}>Mein Profil</MenuItem>
+          <MenuItem hash={'/tools/' + localStorage.getItem('username')} inactive={!this.state.isLoggedIn}>Tools</MenuItem>
+          <MenuItem hash={'/gifts/' + localStorage.getItem('username')} inactive={!this.state.isLoggedIn}>Gutscheine</MenuItem>
+          <MenuItem hash={'/receipts/' + localStorage.getItem('username')} inactive={!this.state.isLoggedIn}>Spendenquittungen</MenuItem>
           <BackOfficeMenuItem hash="/backOffice">Backoffice</BackOfficeMenuItem>
         </Menu>
         <nav id="navBar" className="navbar navbar-default navbar-fixed-top">
@@ -156,16 +156,16 @@ export default class NavBar extends Component {
             <div className="collapse navbar-collapse" id="navbarLinkBar">
               <div className="navbar-left">
                 <SvgButton text="" buttonType="ipatlogo" onClick={() => {
-                  this.linkTo('/')
+                  this.linkTo('/');
                 }} />
                 <SvgButton text="" buttonType="shovel" onClick={() => {
-                  this.linkTo('/selfPlant')
+                  this.linkTo('/selfPlant');
                 }} />
                 <SvgButton text="" buttonType="mouse" onClick={() => {
-                  this.linkTo('/plant/5')
+                  this.linkTo('/plant/5');
                 }} />
                 <SvgButton text="" buttonType="secateurs" onClick={() => {
-                  this.linkTo('/treeService')
+                  this.linkTo('/treeService');
                 }} />
               </div>
             </div>

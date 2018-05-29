@@ -51,7 +51,7 @@ export default class ArticleOverview extends Component {
       ],
       rows: [],
       filters: {}
-    }
+    };
   }
 
   componentDidMount() {
@@ -96,7 +96,7 @@ export default class ArticleOverview extends Component {
       title: article.title,
       owner: article.owner.name,
       edit: <IconButton glyphIcon="glyphicon-pencil" text="" onClick={() => {
-        this.edit(article.id)
+        this.edit(article.id);
       }}/>,
       delete: this.createDeleteButton(article.id),
       isScrolling: false
@@ -106,12 +106,12 @@ export default class ArticleOverview extends Component {
 
   createDeleteButton(id) {
     return <IconButton glyphIcon="glyphicon-trash" text="" onClick={() => {
-      this.createDeleteConfirmation(id)
+      this.createDeleteConfirmation(id);
     }}/>;
   }
 
   edit(id) {
-    browserHistory.push("article-edit/" + id)
+    browserHistory.push('article-edit/' + id);
   }
 
   createDeleteConfirmation(id) {
@@ -125,7 +125,7 @@ export default class ArticleOverview extends Component {
         <div className="delete-confirmation align-center">
           <button>Abbrechen</button>
           <button onClick={() => {
-            this.delete(id)
+            this.delete(id);
           }}>OK</button>
         </div>
       )

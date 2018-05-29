@@ -50,7 +50,7 @@ export default class CreditCard extends Component {
   }
 
   updateSalutation(event) {
-    var key = "salutation";
+    var key = 'salutation';
     var val = event.target.value;
     var obj = this.state.paymentData;
     obj[key] = val;
@@ -58,7 +58,7 @@ export default class CreditCard extends Component {
   }
 
   payPlantBag() {
-    this.refs["spinner"].showSpinner();
+    this.refs['spinner'].showSpinner();
     var that = this;
     var config = getConfig();
     axios.post('http://localhost:8081/validateCC', this.state.paymentData, config).then(function(response) {
@@ -66,9 +66,9 @@ export default class CreditCard extends Component {
       // that.refs["spinner"].hideSpinner();
       // that.refs.notification.addNotification('Zahlung erfolgreich abgeschlossen!', 'Vielen Dank für deine Spende.', 'success');
       // that.setState({paymentDone: true});
-      that.refs["submitForm"].click();
+      that.refs['submitForm'].click();
     }).catch(function(error) {
-      that.refs["spinner"].hideSpinner();
+      that.refs['spinner'].hideSpinner();
       that.refs.notification.handleError(error);
     });
   }
@@ -180,7 +180,7 @@ export default class CreditCard extends Component {
                 <label className="input-label">Betrag</label>
               </div>
               <div className="col-md-6">
-                <span className="bold">{Accounting.formatNumber(this.props.price / 100, 2, ".", ",")}&nbsp;€</span>
+                <span className="bold">{Accounting.formatNumber(this.props.price / 100, 2, '.', ',')}&nbsp;€</span>
               </div>
             </div>
           </div>
@@ -201,7 +201,7 @@ export default class CreditCard extends Component {
             <fieldset>
               <input type="text" name="oid" value="3941888"/>
               <input type="text" name="charset" value="UTF8"/>
-              <input type="text" value={"http://localhost:8080/payCC/succes/" + this.state.paymentData.cartId} name="ret_success_url"/>
+              <input type="text" value={'http://localhost:8080/payCC/succes/' + this.state.paymentData.cartId} name="ret_success_url"/>
               <input type="text" value="http://localhost:8080/payCC/error" name="ret_error_url"/>
               <input type="text" name="firma" value={this.state.paymentData.company}/>
               <input type="text" name="firma_zusatz" value={this.state.paymentData.companyAddon}/>
@@ -217,7 +217,7 @@ export default class CreditCard extends Component {
               <input type="text" name="betrag" value={this.props.price / 100}/>
               <input type="text" name="verwendungszweck" value="Spende I Plant A Tree"/>
               <input type="text" name="quittung" value="sofort"/>
-              <input type="text" name="trackingcode" value={"Cart-ID: " + this.state.paymentData.cartId}/>
+              <input type="text" name="trackingcode" value={'Cart-ID: ' + this.state.paymentData.cartId}/>
               <input type="text" name="zahlungsart" value="KK"/>
             </fieldset>
             <input ref="submitForm" type="submit" name="send_donation" value="Spende senden"/>

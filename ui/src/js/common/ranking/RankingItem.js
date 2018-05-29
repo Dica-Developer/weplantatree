@@ -8,7 +8,7 @@ import Boostrap from 'bootstrap';
 import {getTextForSelectedLanguage} from '../../common/language/LanguageHelper';
 import {htmlDecode} from '../../common/language/HtmlHelper';
 
-require("./rankingItem.less");
+require('./rankingItem.less');
 
 export default class RankingItem extends Component {
   constructor(props) {
@@ -23,9 +23,9 @@ export default class RankingItem extends Component {
     return (
       <div className="rankingItem">
         <a role="button" onClick={() => {
-          this.linkTo(this.props.linkTo)
+          this.linkTo(this.props.linkTo);
         }}>
-        <div className={"rankingNumber" + (this.props.showRankNumber ? " " : " invisible")}>
+        <div className={'rankingNumber' + (this.props.showRankNumber ? ' ' : ' invisible')}>
           {this.props.rankNumber}
         </div>
         <img className="ranking-img" src={this.props.imageUrl} />

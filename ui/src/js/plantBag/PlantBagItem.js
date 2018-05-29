@@ -5,7 +5,7 @@ import Boostrap from 'bootstrap';
 
 import IconButton from '../common/components/IconButton';
 
-require("./plantBagItem.less");
+require('./plantBagItem.less');
 
 export default class PlantBagItem extends Component {
 
@@ -18,7 +18,7 @@ export default class PlantBagItem extends Component {
       increaseDown: false,
       intervalDuration: 0,
       scaleResult: false
-    }
+    };
     this.scalingDone = this.scalingDone.bind(this);
   }
 
@@ -88,24 +88,24 @@ export default class PlantBagItem extends Component {
         </div>
         <div className="treeTypeInfo">
           <p>
-            <span className="bold uppercase">{this.props.plantItemName}</span><br/>Stk.&nbsp;<span className="bold">{Accounting.formatNumber(this.props.plantBagitem.price / 100, 2, ".", ",")}&nbsp;€</span>
+            <span className="bold uppercase">{this.props.plantItemName}</span><br/>Stk.&nbsp;<span className="bold">{Accounting.formatNumber(this.props.plantBagitem.price / 100, 2, '.', ',')}&nbsp;€</span>
           </p>
         </div>
         <div className="customizer">
           <a role="button" onMouseDown={this.startDecreasing.bind(this)} onMouseUp={this.stopDecreasing.bind(this)}>
-            <span className={("glyphicon glyphicon-minus")} aria-hidden="true"></span>
+            <span className={('glyphicon glyphicon-minus')} aria-hidden="true"></span>
           </a>
           <span className="bold">{this.props.plantBagitem.amount}</span>
           <a role="button" onMouseDown={this.startIncreasing.bind(this)} onMouseUp={this.stopIncreasing.bind(this)}>
-            <span className={("glyphicon glyphicon-plus")} aria-hidden="true"></span>
+            <span className={('glyphicon glyphicon-plus')} aria-hidden="true"></span>
           </a>
         </div>
         <div className="result-arrow">
         </div>
         <div ref="result" className={(this.state.scaleResult
           ? 'scaleResult'
-          : ' ')  + " result"}>
-          <p className="bold">{Accounting.formatNumber(this.props.plantBagitem.amount * this.props.plantBagitem.price / 100, 2, ".", ",")}&nbsp;€</p>
+          : ' ')  + ' result'}>
+          <p className="bold">{Accounting.formatNumber(this.props.plantBagitem.amount * this.props.plantBagitem.price / 100, 2, '.', ',')}&nbsp;€</p>
           <IconButton glyphIcon="glyphicon-trash" onClick={this.props.removePlantBagItem.bind(this)}/>
         </div>
       </div>

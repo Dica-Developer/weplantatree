@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import Boostrap from 'bootstrap';
 
-require("./smallRankingContainer.less");
+require('./smallRankingContainer.less');
 
 export default class SmallRankingContainer extends Component {
   constructor(props) {
@@ -44,32 +44,32 @@ export default class SmallRankingContainer extends Component {
     var topIcon;
     var bottomIcon;
     if (!this.props.isFirstPage) {
-      topIcon = "glyphicon-menu-up";
+      topIcon = 'glyphicon-menu-up';
     } else {
-      topIcon = "glyphicon-minus";
+      topIcon = 'glyphicon-minus';
     };
     if (!this.props.isLastPage) {
-      bottomIcon = "glyphicon-menu-down";
+      bottomIcon = 'glyphicon-menu-down';
     } else {
-      bottomIcon = "glyphicon-minus";
+      bottomIcon = 'glyphicon-minus';
     };
     return (
       <div className="smallRankingContainer">
         <h3>{this.props.title}
         </h3>
-        <a className={(this.props.withPaging ? "pagingLink" : "no-display")} role="button" onClick={this.callPreviousPage.bind(this)}>
+        <a className={(this.props.withPaging ? 'pagingLink' : 'no-display')} role="button" onClick={this.callPreviousPage.bind(this)}>
           <div>
-            <span className={"glyphicon " + topIcon}></span>
+            <span className={'glyphicon ' + topIcon}></span>
           </div>
         </a>
         <div ref="ranking" className={(this.state.fade
           ? 'fadeOut'
-          : 'fadeIn') + (this.props.withPaging ? " rankingWrapper" : " ")}>
+          : 'fadeIn') + (this.props.withPaging ? ' rankingWrapper' : ' ')}>
           {this.props.children}
         </div>
-        <a className={(this.props.withPaging ? "pagingLink" : "no-display")} role="button" onClick={this.callNextPage.bind(this)}>
+        <a className={(this.props.withPaging ? 'pagingLink' : 'no-display')} role="button" onClick={this.callNextPage.bind(this)}>
           <div>
-            <span className={"glyphicon " + bottomIcon}></span>
+            <span className={'glyphicon ' + bottomIcon}></span>
           </div>
         </a>
       </div>

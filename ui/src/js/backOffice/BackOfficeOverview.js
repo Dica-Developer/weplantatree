@@ -10,7 +10,7 @@ import {
   browserHistory
 } from 'react-router';
 
-require("./backOfficeOverview.less");
+require('./backOfficeOverview.less');
 
 class BackofficeLink extends Component {
   constructor(props) {
@@ -25,10 +25,10 @@ class BackofficeLink extends Component {
     return (
       <div className="col-md-4 ">
       <a role="button"  onClick={() => {
-        this.linkTo(this.props.url)
+        this.linkTo(this.props.url);
       }} >
       <div className="backoffice-link">
-        <span className={"glyphicon " + this.props.glyphIcon} aria-hidden="true"></span>
+        <span className={'glyphicon ' + this.props.glyphIcon} aria-hidden="true"></span>
         <br/>
         <span>
           {this.props.text}

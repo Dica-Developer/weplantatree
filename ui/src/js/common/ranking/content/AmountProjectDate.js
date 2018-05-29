@@ -23,18 +23,18 @@ export default class AmountProjectDate extends Component {
     }
 
     if (this.props.showName) {
-      name = "(" + htmlDecode(this.props.content.owner.name) + ")";
+      name = '(' + htmlDecode(this.props.content.owner.name) + ')';
     } else {
-      name = "";
+      name = '';
     }
     return (
       <div className="rankingSummary">
         <p>
-          <span className="bold">Anzahl:&nbsp;</span>{Accounting.formatNumber(this.props.content.amount, 0, ".", ",")}&nbsp;{name}<br/>
+          <span className="bold">Anzahl:&nbsp;</span>{Accounting.formatNumber(this.props.content.amount, 0, '.', ',')}&nbsp;{name}<br/>
           <span className="bold">Projekt:&nbsp;</span>
           {project}<br/>
           <span className="bold">Datum:&nbsp;</span>
-          <span >{moment(this.props.content.plantedOn).format("DD.MM.YYYY")}</span>
+          <span >{moment(this.props.content.plantedOn).format('DD.MM.YYYY')}</span>
         </p>
       </div>
     );

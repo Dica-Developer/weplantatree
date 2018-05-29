@@ -14,7 +14,7 @@ import Project from '../../planting/customPlantPage/Project';
 import {getConfig} from '../../common/RestHelper';
 import VirtualizedSelect from 'react-virtualized-select';
 
-require("./plantManager.less");
+require('./plantManager.less');
 
 export default class PlantManager extends Component {
 
@@ -32,7 +32,7 @@ export default class PlantManager extends Component {
 
   componentDidMount() {
     var that = this;
-    this.loadUser()
+    this.loadUser();
     this.loadProjects();
   }
 
@@ -72,7 +72,7 @@ export default class PlantManager extends Component {
   updatePrice() {
     var price = 0;
     for (var project in this.state.projects) {
-      price = price + parseInt(this.refs["project_" + project].getPrice());
+      price = price + parseInt(this.refs['project_' + project].getPrice());
     }
     this.state.overallPrice = price;
     this.forceUpdate();
@@ -82,18 +82,18 @@ export default class PlantManager extends Component {
     for (var project in this.state.projects) {
       var projectItems = {};
       var updateProject = false;
-      for (var article in this.refs["project_" + project].getArticles()) {
-        if (this.refs["project_" + project].getArticleValue(article) != null && this.refs["project_" + project].getArticleValue(article) > 0) {
-          projectItems[this.refs["project_" + project].getArticles()[article].treeType.name] = {
-            amount: parseInt(this.refs["project_" + project].getArticleValue(article)),
-            price: parseInt(this.refs["project_" + project].getArticles()[article].price.priceAsLong),
-            imageFile: this.refs["project_" + project].getArticles()[article].treeType.imageFile
+      for (var article in this.refs['project_' + project].getArticles()) {
+        if (this.refs['project_' + project].getArticleValue(article) != null && this.refs['project_' + project].getArticleValue(article) > 0) {
+          projectItems[this.refs['project_' + project].getArticles()[article].treeType.name] = {
+            amount: parseInt(this.refs['project_' + project].getArticleValue(article)),
+            price: parseInt(this.refs['project_' + project].getArticles()[article].price.priceAsLong),
+            imageFile: this.refs['project_' + project].getArticles()[article].treeType.imageFile
           };
           updateProject = true;
         }
       }
       if (updateProject) {
-        this.props.route.updatePlantBag(this.refs["project_" + project].getPrice(), projectItems, this.state.projects[project].projectName, this.props.route.isGift);
+        this.props.route.updatePlantBag(this.refs['project_' + project].getPrice(), projectItems, this.state.projects[project].projectName, this.props.route.isGift);
       }
     }
   }
@@ -136,13 +136,13 @@ export default class PlantManager extends Component {
           <div className="col-md-12">
             <div>
               {this.state.projects.map(function(project, i) {
-                return (<Project key={i} project={project} ref={"project_" + i} updatePrice={that.updatePrice.bind(this)}/>);
+                return (<Project key={i} project={project} ref={'project_' + i} updatePrice={that.updatePrice.bind(this)}/>);
               })}
             </div>
           </div>
           <div className="col-md-12 plant-div">
             <div className="price">
-              <span>GESAMT:&nbsp;{Accounting.formatNumber(this.state.overallPrice / 100, 2, ".", ",")}&nbsp;€</span>
+              <span>GESAMT:&nbsp;{Accounting.formatNumber(this.state.overallPrice / 100, 2, '.', ',')}&nbsp;€</span>
             </div>
             <SvgButton text="PFLANZEN" buttonType="barrow" onClick={this.plantForUser.bind(this)} />
           </div>

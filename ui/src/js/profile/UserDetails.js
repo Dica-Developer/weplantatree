@@ -21,7 +21,7 @@ export default class UserDetails extends Component {
   render() {
     let imageUrl;
     if (this.props.user.userName) {
-      imageUrl = 'http://localhost:8081/user/image/' + this.props.user.imageFileName + '/150/150'
+      imageUrl = 'http://localhost:8081/user/image/' + this.props.user.imageFileName + '/150/150';
     }
 
     var editLink;
@@ -44,17 +44,17 @@ export default class UserDetails extends Component {
                   <span className="bold">Rang:&nbsp;</span>{this.props.user.rank}
                 </td>
                 <td>
-                  <span className="bold">Mitglied seit:&nbsp;</span>{moment(this.props.user.regDate).format("DD.MM.YYYY")}</td>
+                  <span className="bold">Mitglied seit:&nbsp;</span>{moment(this.props.user.regDate).format('DD.MM.YYYY')}</td>
               </tr>
               <tr>
                 <td>
-                  <span className="bold">B&auml;ume gepflanzt:&nbsp;</span>{Accounting.formatNumber(this.props.user.co2Data.treesCount, 0, ".", ",")}</td>
+                  <span className="bold">B&auml;ume gepflanzt:&nbsp;</span>{Accounting.formatNumber(this.props.user.co2Data.treesCount, 0, '.', ',')}</td>
                 <td>
-                  <span className="bold">letzter Besuch:&nbsp;</span>{moment(this.props.user.lastVisit).format("DD.MM.YYYY")}</td>
+                  <span className="bold">letzter Besuch:&nbsp;</span>{moment(this.props.user.lastVisit).format('DD.MM.YYYY')}</td>
               </tr>
               <tr>
                 <td>
-                  <span className="bold">CO<sub>2</sub>&nbsp;gebunden:&nbsp;</span>{Accounting.formatNumber(this.props.user.co2Data.co2, 3, ".", ",")}&nbsp;t</td>
+                  <span className="bold">CO<sub>2</sub>&nbsp;gebunden:&nbsp;</span>{Accounting.formatNumber(this.props.user.co2Data.co2, 3, '.', ',')}&nbsp;t</td>
                 <td>
                   <span className="bold">Typ:&nbsp;</span>{this.props.user.organizationType}</td>
               </tr>

@@ -10,7 +10,7 @@ import Accounting from 'accounting';
 
 import IconButton from '../common/components/IconButton';
 
-require("./co2Calculator.less");
+require('./co2Calculator.less');
 
 export default class Co2Calculator extends Component {
 
@@ -29,16 +29,16 @@ export default class Co2Calculator extends Component {
       homeMessage: 'Bitte füllen Sie alle Felder zur Berechnung aus.',
       overallResult: 0,
       overallMessage: '-'
-    }
+    };
   }
 
   calcFoodResult() {
-    let feedingResult = parseFloat(this.refs["feeding"].value);
-    let foodAmountResult = parseFloat(this.refs["food-amount"].value);
-    let foodLocalResult = parseFloat(this.refs["food-local"].value);
-    let foodFrozenResult = parseFloat(this.refs["food-frozen"].value);
-    let foodSaisonResult = parseFloat(this.refs["food-saison"].value);
-    let foodBioResult = parseFloat(this.refs["food-bio"].value);
+    let feedingResult = parseFloat(this.refs['feeding'].value);
+    let foodAmountResult = parseFloat(this.refs['food-amount'].value);
+    let foodLocalResult = parseFloat(this.refs['food-local'].value);
+    let foodFrozenResult = parseFloat(this.refs['food-frozen'].value);
+    let foodSaisonResult = parseFloat(this.refs['food-saison'].value);
+    let foodBioResult = parseFloat(this.refs['food-bio'].value);
     let foodResult = feedingResult * foodAmountResult * foodLocalResult * foodFrozenResult * foodSaisonResult * foodBioResult;
     if (feedingResult !== 0 && foodAmountResult !== 0 && foodLocalResult !== 0 && foodFrozenResult !== 0 && foodSaisonResult !== 0 && foodBioResult !== 0) {
       this.state.foodMessage = '';
@@ -49,8 +49,8 @@ export default class Co2Calculator extends Component {
   }
 
   calcMobilityResult() {
-    let mobilityResult = 0.01 * parseFloat(this.refs["fuel"].value) * parseFloat(this.refs["consumption"].value) * parseFloat(this.refs["range"].value);
-    let mobilityProduction = 0.01 * parseFloat(this.refs["fuel"].value) * parseFloat(this.refs["consumption"].value) * 30000;
+    let mobilityResult = 0.01 * parseFloat(this.refs['fuel'].value) * parseFloat(this.refs['consumption'].value) * parseFloat(this.refs['range'].value);
+    let mobilityProduction = 0.01 * parseFloat(this.refs['fuel'].value) * parseFloat(this.refs['consumption'].value) * 30000;
     if (mobilityResult !== 0 && mobilityProduction !== 0) {
       this.state.mobilityMessage = '';
       this.state.mobilityProductionMessage = '';
@@ -62,7 +62,7 @@ export default class Co2Calculator extends Component {
   }
 
   calcFlightResult() {
-    let flightResult = 0.38 * parseFloat(this.refs["flight-range"].value);
+    let flightResult = 0.38 * parseFloat(this.refs['flight-range'].value);
     if (flightResult !== 0) {
       this.state.flightMessage = '';
       this.state.flightResult = flightResult;
@@ -72,12 +72,12 @@ export default class Co2Calculator extends Component {
   }
 
   calcHomeResult() {
-    let houseTypeResult = parseFloat(this.refs["house-type"].value);
-    let livingSpaceResult = parseFloat(this.refs["living-space"].value);
-    let energyTypeResult = parseFloat(this.refs["energy-type"].value);
-    let houseMemberCountResult = parseFloat(this.refs["house-member-count"].value);
-    let powerTypeResult = parseFloat(this.refs["power-type"].value);
-    let powerConsumptionResult = parseFloat(this.refs["power-consumption"].value);
+    let houseTypeResult = parseFloat(this.refs['house-type'].value);
+    let livingSpaceResult = parseFloat(this.refs['living-space'].value);
+    let energyTypeResult = parseFloat(this.refs['energy-type'].value);
+    let houseMemberCountResult = parseFloat(this.refs['house-member-count'].value);
+    let powerTypeResult = parseFloat(this.refs['power-type'].value);
+    let powerConsumptionResult = parseFloat(this.refs['power-consumption'].value);
 
     let homeResult = houseTypeResult * livingSpaceResult * energyTypeResult / houseMemberCountResult + powerTypeResult * powerConsumptionResult / houseMemberCountResult;
     if (!isNaN(houseTypeResult) && !isNaN(livingSpaceResult)  && !isNaN(energyTypeResult)  && !isNaN(houseMemberCountResult) && !isNaN(powerTypeResult) && !isNaN(powerConsumptionResult)) {
@@ -182,14 +182,14 @@ export default class Co2Calculator extends Component {
           </div>
           <div className="col-md-6 item-align-start results">
             <div className="bold">
-              {"Ergebnis:"}
+              {'Ergebnis:'}
             </div>
           </div>
           <div className="col-md-6 item-align-start results">
             <div className="bold">
               {this.state.foodMessage}
               {this.state.foodResult !== 0 &&
-                <span>{Accounting.formatNumber(this.state.foodResult, 3, ".", ",")} kg CO<sub>2</sub></span>
+                <span>{Accounting.formatNumber(this.state.foodResult, 3, '.', ',')} kg CO<sub>2</sub></span>
               }
             </div>
           </div>
@@ -229,8 +229,8 @@ export default class Co2Calculator extends Component {
         <div className="row">
           <div className="col-md-6 item-align-start results">
             <div className="bold">
-              {"Ergebnis:"}
-              <br/> {"Produktionsemission: "}
+              {'Ergebnis:'}
+              <br/> {'Produktionsemission: '}
             </div>
           </div>
           <div className="col-md-6 item-align-start results">
@@ -238,10 +238,10 @@ export default class Co2Calculator extends Component {
               {this.state.mobilityMessage}<br />
               {this.state.mobilityProductionMessage}
                 {this.state.mobilityResult !== 0 &&
-                  <span>{Accounting.formatNumber(this.state.mobilityResult, 3, ".", ",")} kg CO<sub>2</sub></span>
+                  <span>{Accounting.formatNumber(this.state.mobilityResult, 3, '.', ',')} kg CO<sub>2</sub></span>
                 }<br />
                 {this.state.mobilityProduction !== 0 &&
-                  <span>{Accounting.formatNumber(this.state.mobilityProduction, 3, ".", ",")} kg CO<sub>2</sub></span>
+                  <span>{Accounting.formatNumber(this.state.mobilityProduction, 3, '.', ',')} kg CO<sub>2</sub></span>
                 }
             </div>
           </div>
@@ -253,14 +253,14 @@ export default class Co2Calculator extends Component {
           </div>
           <div className="col-md-6 item-align-start results">
             <div className="bold">
-              {"Ergebnis:"}
+              {'Ergebnis:'}
             </div>
           </div>
           <div className="col-md-6 item-align-start results">
             <div className="bold">
               {this.state.flightResult}
               {this.state.flightMessage !== 0 &&
-                <span>{Accounting.formatNumber(this.state.flightResult, 3, ".", ",")} kg CO<sub>2</sub></span>
+                <span>{Accounting.formatNumber(this.state.flightResult, 3, '.', ',')} kg CO<sub>2</sub></span>
               }
             </div>
           </div>
@@ -338,14 +338,14 @@ export default class Co2Calculator extends Component {
           </div>
           <div className="col-md-6 item-align-start results">
             <div className="bold">
-              {"Ergebnis:"}
+              {'Ergebnis:'}
             </div>
           </div>
           <div className="col-md-6 item-align-start results">
             <div className="bold">
               {this.state.homeMessage}
               {this.state.homeResult !== 0 &&
-                <span>{Accounting.formatNumber(this.state.homeResult, 3, ".", ",")} kg CO<sub>2</sub></span>
+                <span>{Accounting.formatNumber(this.state.homeResult, 3, '.', ',')} kg CO<sub>2</sub></span>
               }
             </div>
           </div>
@@ -358,7 +358,7 @@ export default class Co2Calculator extends Component {
             <div className="bold">
               {this.state.overallMessage}
               {this.state.overallResult !== 0 &&
-                <span>{Accounting.formatNumber(this.state.overallResult, 3, ".", ",")} kg CO<sub>2</sub></span>
+                <span>{Accounting.formatNumber(this.state.overallResult, 3, '.', ',')} kg CO<sub>2</sub></span>
               }
             </div>
           </div>

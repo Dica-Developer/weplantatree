@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./disclaimer.less");
+require('./disclaimer.less');
 
 export default class Disclaimer extends Component {
 
@@ -15,7 +15,7 @@ export default class Disclaimer extends Component {
     super();
     this.state = {
       disclaimer: []
-    }
+    };
   }
 
   componentDidMount() {

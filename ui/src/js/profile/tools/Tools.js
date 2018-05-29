@@ -10,7 +10,7 @@ import Receipts from './Receipts';
 import Banner from './Banner';
 import Widgets from './Widgets';
 
-require("./tools.less");
+require('./tools.less');
 
 export default class Tools extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class Tools extends Component {
   }
 
   switchTo(value) {
-    this.setState({view: value})
+    this.setState({view: value});
   }
 
   render() {
@@ -37,10 +37,10 @@ export default class Tools extends Component {
         content = <Receipts view={this.state.view} switchTo={this.switchTo.bind(this)}/>;
         break;
       case 'banner':
-        content = <Banner view={this.state.view} switchTo={this.switchTo.bind(this)}/>
+        content = <Banner view={this.state.view} switchTo={this.switchTo.bind(this)}/>;
         break;
       case 'widgets':
-        content = <Widgets view={this.state.view} switchTo={this.switchTo.bind(this)}/>
+        content = <Widgets view={this.state.view} switchTo={this.switchTo.bind(this)}/>;
         break;
       default:
         break;

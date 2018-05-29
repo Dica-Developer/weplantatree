@@ -17,7 +17,7 @@ import {getConfig} from '../../common/RestHelper';
 
 import {getTextForSelectedLanguage, getTextForLanguage, createMultiLanguageEntry} from '../../common/language/LanguageHelper';
 
-require("./projectEditor.less");
+require('./projectEditor.less');
 
 class ProjectImage extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class ProjectImage extends Component {
       imageFileName: this.props.projectImage.imageFileName,
       imageId: this.props.projectImage.imageId,
       fileSrc: null
-    }
+    };
   }
 
   updateValue(toUpdate, value) {
@@ -51,7 +51,7 @@ class ProjectImage extends Component {
         <div>
           <button>Abbrechen</button>
           <button onClick={() => {
-            this.deleteProjectImage()
+            this.deleteProjectImage();
           }}>OK</button>
         </div>
       )
@@ -62,7 +62,7 @@ class ProjectImage extends Component {
     if (this.state.imageId != null) {
       var that = this;
       var config = getConfig();
-      axios.post('http://localhost:8083/project/image/delete?projectImageId=' + this.state.imageId + "&imageFileName=" + this.state.imageFileName, {}, config).then(function(response) {
+      axios.post('http://localhost:8083/project/image/delete?projectImageId=' + this.state.imageId + '&imageFileName=' + this.state.imageFileName, {}, config).then(function(response) {
         that.props.removeProjectImage(that.props.arrayIndex);
         that.refs.notification.addNotification('Geschafft!', 'Bild wurde gelöscht.', 'success');
       }).catch(function(response) {
@@ -137,7 +137,7 @@ class ProjectImage extends Component {
       reader.onloadend = function(e) {
         this.setState({
           fileSrc: [reader.result]
-        })
+        });
       }.bind(this);
     }
     this.forceUpdate();
@@ -172,7 +172,7 @@ class ProjectImage extends Component {
           </div>
           <div className="col-md-3">
             <input type="text" value={this.state.titleDe} onChange={(event) => {
-              this.updateValue("titleDe", event.target.value)
+              this.updateValue('titleDe', event.target.value);
             }}/>
           </div>
           <div className="col-md-3">
@@ -180,7 +180,7 @@ class ProjectImage extends Component {
           </div>
           <div className="col-md-3">
             <input type="text" value={this.state.titleEn} onChange={(event) => {
-              this.updateValue("titleEn", event.target.value)
+              this.updateValue('titleEn', event.target.value);
             }}/>
           </div>
         </div>
@@ -190,7 +190,7 @@ class ProjectImage extends Component {
           </div>
           <div className="col-md-3">
             <textarea rows="4" cols="35" value={this.state.descriptionDe} onChange={(event) => {
-              this.updateValue("descriptionDe", event.target.value)
+              this.updateValue('descriptionDe', event.target.value);
             }}/>
           </div>
           <div className="col-md-3">
@@ -198,7 +198,7 @@ class ProjectImage extends Component {
           </div>
           <div className="col-md-3">
             <textarea rows="4" cols="35" value={this.state.descriptionEn} onChange={(event) => {
-              this.updateValue("descriptionEn", event.target.value)
+              this.updateValue('descriptionEn', event.target.value);
             }}/>
           </div>
         </div>
@@ -230,7 +230,7 @@ class ProjectArticle extends Component {
     this.state = {
       article: this.props.article,
       treeTypes: this.props.treeTypes
-    }
+    };
   }
 
   componentDidMount() {
@@ -273,7 +273,7 @@ class ProjectArticle extends Component {
         <div>
           <button>Abbrechen</button>
           <button onClick={() => {
-            this.deleteProjectArticle()
+            this.deleteProjectArticle();
           }}>OK</button>
         </div>
       )
@@ -344,7 +344,7 @@ class ProjectArticle extends Component {
         </div>
         <div className="col-md-3">
           <input type="text" value={this.state.article.amount} onChange={(event) => {
-            this.updateValue("amount", event.target.value)
+            this.updateValue('amount', event.target.value);
           }}/>
         </div>
         <div className="col-md-3">
@@ -352,7 +352,7 @@ class ProjectArticle extends Component {
         </div>
         <div className="col-md-3">
           <input type="text" value={this.state.article.price.amount} onChange={(event) => {
-            this.updatePriceValue("amount", event.target.value)
+            this.updatePriceValue('amount', event.target.value);
           }}/>
         </div>
         <div className="col-md-3">
@@ -360,7 +360,7 @@ class ProjectArticle extends Component {
         </div>
         <div className="col-md-3">
           <input type="text" value={this.state.article.price.marge} onChange={(event) => {
-            this.updatePriceValue("marge", event.target.value)
+            this.updatePriceValue('marge', event.target.value);
           }}/>
         </div>
         <div className="col-md-3">
@@ -368,7 +368,7 @@ class ProjectArticle extends Component {
         </div>
         <div className="col-md-3">
           <input type="text" value={this.state.article.price.funding} onChange={(event) => {
-            this.updatePriceValue("funding", event.target.value)
+            this.updatePriceValue('funding', event.target.value);
           }}/>
         </div>
         <div className="col-md-3">
@@ -376,7 +376,7 @@ class ProjectArticle extends Component {
         </div>
         <div className="col-md-3">
           <input type="text" value={this.state.article.price.sconto} onChange={(event) => {
-            this.updatePriceValue("sconto", event.target.value)
+            this.updatePriceValue('sconto', event.target.value);
           }}/>
         </div>
         <div className="col-md-12 align-left">
@@ -413,7 +413,7 @@ export default class ProjectEditor extends Component {
       descriptionEn: '',
       treeTypes: [],
       zoom: 8
-    }
+    };
   }
 
   componentDidMount() {
@@ -431,16 +431,16 @@ export default class ProjectEditor extends Component {
       var descriptionDe = getTextForLanguage(result.description, 'DEUTSCH');
       var descriptionEn = getTextForLanguage(result.description, 'ENGLISH');
       that.setState({project: result, descriptionDe: descriptionDe, descriptionEn: descriptionEn});
-      that.refs["editor_de"].refreshEditor();
-      that.refs["editor_en"].refreshEditor();
+      that.refs['editor_de'].refreshEditor();
+      that.refs['editor_en'].refreshEditor();
       axios.get('http://localhost:8083/project/articles?projectId=' + encodeURIComponent(that.props.params.projectId), config).then(function(response) {
         var result = response.data;
-        that.state.project["articles"] = result;
+        that.state.project['articles'] = result;
         that.forceUpdate();
       });
       axios.get('http://localhost:8083/project/images?projectId=' + encodeURIComponent(that.props.params.projectId), config).then(function(response) {
         var result = response.data;
-        that.state.project["images"] = result;
+        that.state.project['images'] = result;
         that.forceUpdate();
       });
     });
@@ -473,7 +473,7 @@ export default class ProjectEditor extends Component {
 
   updateVisibility(event) {
     var value;
-    if (event.target.value == "1") {
+    if (event.target.value == '1') {
       value = true;
     } else {
       value = false;
@@ -484,7 +484,7 @@ export default class ProjectEditor extends Component {
 
   updateShopActive(event) {
     var value;
-    if (event.target.value == "1") {
+    if (event.target.value == '1') {
       value = true;
     } else {
       value = false;
@@ -515,7 +515,7 @@ export default class ProjectEditor extends Component {
       var projectId = response.data;
       that.state.project.id = projectId;
       for (var image in that.state.project.images) {
-        that.refs["image_" + image].updateProjectId(projectId);
+        that.refs['image_' + image].updateProjectId(projectId);
       }
       that.refs.notification.addNotification('Geschafft!', 'Projekt wurde aktualisiert.', 'success');
       that.forceUpdate();
@@ -561,7 +561,7 @@ export default class ProjectEditor extends Component {
   removeProjectArticle(index) {
     this.state.project.articles.splice(index, 1);
     for (var article in this.state.project.articles) {
-      this.refs["article_" + article].updateArticle(this.state.project.articles[article]);
+      this.refs['article_' + article].updateArticle(this.state.project.articles[article]);
     }
     this.forceUpdate();
   }
@@ -569,13 +569,13 @@ export default class ProjectEditor extends Component {
   removeProjectImage(index) {
     this.state.project.images.splice(index, 1);
     for (var image in this.state.project.images) {
-      this.refs["image_" + image].updateImageFromParent(this.state.project.images[image]);
+      this.refs['image_' + image].updateImageFromParent(this.state.project.images[image]);
     }
     this.forceUpdate();
   }
 
   createProjectArticle(index) {
-    return <ProjectArticle ref={"article_" + index} article={this.state.project.articles[index]} key={index} treeTypes={this.state.treeTypes} arrayIndex={index} removeProjectArticle={this.removeProjectArticle.bind(this)}/>;
+    return <ProjectArticle ref={'article_' + index} article={this.state.project.articles[index]} key={index} treeTypes={this.state.treeTypes} arrayIndex={index} removeProjectArticle={this.removeProjectArticle.bind(this)}/>;
   }
 
   createProjectArticles() {
@@ -591,7 +591,7 @@ export default class ProjectEditor extends Component {
   }
 
   createProjectImage(index) {
-    return <ProjectImage ref={"image_" + index} projectImage={this.state.project.images[index]} projectId={this.state.project.id} arrayIndex={index} key={index} removeProjectImage={this.removeProjectImage.bind(this)}/>;
+    return <ProjectImage ref={'image_' + index} projectImage={this.state.project.images[index]} projectId={this.state.project.id} arrayIndex={index} key={index} removeProjectImage={this.removeProjectImage.bind(this)}/>;
   }
 
   createProjectImages() {
@@ -624,7 +624,7 @@ export default class ProjectEditor extends Component {
           </div>
           <div className="col-md-8">
             <input type="text" value={this.state.project.name} onChange={(event) => {
-              this.updateValue("name", event.target.value)
+              this.updateValue('name', event.target.value);
             }}/>
           </div>
         </div>

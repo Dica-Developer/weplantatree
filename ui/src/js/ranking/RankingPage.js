@@ -15,7 +15,7 @@ import Notification from '../common/components/Notification';
 import LoadingSpinner from '../common/components/LoadingSpinner';
 import $ from 'jquery';
 
-require("./rankingPage.less");
+require('./rankingPage.less');
 
 export default class RankingPage extends Component {
 
@@ -32,16 +32,16 @@ export default class RankingPage extends Component {
       rankingEntries: 25,
       onlyLastYear: true
     };
-    this.toggleDiv = this.toggleDiv.bind(this)
+    this.toggleDiv = this.toggleDiv.bind(this);
   }
 
   componentDidMount() {
-    this.refs["spinner"].showSpinner();
+    this.refs['spinner'].showSpinner();
     this.loadAllUser();
   }
 
   toggleDiv() {
-    $(this.refs['ranking']).slideToggle(800)
+    $(this.refs['ranking']).slideToggle(800);
   }
 
   loadAllUser(withToggle) {
@@ -52,7 +52,7 @@ export default class RankingPage extends Component {
     axios.get('http://localhost:8081/ranking/bestUser?page=0&size=' + this.state.rankingEntries + '&lastYear=' + this.state.onlyLastYear).then(function(response) {
       var result = response.data;
       setTimeout(function() {
-        that.refs["spinner"].hideSpinner();
+        that.refs['spinner'].hideSpinner();
         that.setState({
           ranking: result,
           orgTypeDesc: 'Alle'
@@ -151,7 +151,7 @@ export default class RankingPage extends Component {
               <hr />
           </div>
           <div className="row">
-            <div ref="ranking" className={"col-md-12 rankingItems"}>
+            <div ref="ranking" className={'col-md-12 rankingItems'}>
               <h1>{this.state.orgTypeDesc}</h1>
               {this.state.ranking.content.map(function(content, i) {
                 if (i == 0) {
@@ -177,12 +177,12 @@ export default class RankingPage extends Component {
             </div>
           </div>
           <div className="row">
-            <div className={"col-md-12 "}>
+            <div className={'col-md-12 '}>
               <a className={(this.state.ranking.last
-                ? "no-display"
-                : "pagingLink")} role="button" onClick={this.callMoreRankingEntries.bind(this)}>
+                ? 'no-display'
+                : 'pagingLink')} role="button" onClick={this.callMoreRankingEntries.bind(this)}>
                 <div>
-                  <span className={"glyphicon glyphicon-menu-down"}></span>
+                  <span className={'glyphicon glyphicon-menu-down'}></span>
                 </div>
               </a>
             </div>

@@ -11,13 +11,13 @@ import TreesPerYear from './TreesPerYear';
 import TreesPerOrgType from './TreesPerOrgType';
 import Co2PerYear from './Co2PerYear';
 
-require("./statisticsPage.less");
+require('./statisticsPage.less');
 
 export default class StatisticsPage extends Component {
 
   constructor() {
     super();
-    this.state = {}
+    this.state = {};
   }
 
   render() {

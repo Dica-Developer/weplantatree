@@ -104,7 +104,7 @@ export default class CodeGenerator extends Component {
   updatePrice() {
     var price = 0;
     for (var project in this.state.projects) {
-      price = price + parseInt(this.refs["project_" + project].getPrice());
+      price = price + parseInt(this.refs['project_' + project].getPrice());
     }
     this.state.overallPrice = price;
     this.forceUpdate();
@@ -114,18 +114,18 @@ export default class CodeGenerator extends Component {
     for (var project in this.state.projects) {
       var projectItems = {};
       var updateProject = false;
-      for (var article in this.refs["project_" + project].getArticles()) {
-        if (this.refs["project_" + project].getArticleValue(article) != null && this.refs["project_" + project].getArticleValue(article) > 0) {
-          projectItems[this.refs["project_" + project].getArticles()[article].treeType.name] = {
-            amount: parseInt(this.refs["project_" + project].getArticleValue(article)),
-            price: parseInt(this.refs["project_" + project].getArticles()[article].price.priceAsLong),
-            imageFile: this.refs["project_" + project].getArticles()[article].treeType.imageFile
+      for (var article in this.refs['project_' + project].getArticles()) {
+        if (this.refs['project_' + project].getArticleValue(article) != null && this.refs['project_' + project].getArticleValue(article) > 0) {
+          projectItems[this.refs['project_' + project].getArticles()[article].treeType.name] = {
+            amount: parseInt(this.refs['project_' + project].getArticleValue(article)),
+            price: parseInt(this.refs['project_' + project].getArticles()[article].price.priceAsLong),
+            imageFile: this.refs['project_' + project].getArticles()[article].treeType.imageFile
           };
           updateProject = true;
         }
       }
       if (updateProject) {
-        this.props.updatePlantBag(this.refs["project_" + project].getPrice(), projectItems, this.state.projects[project].projectName);
+        this.props.updatePlantBag(this.refs['project_' + project].getPrice(), projectItems, this.state.projects[project].projectName);
       }
     }
   }
@@ -144,14 +144,14 @@ export default class CodeGenerator extends Component {
             <label className="input-label">Anzahl der zu generierenden Codes</label>
           </div>
           <div className="col-md-8"><input type="text" value={this.state.amount} onChange={(event) => {
-        this.updateAmount(event.target.value)
+        this.updateAmount(event.target.value);
       }}/></div>
         </div>
         <div className="row">
           <div className="col-md-12">
             <div>
               {this.state.projects.map(function(project, i) {
-                return (<Project key={i} project={project} ref={"project_" + i} updatePrice={that.updatePrice.bind(this)}/>);
+                return (<Project key={i} project={project} ref={'project_' + i} updatePrice={that.updatePrice.bind(this)}/>);
               })}
             </div>
           </div>
@@ -159,7 +159,7 @@ export default class CodeGenerator extends Component {
         <div className="row">
           <div className="col-md-12 plant-div">
             <div className="price">
-              <span>GESAMT:&nbsp;{Accounting.formatNumber(this.state.overallPrice / 100, 2, ".", ",")}&nbsp;€</span>
+              <span>GESAMT:&nbsp;{Accounting.formatNumber(this.state.overallPrice / 100, 2, '.', ',')}&nbsp;€</span>
             </div>
             <SvgButton text="CODES GENERIEREN" buttonType="barrow" onClick={this.generateCodes.bind(this)} />
           </div>

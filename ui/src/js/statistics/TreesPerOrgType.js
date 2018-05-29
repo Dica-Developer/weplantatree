@@ -23,18 +23,18 @@ export default class TreesPerOrgType extends Component {
         scaleOverride: true,
         scaleSteps: 6,
         scaleStepWidth: 5000,
-        tooltipTemplate: "<%= value %>"
+        tooltipTemplate: '<%= value %>'
       }
-    }
+    };
   }
 
   componentDidMount() {
     this.updateChartForYear();
-    this.state.chartData.push({color: "rgb(50, 171, 31)", label: this.state.labels[0], value: this.state.amountOfTrees[0]});
-    this.state.chartData.push({color: "rgb(70, 100, 31)", label: this.state.labels[1], value: this.state.amountOfTrees[1]});
-    this.state.chartData.push({color: "rgb(10, 50, 31)", label: this.state.labels[2], value: this.state.amountOfTrees[2]});
-    this.state.chartData.push({color: "rgb(130, 171, 100)", label: this.state.labels[3], value: this.state.amountOfTrees[3]});
-    this.refs["barChart"].update();
+    this.state.chartData.push({color: 'rgb(50, 171, 31)', label: this.state.labels[0], value: this.state.amountOfTrees[0]});
+    this.state.chartData.push({color: 'rgb(70, 100, 31)', label: this.state.labels[1], value: this.state.amountOfTrees[1]});
+    this.state.chartData.push({color: 'rgb(10, 50, 31)', label: this.state.labels[2], value: this.state.amountOfTrees[2]});
+    this.state.chartData.push({color: 'rgb(130, 171, 100)', label: this.state.labels[3], value: this.state.amountOfTrees[3]});
+    this.refs['barChart'].update();
   }
 
   updateChartForYear() {
@@ -45,7 +45,7 @@ export default class TreesPerOrgType extends Component {
         that.state.chartData[year].value = result[year].amount;
       }
       that.forceUpdate();
-      that.refs["barChart"].update();
+      that.refs['barChart'].update();
     }).catch(function(response) {
       if (response instanceof Error) {
         console.error('Error', response.message);

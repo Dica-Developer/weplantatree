@@ -135,7 +135,7 @@ export default class Overview extends Component {
           </div>
           <div className="paymentOption">
             <a role="button" onClick={() => {
-              this.setPaymentOption('sepa')
+              this.setPaymentOption('sepa');
             }}>
               SEPA<br/>
               <img src="/assets/images/sepa.png" width="256" height="183"/>
@@ -147,7 +147,7 @@ export default class Overview extends Component {
           </div>
           <div className="paymentOption">
             <a role="button" onClick={() => {
-              this.setPaymentOption('creditcard')
+              this.setPaymentOption('creditcard');
             }}>
               KREDITKARTE<br/>
               <img src="/assets/images/visa.png" width="256" height="183"/>

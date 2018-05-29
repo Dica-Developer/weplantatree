@@ -9,7 +9,7 @@ import Boostrap from 'bootstrap';
 import DoRegistration from './DoRegistration';
 import RegistrationDone from './RegistrationDone';
 
-require("./registrationPage.less");
+require('./registrationPage.less');
 
 export default class RegistrationPage extends Component {
 
@@ -30,7 +30,7 @@ export default class RegistrationPage extends Component {
     if(this.state.registrated){
       content = <RegistrationDone />;
     }else{
-      content = <DoRegistration setRegistrated={()=>{this.setRegistrated(true)}}/>
+      content = <DoRegistration setRegistrated={()=>{this.setRegistrated(true);}}/>;
     }
 
     return (

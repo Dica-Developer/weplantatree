@@ -14,7 +14,7 @@ import IconButton from '../../common/components/IconButton';
 import {getConfig} from '../../common/RestHelper';
 import NotificationSystem from 'react-notification-system';
 
-require("./projectOverview.less");
+require('./projectOverview.less');
 
 export default class ProjectOverview extends Component {
 
@@ -22,7 +22,7 @@ export default class ProjectOverview extends Component {
     super();
     this.state = {
       projects: []
-    }
+    };
   }
 
   componentDidMount() {
@@ -68,7 +68,7 @@ export default class ProjectOverview extends Component {
             {this.state.projects.map(function(project, i) {
               return (<div className="col-md-4 project" key={i}>
                         <p>{project.name}</p>
-                        <IconButton glyphIcon="glyphicon-pencil" text="" onClick={() => {that.editProject(project.id)}}/>
+                        <IconButton glyphIcon="glyphicon-pencil" text="" onClick={() => {that.editProject(project.id);}}/>
                       </div>);
             })}
           </div>

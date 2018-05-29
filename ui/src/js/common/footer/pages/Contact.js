@@ -11,7 +11,7 @@ import IconButton from '../../components/IconButton';
 import Captcha from '../../../common/components/Captcha';
 import Notification from '../../components/Notification';
 
-require("./contact.less");
+require('./contact.less');
 
 export default class Contact extends Component {
 
@@ -26,7 +26,7 @@ export default class Contact extends Component {
         phone: '',
         message: ''
       }
-    }
+    };
   }
 
   componentDidMount() {

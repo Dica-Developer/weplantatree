@@ -13,7 +13,7 @@ import BottomPart from '../BottomPart';
 import MainSlider from './MainSlider';
 import ProjectSlider from './ProjectSlider';
 
-require("./plantPage.less");
+require('./plantPage.less');
 
 export default class SliderPlantPage extends Component {
 
@@ -28,22 +28,22 @@ export default class SliderPlantPage extends Component {
   }
 
   componentDidMount() {
-    this.setState({isGift: this.props.route.isGift, isAbo: this.props.route.isAbo})
+    this.setState({isGift: this.props.route.isGift, isAbo: this.props.route.isAbo});
     var that = this;
     axios.get('http://localhost:8081/reports/activeProjects').then(function(response) {
       var result = response.data;
       that.setState({projects: result, treeCount: 10});
-      that.refs["mainSlider"].setMainSliderValue(10);
+      that.refs['mainSlider'].setMainSliderValue(10);
       that.forceUpdate();
       axios.get('http://localhost:8081/simplePlantProposalForTrees/' + 10).then(function(response) {
         var result = response.data;
         for (var plantItem in result.plantItems) {
           for (var project in that.state.projects) {
             if (that.state.projects[project].projectName == result.plantItems[plantItem].projectName) {
-              that.refs["project_" + project].setSliderValueWithoutBalancing(that.refs["project_" + project].getSliderValue() + result.plantItems[plantItem].amount, false);
-              for (var article in that.refs["project_" + project].getArticles()) {
-                if (that.refs["project_" + project].getArticles()[article].treeType.name == result.plantItems[plantItem].treeType) {
-                  that.refs["project_" + project].setArticleValue(article, result.plantItems[plantItem].amount);
+              that.refs['project_' + project].setSliderValueWithoutBalancing(that.refs['project_' + project].getSliderValue() + result.plantItems[plantItem].amount, false);
+              for (var article in that.refs['project_' + project].getArticles()) {
+                if (that.refs['project_' + project].getArticles()[article].treeType.name == result.plantItems[plantItem].treeType) {
+                  that.refs['project_' + project].setArticleValue(article, result.plantItems[plantItem].amount);
                 }
               }
             }
@@ -58,18 +58,18 @@ export default class SliderPlantPage extends Component {
     for (var project in this.state.projects) {
       var projectItems = {};
       var updateProject = false;
-      for (var article in this.refs["project_" + project].getArticles()) {
-        if (this.refs["project_" + project].getArticleValue(article) > 0) {
-          projectItems[this.refs["project_" + project].getArticles()[article].treeType.name] = {
-            amount: parseInt(this.refs["project_" + project].getArticleValue(article)),
-            price: parseInt(this.refs["project_" + project].getArticles()[article].price.priceAsLong),
-            imageFile: this.refs["project_" + project].getArticles()[article].treeType.imageFile
+      for (var article in this.refs['project_' + project].getArticles()) {
+        if (this.refs['project_' + project].getArticleValue(article) > 0) {
+          projectItems[this.refs['project_' + project].getArticles()[article].treeType.name] = {
+            amount: parseInt(this.refs['project_' + project].getArticleValue(article)),
+            price: parseInt(this.refs['project_' + project].getArticles()[article].price.priceAsLong),
+            imageFile: this.refs['project_' + project].getArticles()[article].treeType.imageFile
           };
           updateProject = true;
         }
       }
       if(updateProject){
-        this.refs["navbar"].updatePlantBag(this.refs["project_" + project].getPrice(), projectItems, this.state.projects[project].projectName);
+        this.refs['navbar'].updatePlantBag(this.refs['project_' + project].getPrice(), projectItems, this.state.projects[project].projectName);
       }
     }
   }
@@ -77,10 +77,10 @@ export default class SliderPlantPage extends Component {
   calcAndSetOverallPrice() {
     var price = 0;
     for (var project in this.state.projects) {
-      price = price + parseInt(this.refs["project_" + project].getPrice());
+      price = price + parseInt(this.refs['project_' + project].getPrice());
     }
     this.state.overallPrice = price;
-    this.refs["mainSlider"].setOverallPrice(price);
+    this.refs['mainSlider'].setOverallPrice(price);
     this.forceUpdate();
   }
 
@@ -89,12 +89,12 @@ export default class SliderPlantPage extends Component {
     var moduloValue = value % this.state.projects.length;
     var moduloCnt = 0;
     for (var project in this.state.projects) {
-      this.refs["project_" + project].updateMaxValue(value);
+      this.refs['project_' + project].updateMaxValue(value);
       if (moduloCnt < moduloValue) {
-        this.refs["project_" + project].setSliderValue(divisionValue + 1, false);
+        this.refs['project_' + project].setSliderValue(divisionValue + 1, false);
         moduloCnt++;
       } else {
-        this.refs["project_" + project].setSliderValue(divisionValue, false);
+        this.refs['project_' + project].setSliderValue(divisionValue, false);
       }
     }
     this.setState({treeCount: value});
@@ -108,8 +108,8 @@ export default class SliderPlantPage extends Component {
       var manualMovedSliderValueWithMaxValue = this.getManualMovedSliderValueWithMaxValueExceptCurrent(sliderIndex);
       var diffToTreeCount = movedCntAndSum[1] - this.state.treeCount;
 
-      var valueToSet = this.refs["project_" + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
-      this.refs["project_" + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
+      var valueToSet = this.refs['project_' + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
+      this.refs['project_' + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
 
       var divisionValue = Math.trunc((this.state.treeCount - (parseInt(valueToSet) + parseInt(value))) / ((movedCntAndSum[0] - 2)));
       var moduloValue = (this.state.treeCount - (parseInt(valueToSet) + parseInt(value))) % (movedCntAndSum[0] - 2);
@@ -117,30 +117,30 @@ export default class SliderPlantPage extends Component {
       for (var project in this.state.projects) {
         if (project != manualMovedSliderValueWithMaxValue && project != sliderIndex) {
           if (moduloCnt < moduloValue) {
-            this.refs["project_" + project].setSliderValue(divisionValue + 1, true);
+            this.refs['project_' + project].setSliderValue(divisionValue + 1, true);
             moduloCnt++;
           } else {
-            this.refs["project_" + project].setSliderValue(divisionValue, true);
+            this.refs['project_' + project].setSliderValue(divisionValue, true);
           }
         }
       }
     } else if (movedCntAndSum[1] > this.state.treeCount) {
       var manualMovedSliderValueWithMaxValue = this.getManualMovedSliderValueWithMaxValueExceptCurrent(sliderIndex);
       var diffToTreeCount = movedCntAndSum[1] - this.state.treeCount;
-      var valueToSet = this.refs["project_" + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
-      this.refs["project_" + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
+      var valueToSet = this.refs['project_' + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
+      this.refs['project_' + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
 
       if (movedCntAndSum[0] > 2) {
         var divisionValue = Math.trunc((this.state.treeCount - (parseInt(valueToSet) + parseInt(value))) / ((movedCntAndSum[0] - 2)));
         var moduloValue = (this.state.treeCount - (parseInt(valueToSet) + parseInt(value))) % (movedCntAndSum[0] - 2);
         var moduloCnt = 0;
         for (var project in this.state.projects) {
-          if (this.refs["project_" + project].wasMovedManually() && project != sliderIndex && project != manualMovedSliderValueWithMaxValue) {
+          if (this.refs['project_' + project].wasMovedManually() && project != sliderIndex && project != manualMovedSliderValueWithMaxValue) {
             if (moduloCnt < moduloValue) {
-              this.refs["project_" + project].setSliderValue(divisionValue + 1, true);
+              this.refs['project_' + project].setSliderValue(divisionValue + 1, true);
               moduloCnt++;
             } else {
-              this.refs["project_" + project].setSliderValue(divisionValue, true);
+              this.refs['project_' + project].setSliderValue(divisionValue, true);
             }
           }
         }
@@ -150,12 +150,12 @@ export default class SliderPlantPage extends Component {
       var moduloValue = (this.state.treeCount - movedCntAndSum[1]) % (this.state.projects.length - movedCntAndSum[0]);
       var moduloCnt = 0;
       for (var project in this.state.projects) {
-        if (!this.refs["project_" + project].wasMovedManually()) {
+        if (!this.refs['project_' + project].wasMovedManually()) {
           if (moduloCnt < moduloValue) {
-            this.refs["project_" + project].setSliderValue(divisionValue + 1, false);
+            this.refs['project_' + project].setSliderValue(divisionValue + 1, false);
             moduloCnt++;
           } else {
-            this.refs["project_" + project].setSliderValue(divisionValue, false);
+            this.refs['project_' + project].setSliderValue(divisionValue, false);
           }
         }
       }
@@ -168,9 +168,9 @@ export default class SliderPlantPage extends Component {
     var movedCnt = 0;
     var movedSum = 0;
     for (var project in this.state.projects) {
-      if (this.refs["project_" + project].wasMovedManually()) {
+      if (this.refs['project_' + project].wasMovedManually()) {
         movedCnt++;
-        movedSum = movedSum + parseInt(this.refs["project_" + project].getSliderValue());
+        movedSum = movedSum + parseInt(this.refs['project_' + project].getSliderValue());
       }
     }
     result.push(movedCnt);
@@ -183,8 +183,8 @@ export default class SliderPlantPage extends Component {
     var maxValue = -1;
     var index;
     for (var project in this.state.projects) {
-      if (project != sliderIndex && parseInt(this.refs["project_" + project].getSliderValue()) > maxValue) {
-        maxValue = parseInt(this.refs["project_" + project].getSliderValue());
+      if (project != sliderIndex && parseInt(this.refs['project_' + project].getSliderValue()) > maxValue) {
+        maxValue = parseInt(this.refs['project_' + project].getSliderValue());
         index = project;
       }
     }
@@ -204,7 +204,7 @@ export default class SliderPlantPage extends Component {
             <h1>{this.props.route.header}</h1>
             <ButtonBar chosen="slider"/>
             <MainSlider ref="mainSlider" balanceProjectSliders={this.balanceProjectSlidersFromMain.bind(this)}/> {this.state.projects.map(function(project, i) {
-              return (<ProjectSlider project={project} articles={project.articles} key={i} ref={"project_" + i} balanceProjectSliders={that.balanceProjectSlidersFromProjectSlider.bind(this)} sliderIndex={i}/>);
+              return (<ProjectSlider project={project} articles={project.articles} key={i} ref={'project_' + i} balanceProjectSliders={that.balanceProjectSlidersFromProjectSlider.bind(this)} sliderIndex={i}/>);
             })}
             <BottomPart updatePlantBag={this.updatePlantBag.bind(this)} overallPrice={this.state.overallPrice}/>
           </div>

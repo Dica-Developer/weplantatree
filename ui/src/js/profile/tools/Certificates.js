@@ -26,14 +26,14 @@ class PlantBag extends Component {
     return (
       <div className="certPlantBag">
         <div>
-          <input type="checkbox" onChange={(event)=>{this.props.setPlantBagChosenFlag(this.props.index, event.target.checked)}}/>
+          <input type="checkbox" onChange={(event)=>{this.props.setPlantBagChosenFlag(this.props.index, event.target.checked);}}/>
         </div>
         <div>
           <p>
-            <span className="bold">Anzahl:&nbsp;</span>{Accounting.formatNumber(this.props.plantBag.treeCount, 0, ".", ",")}<br/>
+            <span className="bold">Anzahl:&nbsp;</span>{Accounting.formatNumber(this.props.plantBag.treeCount, 0, '.', ',')}<br/>
             <span className="bold">Datum:&nbsp;</span>
-            <span >{moment(this.props.plantBag.timeStamp).format("DD.MM.YYYY")}</span><br/>
-            <span className="bold">Preis:&nbsp;</span>{Accounting.formatNumber(this.props.plantBag.totalPrice, 2, ".", ",")}&nbsp;€
+            <span >{moment(this.props.plantBag.timeStamp).format('DD.MM.YYYY')}</span><br/>
+            <span className="bold">Preis:&nbsp;</span>{Accounting.formatNumber(this.props.plantBag.totalPrice, 2, '.', ',')}&nbsp;€
           </p>
         </div>
       </div>
@@ -80,7 +80,7 @@ export default class Certificates extends Component {
     }
     this.setState({
       plantBagsChosen: plantBagsChosen
-    })
+    });
   }
 
   setPlantBagChosenFlag(index, value) {
@@ -139,7 +139,7 @@ export default class Certificates extends Component {
     var that = this;
     var content;
     if(this.state.plantBags.length == 0){
-      content = <div className="content">Du hast bisher leider keine Bäume gepflanzt.</div>
+      content = <div className="content">Du hast bisher leider keine Bäume gepflanzt.</div>;
     }else{
       content =
         <div className="content">

@@ -5,7 +5,7 @@ export function getTextForSelectedLanguage(text) {
       text = text.substr(0, text.indexOf('<sep>ENGLISH'));
     } else if (localStorage.getItem('language') === 'ENGLISH') {
       text = text.substr(text.indexOf('ENGLISH<equ>') + 12);
-      text = text.substr(0, text.indexOf('<sep>ITALIAN'))
+      text = text.substr(0, text.indexOf('<sep>ITALIAN'));
     }
   }
   return text;
@@ -18,7 +18,7 @@ export function getTextForLanguage(text, language) {
       text = text.substr(0, text.indexOf('<sep>ENGLISH'));
     } else if (language === 'ENGLISH') {
       text = text.substr(text.indexOf('ENGLISH<equ>') + 12);
-      text = text.substr(0, text.indexOf('<sep>ITALIAN'))
+      text = text.substr(0, text.indexOf('<sep>ITALIAN'));
     }
   }
   return text;
@@ -27,8 +27,8 @@ export function getTextForLanguage(text, language) {
 export function getShortText(text, shortenedTO){
   if (text && text.length > shortenedTO) {
     text = text.substr(0, shortenedTO);
-    text = text.substr(0, Math.min(shortenedTO, text.lastIndexOf(" ")));
-    text = text + "... ";
+    text = text.substr(0, Math.min(shortenedTO, text.lastIndexOf(' ')));
+    text = text + '... ';
   }
   return text;
 }

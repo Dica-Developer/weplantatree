@@ -65,7 +65,7 @@ export default class Sepa extends Component {
   }
 
   updateSalutation(event) {
-    var key = "salutation";
+    var key = 'salutation';
     var val = event.target.value;
     var obj = this.state.paymentData;
     obj[key] = val;
@@ -75,19 +75,19 @@ export default class Sepa extends Component {
   }
 
   payPlantBag() {
-    this.refs["spinner"].showSpinner();
+    this.refs['spinner'].showSpinner();
     var that = this;
     var config = getConfig();
     axios.post('http://localhost:8081/pay', this.state.paymentData, config).then(function(response) {
       $(that.refs['payment-row']).fadeOut(200);
-      that.refs["spinner"].hideSpinner();
+      that.refs['spinner'].hideSpinner();
       that.refs.notification.addNotification('Zahlung erfolgreich abgeschlossen!', 'Vielen Dank für deine Spende.', 'success');
       that.props.resetPlantBag();
       that.setState({
         paymentDone: true
       });
     }).catch(function(error) {
-      that.refs["spinner"].hideSpinner();
+      that.refs['spinner'].hideSpinner();
       that.refs.notification.handleError(error);
     });
   }
@@ -215,7 +215,7 @@ export default class Sepa extends Component {
                 <label className="input-label">Betrag</label>
               </div>
               <div className="col-md-6">
-                <span className="bold">{Accounting.formatNumber(this.props.price / 100, 2, ".", ",")}&nbsp;€</span>
+                <span className="bold">{Accounting.formatNumber(this.props.price / 100, 2, '.', ',')}&nbsp;€</span>
               </div>
             </div>
             <div className="row">

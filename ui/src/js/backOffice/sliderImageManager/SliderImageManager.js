@@ -10,7 +10,7 @@ import NotificationSystem from 'react-notification-system';
 import FileChooser from '../../common/components/FileChooser';
 import {getConfig} from '../../common/RestHelper';
 
-require("./sliderImageManager.less");
+require('./sliderImageManager.less');
 
 class SliderImage extends Component {
 
@@ -47,7 +47,7 @@ class SliderImage extends Component {
       reader.onloadend = function(e) {
         this.setState({
           fileSrc: [reader.result]
-        })
+        });
       }.bind(this);
     } else {
       var imageFileName = this.props.image.imageFileName == ''
@@ -88,7 +88,7 @@ class SliderImage extends Component {
         <div>
           <button>Abbrechen</button>
           <button onClick={() => {
-            this.deleteImage()
+            this.deleteImage();
           }}>OK</button>
         </div>
       )
@@ -161,7 +161,7 @@ class SliderImage extends Component {
     if (this.state.file != null) {
       image = <img src={this.state.fileSrc} height="320" width="570"/>;
     } else if (this.state.imageId != null) {
-      let imageUrl = 'http://localhost:8081/mainSliderImage/' + this.state.imageFileName + this.state.fileEnding + '/570/320'
+      let imageUrl = 'http://localhost:8081/mainSliderImage/' + this.state.imageFileName + this.state.fileEnding + '/570/320';
       image = <img src={imageUrl}/>;
     } else {
       image = '';
@@ -186,7 +186,7 @@ class SliderImage extends Component {
             Dateiname:
             <br/>
             <input type="text" value={this.state.imageFileName} onChange={(event) => {
-              this.updateValue("imageFileName", event.target.value)
+              this.updateValue('imageFileName', event.target.value);
             }}/>&nbsp;{this.state.fileEnding}<br/>
             <FileChooser updateFile={this.updateImage.bind(this)}/>
             <IconButton glyphIcon="glyphicon-trash" text="BILD LÖSCHEN" onClick={this.deleteImageConfirmation.bind(this)}/><br/>
@@ -225,14 +225,14 @@ export default class SliderImageManager extends Component {
   removeImage(index) {
     this.state.slides.splice(index, 1);
     for (var image in this.state.slides) {
-      this.refs["image_" + image].updateImageFromParent(this.state.slides[image]);
+      this.refs['image_' + image].updateImageFromParent(this.state.slides[image]);
     }
     this.refs.notification.addNotification('Geschafft!', 'Bild wurde gelöscht.', 'success');
     this.forceUpdate();
   }
 
   createSliderImage(index) {
-    return <SliderImage ref={"image_" + index} image={this.state.slides[index]} arrayIndex={index} key={index} removeImage={this.removeImage.bind(this)}/>;
+    return <SliderImage ref={'image_' + index} image={this.state.slides[index]} arrayIndex={index} key={index} removeImage={this.removeImage.bind(this)}/>;
   }
 
   createSliderImages() {

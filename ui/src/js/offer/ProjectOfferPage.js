@@ -7,7 +7,7 @@ import ProjectOffer from './ProjectOffer';
 import ThanksForOffer from './ThanksForOffer';
 
 
-require("./projectOffer.less");
+require('./projectOffer.less');
 
 export default class ProjectOfferPage extends Component {
 

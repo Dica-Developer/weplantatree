@@ -15,7 +15,7 @@ import EditPasswordItem from './EditPasswordItem';
 import Notification from '../../common/components/Notification';
 import IconButton from '../../common/components/IconButton';
 
-require("./editUserDetails.less");
+require('./editUserDetails.less');
 
 export default class EditUserDetails extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ export default class EditUserDetails extends Component {
         'X-AUTH-TOKEN': localStorage.getItem('jwt')
       }
     };
-    axios.post('http://localhost:8081/user/edit?userName=' + encodeURIComponent(this.props.user.userName) + '&toEdit=' + toEdit + "&newEntry=" + newEntry, {}, config).then(function(response) {
+    axios.post('http://localhost:8081/user/edit?userName=' + encodeURIComponent(this.props.user.userName) + '&toEdit=' + toEdit + '&newEntry=' + newEntry, {}, config).then(function(response) {
       that.refs[toEdit].saveChanges();
     }).catch(function(response) {
       that.refs[toEdit].undoChanges();
@@ -93,7 +93,7 @@ export default class EditUserDetails extends Component {
   render() {
     let imageUrl;
     if (this.props.user.userName) {
-      imageUrl = 'http://localhost:8081/user/image/' + this.props.user.imageFileName + '/80/80'
+      imageUrl = 'http://localhost:8081/user/image/' + this.props.user.imageFileName + '/80/80';
     }
     return (
       <div>
@@ -102,8 +102,8 @@ export default class EditUserDetails extends Component {
           <img src={imageUrl} alt="profile"/>
           <div className="summary">
             <span className="name">{this.props.user.userName}</span><br/>
-            <span className="bold">Mitglied seit:&nbsp;</span>{moment(this.props.user.regDate).format("DD.MM.YYYY")}<br/>
-            <span className="bold">letzter Besuch:&nbsp;</span>{moment(this.props.user.lastVisit).format("DD.MM.YYYY")}<br/>
+            <span className="bold">Mitglied seit:&nbsp;</span>{moment(this.props.user.regDate).format('DD.MM.YYYY')}<br/>
+            <span className="bold">letzter Besuch:&nbsp;</span>{moment(this.props.user.lastVisit).format('DD.MM.YYYY')}<br/>
             <span className="bold">Rang:&nbsp;</span>{this.props.user.rank}
           </div>
         </div>

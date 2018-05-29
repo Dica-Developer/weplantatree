@@ -19,7 +19,7 @@ class Paragraph extends Component {
     this.state = {
       imageFile: null,
       paragraph: this.props.paragraph
-    }
+    };
   }
 
   updateValue(toUpdate, value) {
@@ -73,7 +73,7 @@ class Paragraph extends Component {
           </div>
           <div className="col-md-10 title">
             <input type="text" value={this.state.paragraph.title} onChange={(event) => {
-              this.updateValue("title", event.target.value)
+              this.updateValue('title', event.target.value);
             }}/>
           </div>
         </div>
@@ -99,7 +99,7 @@ class Paragraph extends Component {
           </div>
           <div className="col-md-10">
             <input type="text" value={this.state.paragraph.imageDescription} onChange={(event) => {
-              this.updateValue("imageDescription", event.target.value)
+              this.updateValue('imageDescription', event.target.value);
             }}/>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default class ArticleEditor extends Component {
       },
       paragraphCount: 0,
       articleImageChanged: false
-    }
+    };
   }
 
   componentDidMount() {
@@ -158,7 +158,7 @@ export default class ArticleEditor extends Component {
       }
       that.setArticleTypeSelection();
       that.setLanguageSelection();
-      that.refs["editor"].refreshEditor();
+      that.refs['editor'].refreshEditor();
     }).catch(function(response) {
       if (response instanceof Error) {
         console.error('Error', response.message);
@@ -172,18 +172,18 @@ export default class ArticleEditor extends Component {
   }
 
   setArticleTypeSelection() {
-    for (var i = 0; i < this.refs["type-select"].options.length; i++) {
-      if (this.refs["type-select"].options[i].value === this.state.article.articleType) {
-        this.refs["type-select"].options[i].selected = true;
+    for (var i = 0; i < this.refs['type-select'].options.length; i++) {
+      if (this.refs['type-select'].options[i].value === this.state.article.articleType) {
+        this.refs['type-select'].options[i].selected = true;
         break;
       }
     }
   }
 
   setLanguageSelection() {
-    for (var i = 0; i < this.refs["language-select"].options.length; i++) {
-      if (this.refs["language-select"].options[i].value === this.state.article.lang) {
-        this.refs["language-select"].options[i].selected = true;
+    for (var i = 0; i < this.refs['language-select'].options.length; i++) {
+      if (this.refs['language-select'].options[i].value === this.state.article.lang) {
+        this.refs['language-select'].options[i].selected = true;
         break;
       }
     }
@@ -206,7 +206,7 @@ export default class ArticleEditor extends Component {
 
   updateVisibility(event) {
     var value;
-    if (event.target.value == "1") {
+    if (event.target.value == '1') {
       value = true;
     } else {
       value = false;
@@ -232,7 +232,7 @@ export default class ArticleEditor extends Component {
     this.forceUpdate();
 
     for (var paragraph = 0; paragraph < this.state.paragraphCount; paragraph++) {
-      this.state.article.paragraphs.push(this.refs["paragraph_" + paragraph].getParagraph());
+      this.state.article.paragraphs.push(this.refs['paragraph_' + paragraph].getParagraph());
     }
 
     axios.post('http://localhost:8082/backOffice/article/edit?userName=' + localStorage.getItem('username'), this.state.article, restConfig).then(function(response) {
@@ -254,12 +254,12 @@ export default class ArticleEditor extends Component {
         });
       }
       for (var paragraph = 0; paragraph < that.state.paragraphCount; paragraph++) {
-        if (that.refs["paragraph_" + paragraph].getImageFile() != null) {
+        if (that.refs['paragraph_' + paragraph].getImageFile() != null) {
           var paragraphId = article.paragraphs[paragraph].id;
           var data = new FormData();
           data.append('articleId', article.id);
           data.append('paragraphId', paragraphId);
-          data.append('file', that.refs["paragraph_" + paragraph].getImageFile());
+          data.append('file', that.refs['paragraph_' + paragraph].getImageFile());
 
           axios.post('http://localhost:8082/paragraph/upload/image', data, restConfig).then(function(response) {}).catch(function(response) {
             that.refs.notification.addNotification('Oh nein!', 'Beim Hochladen des Bildes für den Artikel ist ein Fehler aufgetreten.', 'error');
@@ -355,7 +355,7 @@ export default class ArticleEditor extends Component {
           </div>
           <div className="col-md-10 title">
             <input type="text" value={this.state.article.title} onChange={(event) => {
-              this.updateValue("title", event.target.value)
+              this.updateValue('title', event.target.value);
             }}/>
           </div>
         </div>
@@ -381,13 +381,13 @@ export default class ArticleEditor extends Component {
           </div>
           <div className="col-md-10">
             <input type="text" value={this.state.article.imageDescription} onChange={(event) => {
-              this.updateValue("imageDescription", event.target.value)
+              this.updateValue('imageDescription', event.target.value);
             }}/>
           </div>
         </div>
         {paragraphObjects.map(function(p, i) {
           if (i < that.state.article.paragraphs.length) {
-            return (<Paragraph ref={"paragraph_" + i} key={i} articleId={that.state.article.id} paragraphNumber={i + 1} paragraph={that.state.article.paragraphs[i]}/>);
+            return (<Paragraph ref={'paragraph_' + i} key={i} articleId={that.state.article.id} paragraphNumber={i + 1} paragraph={that.state.article.paragraphs[i]}/>);
           } else {
             var paragraph = {
               id: null,
@@ -396,7 +396,7 @@ export default class ArticleEditor extends Component {
               imageFileName: '',
               imageDescription: ''
             };
-            return (<Paragraph ref={"paragraph_" + i} key={i} articleId={that.state.article.id} paragraphNumber={i + 1} paragraph={paragraph}/>);
+            return (<Paragraph ref={'paragraph_' + i} key={i} articleId={that.state.article.id} paragraphNumber={i + 1} paragraph={paragraph}/>);
           }
         })}
         <div className="row">

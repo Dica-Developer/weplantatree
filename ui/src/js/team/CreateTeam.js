@@ -30,7 +30,7 @@ export default class CreateTeam extends Component {
     super(props);
     this.state = {
       team: {}
-    }
+    };
   }
 
   createTeam() {

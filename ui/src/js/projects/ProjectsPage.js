@@ -15,7 +15,7 @@ import IconButton from '../common/components/IconButton';
 import CompletedProject from './CompletedProject';
 import ActiveProject from './ActiveProject';
 
-require("./projectsPage.less");
+require('./projectsPage.less');
 
 export default class ProjectsPage extends Component {
 

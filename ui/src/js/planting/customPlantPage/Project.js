@@ -47,7 +47,7 @@ export default class Project extends Component {
   }
 
   getArticleValue(article) {
-    return this.refs["article_" + article].getAmount();
+    return this.refs['article_' + article].getAmount();
   }
 
   getArticles() {
@@ -57,7 +57,7 @@ export default class Project extends Component {
   getPrice() {
     var price = 0;
     for(var article in this.state.articles){
-      price = price + parseInt(this.refs["article_" + article].getAmount() * this.state.articles[article].price.priceAsLong);
+      price = price + parseInt(this.refs['article_' + article].getAmount() * this.state.articles[article].price.priceAsLong);
     }
     return price;
   }
@@ -68,7 +68,7 @@ export default class Project extends Component {
         <h2>{this.props.project.projectName}</h2>
           <ArticleDesc />
         {this.state.articles.map(function(article, i) {
-            return (<Article article={article} key={i} ref={"article_" + i} sliderIndex={i} updatePrice={that.props.updatePrice.bind(this)}/>);
+            return (<Article article={article} key={i} ref={'article_' + i} sliderIndex={i} updatePrice={that.props.updatePrice.bind(this)}/>);
           })}
       </div>
     );

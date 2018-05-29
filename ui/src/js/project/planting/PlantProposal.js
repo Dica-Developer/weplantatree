@@ -45,14 +45,14 @@ export default class PlantProposal extends Component {
   getPlantProposal(value) {
     var that = this;
     this.setState({slideIn: true});
-    axios.get('http://localhost:8081/simplePlantProposalForTrees/project?projectName=' + this.props.projectName + "&amountOfTrees=" + value).then(function(response) {
+    axios.get('http://localhost:8081/simplePlantProposalForTrees/project?projectName=' + this.props.projectName + '&amountOfTrees=' + value).then(function(response) {
       var result = response.data;
       that.sleep(500);
       that.setState({
         trees: result,
         slideIn: false
       });
-    })
+    });
   }
 
   componentDidUpdate() {
@@ -87,7 +87,7 @@ export default class PlantProposal extends Component {
           </div>
           <div ref="plantItems" className={(this.state.slideIn
             ? 'sliding-in '
-            : 'sliding-out ') + "align-center plantItems"}>
+            : 'sliding-out ') + 'align-center plantItems'}>
             {this.state.trees.plantItems.map(function(plantItem, i) {
               return (<PlantItem plantItem={plantItem} key={i}/>);
             })}

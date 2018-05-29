@@ -32,7 +32,7 @@ export default class SendRequest extends Component {
       var headLine = 'Passwortänderung für ' + response.data;
       that.setState({headLine: headLine, linkValid: true});
     }).catch(function(response) {
-      that.setState({headLine: counterpart.translate(response.data.errorInfos[0].errorCode), linkValid: false})
+      that.setState({headLine: counterpart.translate(response.data.errorInfos[0].errorCode), linkValid: false});
     });
   }
 

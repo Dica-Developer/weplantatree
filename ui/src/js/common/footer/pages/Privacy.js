@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./privacy.less");
+require('./privacy.less');
 
 export default class Privacy extends Component {
 
@@ -15,7 +15,7 @@ export default class Privacy extends Component {
     super();
     this.state = {
       privacy: []
-    }
+    };
   }
 
   componentDidMount() {

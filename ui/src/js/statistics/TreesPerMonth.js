@@ -33,9 +33,9 @@ export default class TreesPerMonth extends Component {
         scaleSteps: 2,
         scaleStepWidth: 5000,
         responsive: true,
-        tooltipTemplate: "<%= value %>"
+        tooltipTemplate: '<%= value %>'
       }
-    }
+    };
   }
 
   componentDidMount() {
@@ -57,7 +57,7 @@ export default class TreesPerMonth extends Component {
         }
       }
       that.forceUpdate();
-      that.refs["barChart"].update();
+      that.refs['barChart'].update();
     }).catch(function(response) {
       if (response instanceof Error) {
         console.error('Error', response.message);
@@ -86,24 +86,24 @@ export default class TreesPerMonth extends Component {
   render() {
     var chartData = {
       labels: [
-        "Januar",
-        "Februar",
-        "März",
-        "April",
-        "Mai",
-        "Juni",
-        "Juli",
-        "August",
-        "September",
-        "Oktober",
-        "November",
-        "Dezember"
+        'Januar',
+        'Februar',
+        'März',
+        'April',
+        'Mai',
+        'Juni',
+        'Juli',
+        'August',
+        'September',
+        'Oktober',
+        'November',
+        'Dezember'
       ],
       datasets: [
         {
           label: 'gepflanzte Bäume',
           data: this.state.amountOfTrees,
-          fillColor: "rgb(130, 171, 31)",
+          fillColor: 'rgb(130, 171, 31)',
           borderWidth: 1
         }
       ]

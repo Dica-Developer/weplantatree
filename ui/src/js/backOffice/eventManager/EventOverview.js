@@ -16,7 +16,7 @@ import {
 } from '../../common/RestHelper';
 import Notification from '../../common/components/Notification';
 
-require("./eventOverview.less");
+require('./eventOverview.less');
 
 export default class EventOverview extends Component {
 
@@ -24,7 +24,7 @@ export default class EventOverview extends Component {
     super();
     this.state = {
       events: []
-    }
+    };
   }
 
   componentDidMount() {
@@ -71,7 +71,7 @@ export default class EventOverview extends Component {
             {this.state.events.map(function(ev, i) {
               return (<div className="col-md-4 event" key={i}>
                         <p>{ev.name}</p>
-                        <IconButton glyphIcon="glyphicon-pencil" text="" onClick={() => {that.editEvent(ev.id)}}/>
+                        <IconButton glyphIcon="glyphicon-pencil" text="" onClick={() => {that.editEvent(ev.id);}}/>
                       </div>);
             })}
           </div>

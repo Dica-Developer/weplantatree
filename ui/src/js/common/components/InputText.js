@@ -19,7 +19,7 @@ export default class InputText extends Component {
   render() {
     return (
       <div>
-        <input className={this.props.cssclass} placeholder={this.props.placeholderText} type={this.props.type ? this.props.type : "text"} onBlur={this.updateValue.bind(this)} disabled={this.props.disabled}/>
+        <input className={this.props.cssclass} placeholder={this.props.placeholderText} type={this.props.type ? this.props.type : 'text'} onBlur={this.updateValue.bind(this)} disabled={this.props.disabled}/>
       </div>
     );
   }

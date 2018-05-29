@@ -13,7 +13,7 @@ import RecipientGiftItem from './RecipientGiftItem';
 import RedeemGiftContent from '../RedeemGiftContent';
 import IconButton from '../../common/components/IconButton';
 
-require("./gifts.less");
+require('./gifts.less');
 
 export default class GiftOverview extends Component {
 
@@ -98,7 +98,7 @@ export default class GiftOverview extends Component {
           <div className="col-md-12 createGift">
             <h2>Gutschein erstellen</h2>
             <IconButton className="iconButton" text="Gutschein erstellen" glyphIcon="glyphicon-gift" onClick={() => {
-              this.linkTo('/plantGift/5')
+              this.linkTo('/plantGift/5');
             }}/>
           </div>
           <RedeemGiftContent />

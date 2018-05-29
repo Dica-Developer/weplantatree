@@ -9,8 +9,8 @@ import SvgButton from '../../common/components/SvgButton';
 import ProjectSlider from './ProjectSlider';
 import ArticleSlider from './ArticleSlider';
 
-require("./projectPlanting.less");
-require("./slider.less");
+require('./projectPlanting.less');
+require('./slider.less');
 
 export default class ProjectPlanting extends Component {
   constructor(props) {
@@ -59,12 +59,12 @@ export default class ProjectPlanting extends Component {
     var moduloValue = value % this.props.articles.length;
     var moduloCnt = 0;
     for (var project in this.props.articles) {
-      this.refs["article_" + project].updateMaxValue(value);
+      this.refs['article_' + project].updateMaxValue(value);
       if (moduloCnt < moduloValue) {
-        this.refs["article_" + project].setSliderValue(divisionValue + 1, false);
+        this.refs['article_' + project].setSliderValue(divisionValue + 1, false);
         moduloCnt++;
       } else {
-        this.refs["article_" + project].setSliderValue(divisionValue, false);
+        this.refs['article_' + project].setSliderValue(divisionValue, false);
       }
     }
     this.setState({treeCount: value});
@@ -78,8 +78,8 @@ export default class ProjectPlanting extends Component {
       var manualMovedSliderValueWithMaxValue = this.getManualMovedSliderValueWithMaxValueExceptCurrent(sliderIndex);
       var diffToTreeCount = movedCntAndSum[1] - this.state.treeCount;
 
-      var valueToSet = this.refs["article_" + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
-      this.refs["article_" + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
+      var valueToSet = this.refs['article_' + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
+      this.refs['article_' + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
 
       var divisionValue = Math.trunc((this.state.treeCount - (parseInt(valueToSet) + parseInt(value))) / ((movedCntAndSum[0] - 2)));
       var moduloValue = (this.state.treeCount - (parseInt(valueToSet) + parseInt(value))) % (movedCntAndSum[0] - 2);
@@ -87,30 +87,30 @@ export default class ProjectPlanting extends Component {
       for (var project in this.props.articles) {
         if (project != manualMovedSliderValueWithMaxValue && project != sliderIndex) {
           if (moduloCnt < moduloValue) {
-            this.refs["article_" + project].setSliderValue(divisionValue + 1, true);
+            this.refs['article_' + project].setSliderValue(divisionValue + 1, true);
             moduloCnt++;
           } else {
-            this.refs["article_" + project].setSliderValue(divisionValue, true);
+            this.refs['article_' + project].setSliderValue(divisionValue, true);
           }
         }
       }
     } else if (movedCntAndSum[1] > this.state.treeCount) {
       var manualMovedSliderValueWithMaxValue = this.getManualMovedSliderValueWithMaxValueExceptCurrent(sliderIndex);
       var diffToTreeCount = movedCntAndSum[1] - this.state.treeCount;
-      var valueToSet = this.refs["article_" + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
-      this.refs["article_" + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
+      var valueToSet = this.refs['article_' + manualMovedSliderValueWithMaxValue].getSliderValue() - diffToTreeCount;
+      this.refs['article_' + manualMovedSliderValueWithMaxValue].setSliderValue(valueToSet, true);
 
       if (movedCntAndSum[0] > 2) {
         var divisionValue = Math.trunc((this.state.treeCount - (parseInt(valueToSet) + parseInt(value))) / ((movedCntAndSum[0] - 2)));
         var moduloValue = (this.state.treeCount - (parseInt(valueToSet) + parseInt(value))) % (movedCntAndSum[0] - 2);
         var moduloCnt = 0;
         for (var project in this.props.articles) {
-          if (this.refs["article_" + project].wasMovedManually() && project != sliderIndex && project != manualMovedSliderValueWithMaxValue) {
+          if (this.refs['article_' + project].wasMovedManually() && project != sliderIndex && project != manualMovedSliderValueWithMaxValue) {
             if (moduloCnt < moduloValue) {
-              this.refs["article_" + project].setSliderValue(divisionValue + 1, true);
+              this.refs['article_' + project].setSliderValue(divisionValue + 1, true);
               moduloCnt++;
             } else {
-              this.refs["article_" + project].setSliderValue(divisionValue, true);
+              this.refs['article_' + project].setSliderValue(divisionValue, true);
             }
           }
         }
@@ -120,12 +120,12 @@ export default class ProjectPlanting extends Component {
       var moduloValue = (this.state.treeCount - movedCntAndSum[1]) % (this.props.articles.length - movedCntAndSum[0]);
       var moduloCnt = 0;
       for (var project in this.props.articles) {
-        if (!this.refs["article_" + project].wasMovedManually()) {
+        if (!this.refs['article_' + project].wasMovedManually()) {
           if (moduloCnt < moduloValue) {
-            this.refs["article_" + project].setSliderValue(divisionValue + 1, false);
+            this.refs['article_' + project].setSliderValue(divisionValue + 1, false);
             moduloCnt++;
           } else {
-            this.refs["article_" + project].setSliderValue(divisionValue, false);
+            this.refs['article_' + project].setSliderValue(divisionValue, false);
           }
         }
       }
@@ -138,9 +138,9 @@ export default class ProjectPlanting extends Component {
     var movedCnt = 0;
     var movedSum = 0;
     for (var project in this.props.articles) {
-      if (this.refs["article_" + project].wasMovedManually()) {
+      if (this.refs['article_' + project].wasMovedManually()) {
         movedCnt++;
-        movedSum = movedSum + parseInt(this.refs["article_" + project].getSliderValue());
+        movedSum = movedSum + parseInt(this.refs['article_' + project].getSliderValue());
       }
     }
     result.push(movedCnt);
@@ -153,8 +153,8 @@ export default class ProjectPlanting extends Component {
     var maxValue = -1;
     var index;
     for (var project in this.props.articles) {
-      if (project != sliderIndex && parseInt(this.refs["article_" + project].getSliderValue()) > maxValue) {
-        maxValue = parseInt(this.refs["article_" + project].getSliderValue());
+      if (project != sliderIndex && parseInt(this.refs['article_' + project].getSliderValue()) > maxValue) {
+        maxValue = parseInt(this.refs['article_' + project].getSliderValue());
         index = project;
       }
     }
@@ -164,7 +164,7 @@ export default class ProjectPlanting extends Component {
   calcProjectPrice() {
     var price = 0;
     for (var article in this.props.articles) {
-      price = price + parseInt(this.refs["article_" + article].getPrice());
+      price = price + parseInt(this.refs['article_' + article].getPrice());
     }
     this.state.price = price;
     this.forceUpdate();
@@ -175,7 +175,7 @@ export default class ProjectPlanting extends Component {
     return (
       <div ref="planting" className={(this.state.fade
         ? 'fadeOut'
-        : 'fadeIn') + " projectPlanting"}>
+        : 'fadeIn') + ' projectPlanting'}>
         <h1>{this.props.projectName}&nbsp;/&nbsp;
           <i>hier pflanzen</i>
         </h1>
@@ -185,14 +185,14 @@ export default class ProjectPlanting extends Component {
             Hier kannst Du die Anzahl Deiner Bäume individuell verteilen.
           </div>
           {this.props.articles.map(function(article, i) {
-            return (<ArticleSlider article={article} key={i} ref={"article_" + i} sliderIndex={i} balanceArticleSliders={that.balanceArticleSlidersFromArticleSlider.bind(this)}/>);
+            return (<ArticleSlider article={article} key={i} ref={'article_' + i} sliderIndex={i} balanceArticleSliders={that.balanceArticleSlidersFromArticleSlider.bind(this)}/>);
           })}
           <table className="bottomTable">
             <tbody>
               <tr>
                 <td></td>
                 <td>
-                  <span>GESAMT:&nbsp;{Accounting.formatNumber(this.state.price / 100, 2, ".", ",")}&nbsp;€</span>
+                  <span>GESAMT:&nbsp;{Accounting.formatNumber(this.state.price / 100, 2, '.', ',')}&nbsp;€</span>
                 </td>
                 <td>
                   <SvgButton text="AB IN MEINEN<br/>PFLANZKORB" buttonType="barrow" onClick={this.updatePlantBag.bind(this)} />

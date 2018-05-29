@@ -10,7 +10,7 @@ import IconButton from '../../common/components/IconButton';
 import PlantProposal from './PlantProposal';
 import PlantCustom from './PlantCustom';
 
-require("./projectPlanting.less");
+require('./projectPlanting.less');
 
 export default class ProjectPlantingWithoutSlider extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ export default class ProjectPlantingWithoutSlider extends Component {
 
   render() {
     var plantContent;
-    if(this.state.amount != "custom"){
+    if(this.state.amount != 'custom'){
       plantContent = <PlantProposal projectName={this.props.projectName} amount={this.state.amount} setAmount={this.setAmount.bind(this)} updatePlantBag={this.updatePlantBag.bind(this)}/>;
     }else{
       plantContent = <PlantCustom projectName={this.props.projectName} articles={this.props.articles} updatePlantBag={this.updatePlantBag.bind(this)} amount={this.state.amount} setAmount={this.setAmount.bind(this)}/>;

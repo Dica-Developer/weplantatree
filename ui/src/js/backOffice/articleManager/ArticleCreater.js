@@ -23,7 +23,7 @@ class Paragraph extends Component {
         imageFileName: '',
         imageDescription: ''
       }
-    }
+    };
   }
 
   updateValue(toUpdate, value) {
@@ -119,7 +119,7 @@ export default class ArticleCreater extends Component {
         imageDescription: ''
       },
       paragraphCount: 1
-    }
+    };
   }
 
   componentDidMount() {
@@ -156,7 +156,7 @@ export default class ArticleCreater extends Component {
 
   updateVisibility(event) {
     var value;
-    if (event.target.value == "1") {
+    if (event.target.value == '1') {
       value = true;
     } else {
       value = false;
@@ -176,7 +176,7 @@ export default class ArticleCreater extends Component {
     var restConfig = getConfig();
     if (this.state.imageFile != null) {
       for (var paragraph = 0; paragraph < this.state.article.paragraphs.length; paragraph++) {
-        this.state.article.paragraphs[paragraph] = this.refs["paragraph_" + paragraph].getParagraph();
+        this.state.article.paragraphs[paragraph] = this.refs['paragraph_' + paragraph].getParagraph();
       }
 
       axios.post('http://localhost:8082/backOffice/article/create?userName=' + localStorage.getItem('username'), this.state.article, restConfig).then(function(response) {
@@ -197,12 +197,12 @@ export default class ArticleCreater extends Component {
           }
         });
         for (var paragraph = 0; paragraph < that.state.paragraphCount; paragraph++) {
-          if (that.refs["paragraph_" + paragraph].getImageFile() != null) {
+          if (that.refs['paragraph_' + paragraph].getImageFile() != null) {
             var paragraphId = article.paragraphs[paragraph].id;
             var data = new FormData();
             data.append('articleId', article.id);
             data.append('paragraphId', paragraphId);
-            data.append('file', that.refs["paragraph_" + paragraph].getImageFile());
+            data.append('file', that.refs['paragraph_' + paragraph].getImageFile());
 
             axios.post('http://localhost:8082/paragraph/upload/image', data, restConfig).then(function(response) {}).catch(function(response) {
               that.refs.notification.addNotification('Oh nein!', 'Beim Hochladen des Bildes für den Paragraphen Nr. ' + paragraph + ' ist ein Fehler aufgetreten.', 'error');
@@ -320,7 +320,7 @@ export default class ArticleCreater extends Component {
           </div>
         </div>
         {this.state.article.paragraphs.map(function(paragraph, i) {
-          return (<Paragraph ref={"paragraph_" + i} key={i}/>);
+          return (<Paragraph ref={'paragraph_' + i} key={i}/>);
         })}
         <div className="row">
           <div className="col-md-12 align-right">

@@ -7,7 +7,7 @@ import {
 import Boostrap from 'bootstrap';
 import axios from 'axios';
 
-require("./links.less");
+require('./links.less');
 
 export default class Links extends Component {
 
@@ -15,7 +15,7 @@ export default class Links extends Component {
     super();
     this.state = {
       links: []
-    }
+    };
   }
 
   componentDidMount() {

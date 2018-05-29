@@ -10,7 +10,7 @@ import Notification from './Notification';
 import IconButton from './IconButton';
 import InputText from './InputText';
 
-require("./captcha.less");
+require('./captcha.less');
 
 export default class Captcha extends Component {
   constructor() {
@@ -19,7 +19,7 @@ export default class Captcha extends Component {
       captchaToken: '',
       captchaImg: null,
       userInput: ''
-    }
+    };
   }
 
   componentDidMount() {
@@ -68,7 +68,7 @@ export default class Captcha extends Component {
   render() {
     return (
       <div className="captcha">
-        <img className="captchaImage" src={"data:image/jpg;base64," + this.state.captchaImg}/>
+        <img className="captchaImage" src={'data:image/jpg;base64,' + this.state.captchaImg}/>
         <p>Bitte hier die 4 Zeichen aus dem Bild eingeben:</p>
         <div className="inputWrapper">
           <input type="text" className="form-control inputField" value={this.state.userInput} onChange={this.updateUserInput.bind(this)}/>

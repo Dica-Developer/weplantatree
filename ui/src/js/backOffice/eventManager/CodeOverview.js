@@ -50,7 +50,7 @@ export default class CodeOverview extends Component {
       }],
       rows: [],
       filters: {}
-    }
+    };
   }
 
   componentDidMount() {
@@ -128,7 +128,7 @@ export default class CodeOverview extends Component {
       ' ' :
       sortedRows.sort(comparer);
 
-    this.setState(rows: sortedRows);
+    this.setState({rows: sortedRows});
   }
 
   getEmptyRowView() {

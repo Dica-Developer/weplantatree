@@ -6,7 +6,7 @@ import {
 } from 'react-dom';
 import Boostrap from 'bootstrap';
 
-require("./social.less");
+require('./social.less');
 
 export default class Social extends Component {
   render() {

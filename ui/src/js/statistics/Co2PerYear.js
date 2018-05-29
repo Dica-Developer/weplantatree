@@ -22,16 +22,16 @@ export default class Co2PerYear extends Component {
       year: new Date().getFullYear(),
       years: [],
       options: {
-        scaleLineColor: "rgb(81, 168, 190)",
+        scaleLineColor: 'rgb(81, 168, 190)',
         scaleShowGridLines: true,
         scaleOverride: true,
         scaleSteps: 4,
         scaleStepWidth: 5000,
         datasetFill: false,
         responsive: true,
-        tooltipTemplate: "<%= value %>"
+        tooltipTemplate: '<%= value %>'
       }
-    }
+    };
   }
 
   componentDidMount() {
@@ -49,7 +49,7 @@ export default class Co2PerYear extends Component {
         that.forceUpdate();
       }
       that.forceUpdate();
-      that.refs["barChart"].update();
+      that.refs['barChart'].update();
     }).catch(function(response) {
       if (response instanceof Error) {
         console.error('Error', response.message);
@@ -83,7 +83,7 @@ export default class Co2PerYear extends Component {
       datasets: [{
         label: 'gepflanzte Bäume',
         data: this.state.amountOfCo2,
-        fillColor: "rgb(81, 168, 190)",
+        fillColor: 'rgb(81, 168, 190)',
         borderWidth: 1
       }]
     };

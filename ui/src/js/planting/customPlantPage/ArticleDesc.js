@@ -12,7 +12,7 @@ import {
   browserHistory
 } from 'react-router';
 
-require("./article.less");
+require('./article.less');
 
 export default class ArticleDesc extends Component {
 
@@ -21,14 +21,14 @@ export default class ArticleDesc extends Component {
       <div className="articleDesc bold">
         <div>
           <p>
-{"Baumtyp & Preis/Stk."}
+{'Baumtyp & Preis/Stk.'}
           </p>
         </div>
         <div>
           Anzahl
         </div>
         <div>
-          {"  / verfügbar"}
+          {'  / verfügbar'}
         </div>
         <div>
           Preis gesamt
