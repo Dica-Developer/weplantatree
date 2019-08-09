@@ -6,7 +6,6 @@ both ones need:
 --> CartItem: extend by column squaremeterType and squaremeter
 
 a) Project: extend by column type(TREE and SQUAREMETER)
---> ProjectArticle: extend by column squaremeterType
 --> ProjectArticle: remove not null constraint from treeType and add squaremeterType
 
 consequences:
@@ -23,6 +22,6 @@ consequences:
 
 
 
-i would prefere approach b
+i would prefer approach b
 --> easier to handle
 --> no risk to forget something and cause NPEs or something else
