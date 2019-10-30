@@ -12,6 +12,9 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 apply plugin: 'application'
 
+sourceCompatibility = '1.11'
+targetCompatibility = '1.11'
+
 jar {
   baseName = 'wpaf-article-manager'
   version = '0.0.1-SNAPSHOT'
@@ -20,8 +23,12 @@ jar {
 mainClassName = 'org.dicadeveloper.weplantaforest.articlemanager.WeplantaforestArticleManagerApplication'
 
 dependencies{
+  annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+  compileOnly 'org.projectlombok:lombok:1.18.8'
+
   compile project(':common')
-  compile('org.projectlombok:lombok:1.18.8')
+  compile 'javax.xml.bind:jaxb-api:2.3.1'
   compile('org.springframework.boot:spring-boot-starter-data-jpa:' + springBootVersion)
   compile('org.springframework.boot:spring-boot-starter-web:' + springBootVersion)
   compile('org.springframework.boot:spring-boot-starter-security:' + springBootVersion)

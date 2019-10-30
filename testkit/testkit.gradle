@@ -1,5 +1,5 @@
-buildscript {
-}
+sourceCompatibility = '1.11'
+targetCompatibility = '1.11'
 
 dependencies {
   compile group: 'org.flywaydb', name: 'flyway-core', version: '3.1'

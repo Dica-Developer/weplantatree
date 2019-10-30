@@ -16,13 +16,7 @@ public class IpatException extends Exception {
 
     private List<IpatErrorInfo> errorInfos;
 
-    public IpatException(String errorCode){
-        IpatErrorInfo errorInfo = new IpatErrorInfo(errorCode);
-        errorInfos = new ArrayList<IpatErrorInfo>();
-        errorInfos.add(errorInfo);
-    }
-
-    public IpatException(String errorCode, Object... params){
+    public IpatException(String errorCode, String... params){
         errorInfos = new ArrayList<IpatErrorInfo>();
         IpatErrorInfo errorInfo = new IpatErrorInfo(errorCode, params);
         errorInfos.add(errorInfo);

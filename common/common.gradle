@@ -7,8 +7,14 @@ buildscript {
   }
 }
 
+sourceCompatibility = '1.11'
+targetCompatibility = '1.11'
+
 dependencies {
-  compile('org.projectlombok:lombok:1.18.8')
+  annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+  compileOnly 'org.projectlombok:lombok:1.18.8'
+
   compile 'com.google.code.findbugs:findbugs:3.0.1'
   compile 'org.springframework:spring-web:4.2.6.RELEASE'
   compile 'org.springframework:spring-context-support:4.1.8.RELEASE'

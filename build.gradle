@@ -1,23 +1,19 @@
-buildscript {
-  ext {
-    springBootVersion = '1.5.4.RELEASE'
-  }
-  repositories {
-    mavenCentral()
-      jcenter()
-  }
-  dependencies {
-    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    classpath 'org.hidetake:gradle-ssh-plugin:2.6.0'
-    classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.6.3'
-  }
+plugins {
+  id 'com.github.ben-manes.versions' version '0.27.0'
+  id 'org.hidetake.ssh' version '2.10.1'
+}
+
+ext {
+  springBootVersion = '1.5.19.RELEASE'
+}
+
+repositories {
+  mavenCentral()
+    jcenter()
 }
 
 apply from: "${rootDir}/gradle/banner.gradle"
 apply from: "${rootDir}/gradle/envInfo.gradle"
-
-apply plugin: 'org.hidetake.ssh'
-apply plugin: 'com.github.kt3k.coveralls'
 
 repositories {
   mavenCentral()
@@ -66,38 +62,3 @@ allprojects {
 apply from: "${rootDir}/gradle/subProjects.gradle"
 apply from: "${rootDir}/gradle/deploy.gradle"
 
-// Only report code coverage for projects that are distributed
-def publishedProjects = subprojects.findAll {it.path != ':testkit'}
-
-task jacocoRootReport(type: JacocoReport, group: 'Coverage reports') {
-  description = 'Generates an aggregate report from all subprojects'
-  dependsOn(publishedProjects.test)
-
-  additionalSourceDirs = files(publishedProjects.sourceSets.main.allSource.srcDirs)
-  sourceDirectories = files(publishedProjects.sourceSets.main.allSource.srcDirs)
-  classDirectories = files(publishedProjects.sourceSets.main.output)
-  executionData = files(publishedProjects.jacocoTestReport.executionData)
-
-  reports {
-    html.enabled = true // human readable
-    xml.enabled = true // required by coveralls
-  }
-
-  doFirst {
-    logger.lifecycle "started doFirst"
-    executionData = files(executionData.findAll { it.exists() })
-  }
-}
-
-coveralls {
-  sourceDirs = publishedProjects.sourceSets.main.allSource.srcDirs.flatten()
-  jacocoReportPath = "${buildDir}/reports/jacoco/jacocoRootReport/jacocoRootReport.xml"
-}
-
-tasks.coveralls {
-  group = 'Coverage reports'
-  description = 'Uploads the aggregated coverage report to Coveralls'
-
-  dependsOn jacocoRootReport
-  onlyIf { System.env.'CI' }
-}
