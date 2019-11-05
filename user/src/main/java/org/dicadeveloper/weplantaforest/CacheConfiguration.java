@@ -1,15 +1,13 @@
 package org.dicadeveloper.weplantaforest;
 
 import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
 
+import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.guava.GuavaCache;
+import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.google.common.cache.CacheBuilder;
 
 @Configuration
 public class CacheConfiguration {
@@ -24,10 +22,10 @@ public class CacheConfiguration {
         return cacheManager;
     }
 
-    private GuavaCache buildTenMinuteCache() {
-        return new GuavaCache(TEN_MINUTE_CACHE, CacheBuilder.newBuilder()
-                                                            .expireAfterWrite(10, TimeUnit.MINUTES)
-                                                            .build());
+    private Cache buildTenMinuteCache() {
+        final CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager(TEN_MINUTE_CACHE);
+        caffeineCacheManager.setCacheSpecification("maximumSize=500,expireAfterAccess=600s");
+        return caffeineCacheManager.getCache(TEN_MINUTE_CACHE);
     }
 
 }

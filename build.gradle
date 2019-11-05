@@ -1,5 +1,4 @@
 plugins {
-  id 'com.github.ben-manes.versions' version '0.27.0'
   id 'org.hidetake.ssh' version '2.10.1'
 }
 
@@ -43,6 +42,7 @@ subprojects { sub ->
   sub.configurations.all {
     resolutionStrategy {
       failOnVersionConflict()
+      force 'org.slf4j:slf4j-api:1.7.25'
     }
   }
 }
