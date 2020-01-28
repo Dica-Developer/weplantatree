@@ -4,10 +4,13 @@ import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
 import { browserHistory } from 'react-router';
 import Notification from '../common/components/Notification';
+import { createProfileImageUrl, createTeamImageUrl } from '../common/ImageHelper';
+import RankingContentNameAmountCo2 from '../common/ranking/content/NameAmountCo2';
 import RankingItemContent from '../common/ranking/content/AmountProjectDate';
 import LargeRankingContainer from '../common/ranking/LargeRankingContainer';
 import NoTreesAvailable from '../common/ranking/NoTreesAvailable';
 import RankingItem from '../common/ranking/RankingItem';
+import SmallRankingContainer from '../common/ranking/SmallRankingContainer';
 import EditTeamDetails from './EditTeamDetails';
 import TeamDetails from './TeamDetails';
 import TeamMember from './TeamMember';
@@ -20,6 +23,10 @@ export default class TeamPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      teamMemberPage: 0,
+      teamMember: {
+        content: []
+      },
       team: {
         co2Data: {}
       },
@@ -162,6 +169,7 @@ export default class TeamPage extends Component {
   }
 
   render() {
+    let teamMemberPage = this.state.teamMemberPage;
     var teamDetails;
     var treePart;
     var page = this.state.pageCount;
@@ -218,7 +226,17 @@ export default class TeamPage extends Component {
             {teamDetails}
           </div>
           <div className="col-md-6">
-            <TeamMember teamMember={this.state.teamMember}/>
+          <SmallRankingContainer title={counterpart.translate('BEST_PLANTERS')} withPaging={true} rankingType="teamMember" page={teamMemberPage} callPreviousPage={this.callPreviousPage.bind(this)} callNextPage={this.callNextPage.bind(this)} isFirstPage={this.state.teamMember.first} isLastPage={this.state.teamMember.last}>
+              {this.state.teamMember.content.map(function(content, i) {
+                let imageUrl = createProfileImageUrl(content.imageName, 60, 60);
+                let linkTo = '/user/' + encodeURIComponent(content.name);
+                return (
+                  <RankingItem content={content} key={i} rankNumber={teamMemberPage * 5 + (i + 1)} imageUrl={imageUrl} showRankNumber="true" linkTo={linkTo}>
+                    <RankingContentNameAmountCo2 content={content}/>
+                  </RankingItem>
+                );
+              })}
+            </SmallRankingContainer>
           </div>
         </div>
         <div className="row">
