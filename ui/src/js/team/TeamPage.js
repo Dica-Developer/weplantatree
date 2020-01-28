@@ -3,6 +3,7 @@ import counterpart from 'counterpart';
 import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
 import { browserHistory } from 'react-router';
+import he from 'he';
 import Notification from '../common/components/Notification';
 import { createProfileImageUrl, createTeamImageUrl } from '../common/ImageHelper';
 import RankingContentNameAmountCo2 from '../common/ranking/content/NameAmountCo2';
@@ -15,8 +16,33 @@ import EditTeamDetails from './EditTeamDetails';
 import TeamDetails from './TeamDetails';
 import TeamMember from './TeamMember';
 
-
 require('./team.less');
+
+class Member extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  linkToProfile(){
+    browserHistory.push('/user/' + encodeURIComponent(this.props.member.name));
+  }
+
+  render() {
+    let imageUrl = createProfileImageUrl(this.props.member.imageName, 80, 80);
+    return (
+      <div className="member align-center">
+        <a role="button" onClick={this.linkToProfile.bind(this)}>
+          <div className="image">
+            <img src={imageUrl} width="80" height="80"/>
+          </div>
+          <div className="name">
+            {he.decode(this.props.member.name)}
+          </div>
+        </a>
+      </div>
+    );
+  }
+}
 
 export default class TeamPage extends Component {
 
@@ -34,9 +60,6 @@ export default class TeamPage extends Component {
         content: []
       },
       pageCount: 0,
-      teamMember: {
-        content: []
-      },
       edit: false
     };
   }
@@ -106,6 +129,41 @@ export default class TeamPage extends Component {
     });
   }
 
+  callNextPageTeamMember() {
+    var newPage = this.state.teamMemberPage + 1;
+    this.callPageTeamMember(newPage);
+    this.setState({
+      teamMemberPage: newPage
+    });
+  }
+
+  callPreviousPageTeamMember() {
+    var newPage = this.state.teamMemberPage - 1;
+    this.callPageTeamMember(newPage);
+    this.setState({
+      teamMemberPage: newPage
+    });
+  }
+
+  callPageTeamMember(page) {
+    var that = this;
+    axios.get('http://localhost:8081/team/member?teamName=' + encodeURIComponent(this.props.params.teamName) + '&page=' + page + '&size=5').then(function(response) {
+      var result = response.data;
+      that.setState({
+        teamMember: result
+      });
+    }).catch(function(response) {
+      if (response instanceof Error) {
+        console.error('Error', response.message);
+      } else {
+        console.error(response.data);
+        console.error(response.status);
+        console.error(response.headers);
+        console.error(response.config);
+      }
+    });
+  }
+
   callNextPage() {
     var newPage = this.state.pageCount + 1;
     this.callPage(newPage);
@@ -124,7 +182,7 @@ export default class TeamPage extends Component {
 
   callPage(page) {
     var that = this;
-    axios.get('http://localhost:8081/trees/team/' + this.props.params.teamName + '?page=' + page + '&size=15').then(function(response) {
+    axios.get('http://localhost:8081/trees/team/' + encodeURIComponent(this.props.params.teamName) + '?page=' + page + '&size=15').then(function(response) {
       var result = response.data;
       that.setState({
         newestPlantRanking: result
@@ -226,14 +284,13 @@ export default class TeamPage extends Component {
             {teamDetails}
           </div>
           <div className="col-md-6">
-          <SmallRankingContainer title={counterpart.translate('BEST_PLANTERS')} withPaging={true} rankingType="teamMember" page={teamMemberPage} callPreviousPage={this.callPreviousPage.bind(this)} callNextPage={this.callNextPage.bind(this)} isFirstPage={this.state.teamMember.first} isLastPage={this.state.teamMember.last}>
+          <h1>Mitglieder</h1>
+          <SmallRankingContainer title="" withPaging={true} rankingType="teamMember" page={teamMemberPage} callPreviousPage={this.callPreviousPageTeamMember.bind(this)} callNextPage={this.callNextPageTeamMember.bind(this)} isFirstPage={this.state.teamMember.first} isLastPage={this.state.teamMember.last}>
               {this.state.teamMember.content.map(function(content, i) {
-                let imageUrl = createProfileImageUrl(content.imageName, 60, 60);
-                let linkTo = '/user/' + encodeURIComponent(content.name);
                 return (
-                  <RankingItem content={content} key={i} rankNumber={teamMemberPage * 5 + (i + 1)} imageUrl={imageUrl} showRankNumber="true" linkTo={linkTo}>
-                    <RankingContentNameAmountCo2 content={content}/>
-                  </RankingItem>
+                  <div key={i} className="teamMember">
+                    <Member member={content}/>
+                  </div>
                 );
               })}
             </SmallRankingContainer>
