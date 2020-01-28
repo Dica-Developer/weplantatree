@@ -209,8 +209,8 @@ export default class CartOverview extends Component {
           visible: true
         }, {
           key: 'sendReceipt',
-          name: 'Quittung verschicken',
-          width: 140,
+          name: 'Quittung',
+          width: 139,
           filterable: false,
           sortable: false,
           visible: true
@@ -595,9 +595,6 @@ export default class CartOverview extends Component {
               rowsCount={this.getSize()}
               onGridSort={this.handleGridSort.bind(this)}
               minHeight={800}
-              toolbar={< Toolbar enableFilter = {
-                  true
-                } />}
               onAddFilter={this.handleFilterChange.bind(this)}
               onClearFilters={this.onClearFilters.bind(this)}
               emptyRowsView={this.getEmptyRowView.bind(this)}
